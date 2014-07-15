@@ -15,7 +15,7 @@ for l in words:
     maxs[j] = max(maxs[j], w.len+1)
 
 for i, align in ["<",">","^"]:
-  echo(["Left", "Center", "Right"][i], " column-aligned output:")
+  echo(["Left", "Right", "Center"][i], " column-aligned output:")
   for l in words:
     for j,w in l:
       stdout.write w.format align & $maxs[j]

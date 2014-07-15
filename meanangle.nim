@@ -11,7 +11,7 @@ proc degrees(x): float = (x * 180.0) / pi
 proc meanAngle(deg): float =
   var c: TComplex
   for d in deg:
-    c = c + rect(1.0, radians(d))
+    c += rect(1.0, radians(d))
   degrees(phase(c / float(deg.len)))
 
 #proc meanAngle(angles): float =
