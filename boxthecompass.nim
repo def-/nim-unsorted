@@ -1,4 +1,4 @@
-import strutils, strfmt
+import strfmt
 
 const names = [
   "North", "North by east", "North-northeast", "Northeast by north",
@@ -15,4 +15,4 @@ for i in 0..32:
   var d = float(i) * 11.25
   if i mod 3 == 1: d += 5.62
   if i mod 3 == 2: d -= 5.62
-  printlnfmt("{:2} {:18} {:>6}", j + 1, names[j], d.formatFloat(ffDecimal, 2))
+  printlnfmt "{:2} {:18} {:>6.2f}", j + 1, names[j], d
