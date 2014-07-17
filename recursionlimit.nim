@@ -1,4 +1,4 @@
 proc recurse(i): int =
-  echo i
+  #echo i
   recurse(i+1)
 echo recurse(0)
