@@ -1,0 +1,16 @@
+NON-NESTED BLOCK COMMENT EXAMPLE:
+
+   function subroutine() {
+    a =  b + c ;
+   }
+   
+ 
+   
+    function something() {
+    }
+
+NESTED BLOCK COMMENT EXAMPLE:
+  
+   
+    function something() {
+    }

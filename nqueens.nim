@@ -23,3 +23,4 @@ for answer in solve(boardSize):
   for i, x in answer:
     if i > 0: stdout.write ", "
     stdout.write "(",i,", ",x,")"
+echo ""

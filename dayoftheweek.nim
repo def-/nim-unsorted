@@ -7,3 +7,4 @@ for year in 2008..2121:
   timeinfo.year = year
   if getLocalTime(timeInfoToTime timeinfo).weekday == dSun:
     stdout.write year," "
+echo ""

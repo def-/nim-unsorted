@@ -1,0 +1,15 @@
+hash has 3 elements
+hash has key foo? true
+hash has key bar? false
+iterate pairs:
+eggs: 2
+foo: 3
+spam: 1
+iterate keys:
+eggs
+foo
+spam
+iterate values:
+2
+3
+1

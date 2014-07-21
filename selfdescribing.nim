@@ -16,5 +16,6 @@ proc isSelfDescribing(n): bool =
       return false
   return true
 
-for x in 0 .. 4_000_000:
+#for x in 0 .. 4_000_000:
+for x in 0 .. 25_000:
   if isSelfDescribing(x): echo x

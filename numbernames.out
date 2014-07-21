@@ -1,0 +1,22 @@
+   0 -> zero
+  -3 -> minus three
+   5 -> five
+  -7 -> minus seven
+  11 -> eleven
+ -13 -> minus thirteen
+  17 -> seventeen
+ -19 -> minus nineteen
+  23 -> twenty-three
+ -29 -> minus twenty-nine
+  201021002001 -> two hundred and one billion, twenty-one million, two thousand, and one
+  -20102100200 -> minus twenty billion, one hundred and two million, one hundred thousand, and two hundred
+    2010210020 -> two billion, ten million, two hundred and ten thousand, and twenty
+    -201021002 -> minus two hundred and one million, twenty-one thousand, and two
+      20102100 -> twenty million, one hundred and two thousand, and one hundred
+      -2010210 -> minus two million, ten thousand, two hundred and ten
+        201021 -> two hundred and one thousand, and twenty-one
+        -20102 -> minus twenty thousand, one hundred and two
+          2010 -> two thousand, and ten
+          -201 -> minus two hundred and one
+            20 -> twenty
+            -2 -> minus two

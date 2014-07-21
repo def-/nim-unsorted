@@ -12,7 +12,7 @@ proc serve() {.async.} =
 
   while true:
     let client = await server.accept()
-    processClient(client)
+    discard processClient(client)
 
-serve()
+discard serve()
 runForever()

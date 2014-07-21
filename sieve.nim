@@ -9,4 +9,5 @@ proc eratosthenes(n): auto =
       for j in countup(i*i, n, i):
         result[j] = 1
 
-discard eratosthenes(100_000_000)
+#discard eratosthenes(100_000_000)
+discard eratosthenes(10_000_000)

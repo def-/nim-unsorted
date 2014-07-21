@@ -14,3 +14,4 @@ for i in 1..5:
   stdout.write "\nDegree ", i, ": "
   for j in 1..10:
     stdout.write multifactI(j, i), " "
+echo ""

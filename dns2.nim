@@ -1,4 +1,6 @@
 import rawsockets
+echo getHostByName("google.com")
+echo getHostByName("ddnet.tw")
 for i in getHostByName("ddnet.tw").addrList:
   var s = ""
   for c in i:

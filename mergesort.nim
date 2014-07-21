@@ -47,7 +47,6 @@ proc mergeSort[T](a: var openarray[T]) =
   var b = newSeq[T](a.len)
   mergeSort(a, b, 0, a.len)
 
-for i in 0..1000000:
-  var a = @[4, 65, 2, -31, 0, 99, 2, 83, 782]
-  mergeSort a
-#echo a
+var a = @[4, 65, 2, -31, 0, 99, 2, 83, 782]
+mergeSort a
+echo a

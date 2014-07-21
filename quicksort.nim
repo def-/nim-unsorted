@@ -18,7 +18,6 @@ proc quickSort[T](a: var openarray[T], inl = 0, inr = -1) =
   quickSort(a, inl, r)
   quickSort(a, l, inr)
 
-for i in 0..1000000:
-  var a = @[4, 65, 2, -31, 0, 99, 2, 83, 782]
-  quickSort a
-#echo a
+var a = @[4, 65, 2, -31, 0, 99, 2, 83, 782]
+quickSort a
+echo a

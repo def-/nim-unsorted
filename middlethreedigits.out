@@ -1,0 +1,17 @@
+middleThreeDigits(123) returned: 123
+middleThreeDigits(12345) returned: 234
+middleThreeDigits(1234567) returned: 345
+middleThreeDigits(987654321) returned: 654
+middleThreeDigits(10001) returned: 000
+middleThreeDigits(-10001) returned: 000
+middleThreeDigits(-123) returned: 123
+middleThreeDigits(-100) returned: 100
+middleThreeDigits(100) returned: 100
+middleThreeDigits(-12345) returned: 234
+middleThreeDigits(1) returned: Need odd and >= 3 digits
+middleThreeDigits(2) returned: Need odd and >= 3 digits
+middleThreeDigits(-1) returned: Need odd and >= 3 digits
+middleThreeDigits(-10) returned: Need odd and >= 3 digits
+middleThreeDigits(2002) returned: Need odd and >= 3 digits
+middleThreeDigits(-2002) returned: Need odd and >= 3 digits
+middleThreeDigits(0) returned: Need odd and >= 3 digits

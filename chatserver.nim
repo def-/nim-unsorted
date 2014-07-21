@@ -13,14 +13,14 @@ proc processClient(socket: PAsyncSocket) {.async.} =
   let client: TClient = (socket, await socket.recvLine())
 
   clients.add client
-  client.sendOthers "+++ " & client.name & " arrived +++"
+  discard client.sendOthers "+++ " & client.name & " arrived +++"
 
   while true:
     let line = await client.socket.recvLine()
     if line == "":
-      client.sendOthers "--- " & client.name & " leaves ---"
+      discard client.sendOthers "--- " & client.name & " leaves ---"
       break
-    client.sendOthers client.name & "> " & line
+    discard client.sendOthers client.name & "> " & line
 
   for i,c in clients:
     if c == client:
@@ -34,7 +34,7 @@ proc serve() {.async.} =
 
   while true:
     let socket = await server.accept()
-    processClient socket
+    discard processClient socket
 
-serve()
+discard serve()
 runForever()

@@ -8,8 +8,8 @@ template canonMul{`*`(a,b)}(a: int{lit}, b: int): int =
   b * a
 
 var x: int
-for i in 1..1_000_000_000:
-  x += 2 * i
+#for i in 1..1_000_000_000:
+#  x += 2 * i
 
 let
   colors = @["red", "yellow", "black"]

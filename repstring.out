@@ -1,0 +1,11 @@
+'1001110011' has a repetition length of 5 i.e '10011'
+'1110111011' has a repetition length of 4 i.e '1110'
+'0010010010' has a repetition length of 3 i.e '001'
+'1010101010' has a repetition length of 4 i.e '1010'
+'1111111111' has a repetition length of 5 i.e '11111'
+'0100101101' has a repetition length of 0 i.e *not* a rep-string
+'0100100' has a repetition length of 3 i.e '010'
+'101' has a repetition length of 0 i.e *not* a rep-string
+'11' has a repetition length of 1 i.e '1'
+'00' has a repetition length of 1 i.e '0'
+'1' has a repetition length of 0 i.e *not* a rep-string

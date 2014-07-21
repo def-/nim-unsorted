@@ -1,0 +1,8 @@
+Original string:       Reverse This!
+Reversed:              !sihT esreveR
+UniReversed:           !sihT esreveR
+UniReversedPreserving: !sihT esreveR
+Original string:       asâƒdfÌ…
+Reversed:              …Ìfdƒâsa
+UniReversed:           Ì…fdâƒsa
+UniReversedPreserving: fÌ…dsâƒa
