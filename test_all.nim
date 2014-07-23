@@ -1,6 +1,8 @@
 # in config/nimrod.cfg: cc = gcc
 # ./test_all
+# ./test_all nimrod --gc:boehm c
 # ./test_all nimrod -d:release c
+# ./test_all nimrod -d:release --gc:boehm c
 #
 # in config/nimrod.cfg: cc = clang
 # ./test_all
@@ -235,7 +237,6 @@ testIt "menu": check it.compiles
 testIt "mergesort": check it.returns
 testIt "methodcall": check it.returns
 testIt "middlethreedigits": check it.returns
-#testIt "min": check it.returns # Actually broken
 testIt "missingpermutation": check it.returns
 testIt "mod5": check it.returns
 testIt "mode": check it.returns
