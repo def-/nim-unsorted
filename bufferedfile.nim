@@ -112,17 +112,20 @@ iterator items*(bf: var BufferedFile): string =
   while bf.readLine(line):
     yield line
 
-when isMainModule:
+proc main() =
   var count = 0
   var sum = 0
 
   var line = ""
   var bstdin = stdin.buffered
-  #while stdin.readLine(line): # 4.31 s
-  #for line in bstdin: # 1.72 s (because the string is copied every time, TODO: how to prevent?)
-  while bstdin.readLine(line): # 0.74 s
+  #while stdin.readLine(line): # 3.8 s
+  #while bstdin.readLine(line): # 0.6 s
+  for line in bstdin: # 0.6 s
     count += 1
     sum += line.len
 
   echo "Average line length: ",
     if count > 0: sum / count else: 0
+
+when isMainModule:
+  main()
