@@ -8,6 +8,9 @@ type
     curPos*: int ## current index in buffer
     bufLen*: int ## current length of buffer
 
+proc fread(buf: pointer, size, n: int, f: TFile): int {.
+  importc: "fread", header: "<stdio.h>", tags: [FReadIO].}
+
 # TODO: What do we do with the C internal bufSize, always set to 0?
 proc open*(bf: var BufferedFile; filename: string; mode: TFileMode = fmRead;
            bufSize: int = - 1): bool {.tags: [], gcsafe.} =
@@ -27,6 +30,10 @@ proc open*(filename: string, mode: TFileMode = fmRead, bufSize: int = -1):
 
 proc buffered*(file: TFile): BufferedFile {.tags: [], gcsafe.} =
   result.file = file
+
+proc clearBuffer(bf: var BufferedFile) =
+  bf.curPos = 0
+  bf.bufLen = 0
 
 proc refillBuffer(bf: var BufferedFile) =
   bf.curPos = 0
@@ -83,6 +90,22 @@ proc readLine*(bf: var BufferedFile, line: var TaintedString): bool
 proc readLine*(bf: var BufferedFile): TaintedString {.tags: [FReadIO], gcsafe.} =
   result = TaintedString(newStringOfCap(80))
   if not readLine(bf, result): raiseEIO("EOF reached")
+
+proc readBuffer*(bf: var BufferedFile, buffer: pointer, len: int): int =
+  if bf.bufLen > 0:
+    result = bf.bufLen - bf.curPos
+    copyMem(buffer, addr bf.buffer[bf.curPos], min(len, result))
+    bf.clearBuffer
+  if len > result:
+    result += fread(buffer, 1, len - result, bf.file)
+
+proc readBytes*(bf: var BufferedFile, a: var openArray[int8], start,
+                len: int): int =
+  result = readBuffer(bf, addr(a[start]), len)
+
+proc readChars*(bf: var BufferedFile, a: var openArray[char], start,
+                len: int): int =
+  result = readBuffer(bf, addr(a[start]), len)
 
 iterator items*(bf: var BufferedFile): string =
   var line = TaintedString(newStringOfCap(80))
