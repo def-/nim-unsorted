@@ -1,6 +1,6 @@
 # TODO: There are more bitmap tasks!
 
-import unsigned
+import unsigned, strutils
 
 type
   Luminance = uint8
@@ -31,8 +31,8 @@ const
   White = px(255, 255, 255)
 
 iterator indices(img: Image): tuple[x, y: int] =
-  for x in 0 .. < img.w:
-    for y in 0 .. < img.h:
+  for y in 0 .. < img.h:
+    for x in 0 .. < img.w:
       yield (x,y)
 
 proc `[]`(img: Image, x, y: int): Pixel =
@@ -54,8 +54,55 @@ proc print(img: Image) =
       write 'H'
     write "\n"
 
+proc writePPM(img: Image, f: TFile) =
+  f.writeln "P6\n", img.w, " ", img.h, "\n255"
+
+  for x,y in img.indices:
+    f.write char(img[x,y].r)
+    f.write char(img[x,y].g)
+    f.write char(img[x,y].b)
+
+proc readPPM(f: TFile): Image =
+  if f.readLine != "P6":
+    raise newException(E_base, "Invalid file format")
+
+  var line = ""
+  while f.readLine(line):
+    if line[0] != '#':
+      break
+
+  var parts = line.split(" ")
+  result = img(parseInt parts[0], parseInt parts[1])
+
+  if f.readLine != "255":
+    raise newException(E_base, "Invalid file format")
+
+  var
+    arr: array[256, int8]
+    read = f.readBytes(arr, 0, 256)
+    pos = 0
+
+  while read != 0:
+    for i in 0 .. < read:
+      case pos mod 3
+      of 0: result.pixels[pos div 3].r = arr[i].uint8
+      of 1: result.pixels[pos div 3].g = arr[i].uint8
+      of 2: result.pixels[pos div 3].b = arr[i].uint8
+      else: discard
+
+      inc pos
+
+    read = f.readBytes(arr, 0, 256)
+
 when isMainModule:
   var x = img(64, 64)
-  x.fill px(255,255,255)
+  x.fill px(128,255,255)
   x[1,2] = px(255, 0, 0)
   x[3,4] = x[1,2]
+
+  var f = open("foo.ppm", fmWrite)
+  x.writePPM(f)
+  close(f)
+
+  var y = readPPM(open("foo.ppm"))
+  y.writePPM(open("bar.ppm", fmWrite))
