@@ -4,7 +4,7 @@ const
 type
   BufferedFile* = object
     file*: TFile
-    buffer*: array[0..bufferSize, char] # TODO: Make this noinit
+    buffer*: array[bufferSize, char] # TODO: Make this noinit
     curPos*: int ## current index in buffer
     bufLen*: int ## current length of buffer
 
