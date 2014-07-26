@@ -1,6 +1,6 @@
 # TODO: There are more bitmap tasks!
 
-import unsigned, strutils
+import unsigned, strutils, math
 
 type
   Luminance = uint8
@@ -38,8 +38,14 @@ iterator indices(img: Image): tuple[x, y: int] =
 proc `[]`(img: Image, x, y: int): Pixel =
   img.pixels[y * img.w + x]
 
+proc `[]`(img: Image, p: Point): Pixel =
+  img.pixels[p.y * img.w + p.x]
+
 proc `[]=`(img: var Image, x, y: int, c: Pixel) =
   img.pixels[y * img.w + x] = c
+
+proc `[]=`(img: var Image, p: Point, c: Pixel) =
+  img.pixels[p.y * img.w + p.x] = c
 
 proc fill(img: var Image, color: Pixel) =
   for x,y in img.indices:
@@ -94,11 +100,38 @@ proc readPPM(f: TFile): Image =
 
     read = f.readBytes(arr, 0, 256)
 
+proc line(img: var Image, p, q: Point) =
+  let
+    dx = abs(q.x - p.x)
+    sx = if p.x < q.x: 1 else: -1
+    dy = abs(q.y - p.y)
+    sy = if p.y < q.y: 1 else: -1
+
+  var
+    p = p
+    q = q
+    err = (if dx > dy: dx else: -dy) div 2
+    e2 = 0
+
+  while true:
+    img[p] = Black
+    if p == q:
+      break
+    e2 = err
+    if e2 > -dx:
+      err -= dy
+      p.x += sx
+    if e2 < dy:
+      err += dx
+      p.y += sy
+
 when isMainModule:
   var x = img(64, 64)
   x.fill px(128,255,255)
   x[1,2] = px(255, 0, 0)
   x[3,4] = x[1,2]
+
+  x.line((0,0), (50,20))
 
   var f = open("foo.ppm", fmWrite)
   x.writePPM(f)
