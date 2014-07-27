@@ -114,6 +114,7 @@ testIt "countingsort": check it.returns
 testIt "countoccurences": check it.returns
 testIt "crc32": check it.returns
 testIt "csvtohtml": check it.returns
+testIt "curry": check it.returns
 testIt "currying": check it.returns
 testIt "dayoftheweek": check it.returns
 testIt "digitalroot": check it.returns
@@ -364,6 +365,7 @@ testIt "sock": check it.compiles
 testIt "sortcmp": check it.returns
 testIt "sortcomposite": check it.returns
 testIt "sortdisjointsublist": check it.returns
+testIt "spiralmatrix": check it.returns
 testIt "stacks": check it.returns
 testIt "stacktraces": check it.compiles
 testIt "statistics": check it.compiles
