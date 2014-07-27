@@ -55,6 +55,7 @@ testIt "anonymousrecursion": check it.returns
 testIt "apollonius": check it.returns
 testIt "append": check it.compiles
 testIt "arr": check it.returns
+testIt "ascii3d": check it.returns
 testIt "asciialphabet": check it.returns
 testIt "assarray": check it.returns
 testIt "avg": check it.returns("", "foo\nbar\nfoobar")
@@ -64,17 +65,21 @@ testIt "bell": check it.returns
 testIt "binarydigits": check it.returns
 testIt "binarysearch": check it.returns
 testIt "binomcoeff": check it.returns
+testIt "bitmap": check it.compiles
 testIt "bitwise": check it.returns
 testIt "bogosort": check it.returns
+#testIt "booleanvalues": check it.returns
 testIt "bottles": check it.returns
 testIt "boxthecompass": check it.returns
 testIt "break": check it.returns
 testIt "bubblesort": check it.returns
+#testIt "bufferedfile": check it.returns
 testIt "bullsandcows": check it.compiles
 testIt "caesar": check it.returns
 testIt "call": check it.returns
 testIt "castoutnines": check it.returns
 testIt "catalan": check it.returns
+testIt "catalannumbers": check it.returns
 testIt "catamorphism": check it.compiles
 testIt "charcode": check it.returns
 testIt "chatserver": check it.compiles
@@ -97,12 +102,14 @@ testIt "concarray": check it.compiles
 testIt "concurrent2": check it.compiles("--threads:on")
 testIt "concurrent3": check it.compiles("--threads:on")
 testIt "concurrent": check it.compiles("--passC:\"-fopenmp\" --passL:\"-fopenmp\"")
+#testIt "conditionals": check it.compiles
 testIt "const": check it.compiles
 testIt "contains": check it.compiles
 testIt "continue": check it.returns
 testIt "conv": check it.returns
 testIt "copystring": check it.compiles
 testIt "countexamples": check it.compiles
+testIt "countinfactors": check it.compiles
 testIt "countingsort": check it.returns
 testIt "countoccurences": check it.returns
 testIt "crc32": check it.returns
@@ -156,6 +163,7 @@ testIt "fileexists": check it.compiles
 testIt "fileinfo": check it.compiles
 testIt "file": check it.compiles
 testIt "filesize": check it.compiles
+testIt "filetape": check it.compiles
 testIt "filex": check it.compiles
 testIt "filter": check it.returns
 testIt "firstclass": check it.returns
@@ -168,6 +176,7 @@ testIt "forwarddifference": check it.returns
 testIt "fourbitadder": check it.returns
 testIt "functionprototype": check it.returns
 testIt "gameoflife": check it.compiles
+testIt "globallyreplacetext": check it.compiles
 testIt "gltest": check it.compiles
 testIt "gnomesort": check it.returns
 testIt "gray": check it.returns
@@ -182,9 +191,12 @@ testIt "haversine": check it.returns
 testIt "heapsort": check it.returns
 testIt "helloerr": check it.compiles
 testIt "hellolp": check it.compiles
+testIt "hellonew": check it.compiles
 testIt "hello": check it.returns
 testIt "helloworldgraphical": check it.compiles
+testIt "heredoc": check it.returns
 testIt "higherorder": check it.returns
+testIt "hofstadter": check it.returns
 testIt "horizontalsundial": check it.compiles
 #testIt "horner": check it.returns
 testIt "hostintro": check it.compiles
@@ -192,7 +204,9 @@ testIt "hostname": check it.compiles
 testIt "htmltable": check it.compiles
 testIt "http": check it.compiles
 testIt "https": check it.compiles("-d:ssl")
+testIt "iban": check it.returns
 testIt "identitymatrix": check it.returns
+#testIt "immutability": check it.returns
 testIt "incrementnumstring": check it.returns
 testIt "infinite": check it.compiles
 #testIt "infinity": check it.returns # Actual bug https://github.com/Araq/Nimrod/pull/1391
@@ -201,10 +215,13 @@ testIt "inputloop": check it.compiles
 testIt "insertionsort": check it.returns
 testIt "intcomp": check it.compiles
 testIt "introspection": check it.compiles
+testIt "inversevideo": check it.compiles
 testIt "iteratorfinished": check it.returns
 testIt "jensensdevice": check it.returns
+testIt "josephus": check it.returns
 testIt "jsons": check it.returns
 testIt "kaprekar": check it.returns
+testIt "langtonsant": check it.returns
 #testIt "largestint": check it.returns # Actually broken
 testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
@@ -212,11 +229,13 @@ testIt "lcs": check it.returns
 testIt "leapyear": check it.returns
 testIt "letters": check it.compiles
 testIt "levenshtein": check it.returns
+testIt "linearcongruential": check it.compiles
 testIt "linkedlist": check it.returns
 testIt "litchar": check it.returns
 testIt "litfloat": check it.returns
 testIt "litint": check it.returns
 testIt "logicop": check it.returns
+testIt "longmultiplication": check it.returns
 testIt "loopmult": check it.returns
 testIt "loop": check it.returns
 testIt "lucaslehmertest": check it.returns
@@ -226,10 +245,13 @@ testIt "manboy": check it.returns
 testIt "mandel": check it.returns
 testIt "maprange": check it.returns
 testIt "matrixtranspose": check it.returns
+testIt "maxlicenses": check it.returns
 testIt "maxsum": check it.returns
 testIt "maxtrianglepathsum": check it.returns
+testIt "md4": check it.returns("-d:ssl")
 testIt "meanangle": check it.returns
 testIt "mean": check it.returns
+testIt "meantime": check it.returns
 testIt "median": check it.returns
 testIt "memoryalloc": check it.returns
 testIt "memorylayout": check it.returns
@@ -248,11 +270,13 @@ testIt "multipledistinctobjects": check it.returns
 testIt "multtable": check it.returns
 testIt "mutrec": check it.returns
 testIt "namedparam": check it.returns
+#testIt "nil": check it.returns
 testIt "noncontsub": check it.returns
 testIt "nondecimalradicesinput": check it.returns
 testIt "nondecimalradicesoutput": check it.returns
 testIt "nosqr": check it.returns
 testIt "notes": check it.compiles
+#testIt "notnil": check it.compiles
 testIt "nqueens": check it.returns
 testIt "nth": check it.returns
 testIt "nthroot": check it.returns
@@ -269,15 +293,21 @@ testIt "ordertwolists": check it.returns
 testIt "palindrome": check it.returns
 testIt "pancakesort": check it.returns
 testIt "pangram": check it.compiles
+testIt "parametricpolymorphism": check it.compiles
 #testIt "parametrizedsql": check it.returns # Actually broken
 testIt "pascalstriangle": check it.returns
 testIt "permutations": check it.returns
 testIt "playingcards": check it.compiles
+testIt "polymorphism": check it.returns
 testIt "powerset": check it.returns
 testIt "pow": check it.returns
 testIt "prepend": check it.returns
+testIt "preservescreen": check it.compiles
 testIt "primality": check it.returns
+#testIt "primitive": check it.returns
+testIt "priorityqueue": check it.returns
 testIt "programname": check it.compiles
+testIt "ptrsandrefs": check it.returns
 testIt "pythargoreanmeans": check it.returns
 # testIt "pythtriples": check it.returns # Recursion without release is limitted...
 testIt "quickselect": check it.returns
@@ -313,6 +343,8 @@ testIt "selectionsort": check it.returns
 testIt "selfdescribing": check it.returns
 testIt "semordnilap": check it.returns
 testIt "set": check it.returns
+testIt "sha1": check it.returns("-d:ssl")
+testIt "sha256": check it.returns("-d:ssl")
 testIt "shellsort": check it.returns
 testIt "shortcircuit": check it.returns
 testIt "showepoch": check it.returns
@@ -322,6 +354,7 @@ testIt "sieve": check it.returns
 testIt "signals2": check it.compiles
 testIt "signals": check it.compiles
 testIt "simplemovingaverage": check it.returns
+testIt "simplewindow": check it.compiles
 testIt "sleepsort": check it.compiles
 testIt "slice": check it.returns
 testIt "sock": check it.compiles
@@ -357,6 +390,7 @@ testIt "tests": check it.returns
 testIt "textproc1": check it.returns
 testIt "timefunction": check it.compiles
 testIt "tokenize": check it.returns
+testIt "topranks": check it.returns
 testIt "totalcirclearea": check it.returns
 testIt "treelist": check it.returns
 testIt "treetrav": check it.returns
@@ -365,10 +399,12 @@ testIt "tr": check it.returns
 testIt "truncatableprimes": check it.returns
 testIt "truncate": check it.returns
 testIt "tupleassign": check it.returns
+testIt "turingmachine": check it.returns
 testIt "twod": check it.compiles
 testIt "typeclass": check it.returns
 testIt "typename": check it.returns
 testIt "unbiasrandom": check it.compiles
+testIt "unicodeoutput": check it.compiles
 testIt "unicodestrings": check it.returns
 testIt "unimplementedtasks": check it.compiles
 testIt "urldecode": check it.returns
@@ -381,6 +417,7 @@ testIt "varlenquantity": check it.returns
 testIt "vars": check it.returns
 #testIt "vectorprod": check it.returns # Actually broken
 testIt "vigenere": check it.returns
+testIt "visualizetree": check it.returns
 testIt "walknonrec": check it.returns
 testIt "walkrec": check it.compiles
 testIt "wcl": check it.compiles
