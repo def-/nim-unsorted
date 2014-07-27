@@ -297,6 +297,7 @@ testIt "parametricpolymorphism": check it.compiles
 #testIt "parametrizedsql": check it.returns # Actually broken
 testIt "pascalstriangle": check it.returns
 testIt "permutations": check it.returns
+testIt "permutationsswap": check it.returns
 testIt "playingcards": check it.compiles
 testIt "polymorphism": check it.returns
 testIt "powerset": check it.returns
@@ -336,6 +337,7 @@ testIt "romandec": check it.returns
 testIt "romanenc": check it.returns
 testIt "rootmean": check it.returns
 testIt "rot13": check it.compiles
+testIt "rpncalculator": check it.returns
 testIt "runlengthenc": check it.returns
 testIt "searchlist": check it.compiles
 testIt "sedols": check it.returns
@@ -350,6 +352,7 @@ testIt "shortcircuit": check it.returns
 testIt "showepoch": check it.returns
 testIt "shuffle": check it.compiles
 testIt "sierpinkski": check it.returns
+testIt "sierpinkskicarpet": check it.returns
 testIt "sieve": check it.returns
 testIt "signals2": check it.compiles
 testIt "signals": check it.compiles
@@ -424,4 +427,8 @@ testIt "wcl": check it.compiles
 testIt "webscraping": check it.compiles # Website down
 testIt "webserver": check it.compiles
 testIt "wordwrap": check it.returns
+testIt "xmlin": check it.returns
+testIt "xmlout": check it.returns
+testIt "xml_dom": check it.returns
 testIt "zeropowzero": check it.returns
+testIt "zigzagmatrix": check it.returns
