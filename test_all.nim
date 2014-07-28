@@ -297,6 +297,7 @@ testIt "pangram": check it.compiles
 testIt "parametricpolymorphism": check it.compiles
 #testIt "parametrizedsql": check it.returns # Actually broken
 testIt "pascalstriangle": check it.returns
+testIt "permsort": check it.returns
 testIt "permutations": check it.returns
 testIt "permutationsswap": check it.returns
 testIt "playingcards": check it.compiles
@@ -370,6 +371,7 @@ testIt "stacks": check it.returns
 testIt "stacktraces": check it.compiles
 testIt "statistics": check it.compiles
 testIt "stoogesort": check it.returns
+testIt "strandsort": check it.returns
 testIt "string": check it.returns
 testIt "stringnumeric": check it.returns
 testIt "stripblockcomments": check it.returns
