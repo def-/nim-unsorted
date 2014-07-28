@@ -180,6 +180,7 @@ testIt "gameoflife": check it.compiles
 testIt "globallyreplacetext": check it.compiles
 testIt "gltest": check it.compiles
 testIt "gnomesort": check it.returns
+testIt "gost2814789": check it.returns
 testIt "gray": check it.returns
 testIt "guessthenumber": check it.compiles
 testIt "guessthenumberplayer": check it.compiles
@@ -241,6 +242,7 @@ testIt "loopmult": check it.returns
 testIt "loop": check it.returns
 testIt "lucaslehmertest": check it.returns
 testIt "luhntest": check it.returns
+testIt "magicsquares": check it.returns
 testIt "mail": check it.compiles("-d:ssl")
 testIt "manboy": check it.returns
 testIt "mandel": check it.returns
