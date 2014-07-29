@@ -107,6 +107,7 @@ testIt "const": check it.compiles
 testIt "contains": check it.compiles
 testIt "continue": check it.returns
 testIt "conv": check it.returns
+testIt "convertradices": check it.returns
 testIt "copystring": check it.compiles
 testIt "countexamples": check it.compiles
 testIt "countinfactors": check it.compiles
@@ -116,6 +117,7 @@ testIt "crc32": check it.returns
 testIt "csvtohtml": check it.returns
 testIt "curry": check it.returns
 testIt "currying": check it.returns
+testIt "datemanipulation": check it.returns
 testIt "dayoftheweek": check it.returns
 testIt "digitalroot": check it.returns
 testIt "dirempty": check it.compiles
@@ -177,6 +179,7 @@ testIt "forwarddifference": check it.returns
 testIt "fourbitadder": check it.returns
 testIt "functionprototype": check it.returns
 testIt "gameoflife": check it.compiles
+testIt "gamma": check it.returns
 testIt "globallyreplacetext": check it.compiles
 testIt "gltest": check it.compiles
 testIt "gnomesort": check it.returns
@@ -225,6 +228,8 @@ testIt "jsons": check it.returns
 testIt "kaprekar": check it.returns
 testIt "langtonsant": check it.returns
 #testIt "largestint": check it.returns # Actually broken
+testIt "lastfriday": check it.returns("2013")
+testIt "lastsunday": check it.returns("2012")
 testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
 testIt "lcs": check it.returns
@@ -321,8 +326,10 @@ testIt "quine1": check it.returns
 testIt "quine2": check it.returns
 testIt "quine": check it.returns
 #testIt "randomelement": check it.compiles # Actually broken
+testIt "randomcircle": check it.compiles
 testIt "ranges": check it.returns
 testIt "ranklanguages": check it.compiles
+testIt "rational": check it.returns
 testIt "realconstfn": check it.returns
 testIt "recurse": check it.returns
 testIt "recursionlimit": check it.compiles
@@ -401,6 +408,7 @@ testIt "timefunction": check it.compiles
 testIt "tokenize": check it.returns
 testIt "topranks": check it.returns
 testIt "totalcirclearea": check it.returns
+testIt "trabb_pardo_knuth": check it.returns("", "1 2 3 4 5 6 7 8 9 10 11")
 testIt "treelist": check it.returns
 testIt "treetrav": check it.returns
 testIt "trigonom": check it.returns
@@ -436,5 +444,6 @@ testIt "wordwrap": check it.returns
 testIt "xmlin": check it.returns
 testIt "xmlout": check it.returns
 testIt "xml_dom": check it.returns
+testIt "zeckendorf": check it.returns
 testIt "zeropowzero": check it.returns
 testIt "zigzagmatrix": check it.returns
