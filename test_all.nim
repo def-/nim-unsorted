@@ -174,6 +174,7 @@ testIt "fiveweekends": check it.returns
 testIt "flowcontrol": check it.compiles
 testIt "floydstriangle": check it.returns
 testIt "flushkeyboard": check it.compiles
+testIt "forestfire": check it.compiles
 testIt "formatnum": check it.returns
 testIt "forwarddifference": check it.returns
 testIt "fourbitadder": check it.returns
@@ -265,6 +266,7 @@ testIt "memoryalloc": check it.returns
 testIt "memorylayout": check it.returns
 testIt "menu": check it.compiles
 testIt "mergesort": check it.returns
+testIt "metaprogramming": check it.returns
 testIt "methodcall": check it.returns
 testIt "middlethreedigits": check it.returns
 testIt "missingpermutation": check it.returns
