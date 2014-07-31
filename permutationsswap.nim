@@ -1,5 +1,5 @@
 # iterative Boothroyd method
-iterator permutations[T](ys: openarray[T]): tuple[perm: seq[T], sign: int] =
+iterator permutations*[T](ys: openarray[T]): tuple[perm: seq[T], sign: int] =
   var
     d = 1
     c = newSeq[int](ys.len)
@@ -24,10 +24,11 @@ iterator permutations[T](ys: openarray[T]): tuple[perm: seq[T], sign: int] =
       yield (xs, sign)
       inc c[d]
 
-for i in permutations([0,1,2]):
-  echo i
+if isMainModule:
+  for i in permutations([0,1,2]):
+    echo i
 
-echo ""
+  echo ""
 
-for i in permutations([0,1,2,3]):
-  echo i
+  for i in permutations([0,1,2,3]):
+    echo i

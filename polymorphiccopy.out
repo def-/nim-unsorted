@@ -1,0 +1,16 @@
+creating initial objects of types S1, S2, and T
+S1 Meow Green
+S2 Woof Blue
+T Hello Blue
+Making copy of a as u, colors and types should match
+S1 Meow Green
+S1 Meow Green
+Assigning new color to u, A's color should be unchanged.
+S1 Meow Orange
+S1 Meow Green
+Assigning u to reference same object as b, colors and types should match
+S2 Woof Blue
+S2 Woof Blue
+Assigning new color to u. Since u,b references same object b's color changes as well
+S2 Woof Yellow
+S2 Woof Blue

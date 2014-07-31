@@ -314,6 +314,7 @@ testIt "permsort": check it.returns
 testIt "permutations": check it.returns
 testIt "permutationsswap": check it.returns
 testIt "playingcards": check it.compiles
+testIt "polymorphiccopy": check it.returns
 testIt "polymorphism": check it.returns
 testIt "powerset": check it.returns
 testIt "pow": check it.returns
