@@ -71,6 +71,7 @@ testIt "bogosort": check it.returns
 #testIt "booleanvalues": check it.returns
 testIt "bottles": check it.returns
 testIt "boxthecompass": check it.returns
+testIt "brainfuck": check it.returns("", ">++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>>+++++++.<<<[[-]<[-]>]<+++++++++++++++.>>.+++.------.--------.>>+.>++++.")
 testIt "break": check it.returns
 testIt "bubblesort": check it.returns
 #testIt "bufferedfile": check it.returns
@@ -87,6 +88,7 @@ testIt "chineseremainder": check it.returns
 testIt "cholesky": check it.returns
 testIt "christmas": check it.returns
 testIt "classes": check it.returns
+testIt "clock": check it.compiles
 testIt "closures": check it.returns
 testIt "cmdline": check it.compiles
 testIt "cocktailsort": check it.returns
@@ -128,6 +130,8 @@ testIt "doc": check it.compiles
 #testIt "dotproduct": check it.returns # Actually broken right now
 testIt "doublyLinkedLists": check it.returns
 testIt "dowhile": check it.returns
+testIt "drawcuboid": check it.returns
+testIt "drawsphere": check it.returns
 testIt "dumptree": check it.compiles
 testIt "echoserver": check it.compiles
 testIt "effects": check it.returns
