@@ -253,10 +253,15 @@ testIt "loop": check it.returns
 testIt "lucaslehmertest": check it.returns
 testIt "luhntest": check it.returns
 testIt "magicsquares": check it.returns
+testIt "madlibs": check it.returns("", "She,Monica L.,cockerel\n")
 testIt "mail": check it.compiles("-d:ssl")
 testIt "manboy": check it.returns
 testIt "mandel": check it.returns
 testIt "maprange": check it.returns
+testIt "matrixarithmetic": check it.returns
+testIt "matrixarithmeticseq": check it.returns
+#testIt "matrixexponentiation": check it.returns # Actually broken
+testIt "matrixmultiplication": check it.returns
 testIt "matrixtranspose": check it.returns
 testIt "maxlicenses": check it.returns
 testIt "maxsum": check it.returns
@@ -281,6 +286,7 @@ testIt "montecarlo": check it.compiles
 testIt "montyhall": check it.compiles
 testIt "multifactorial": check it.returns
 testIt "multipledistinctobjects": check it.returns
+testIt "multisplit": check it.returns
 testIt "multtable": check it.returns
 testIt "mutrec": check it.returns
 testIt "namedparam": check it.returns
@@ -299,6 +305,7 @@ testIt "numericalintegration": check it.returns
 #testIt "objectserial": check it.returns # Actually broken
 testIt "oct": check it.compiles
 testIt "oddword": check it.compiles
+testIt "oneinstane": check it.compiles
 testIt "oneofnlines": check it.compiles
 testIt "optionalparameters": check it.returns
 testIt "opt": check it.returns
@@ -319,6 +326,7 @@ testIt "polymorphism": check it.returns
 testIt "powerset": check it.returns
 testIt "pow": check it.returns
 testIt "prepend": check it.returns
+testIt "prepostinc": check it.returns
 testIt "preservescreen": check it.compiles
 testIt "primality": check it.returns
 #testIt "primitive": check it.returns
@@ -385,6 +393,7 @@ testIt "sortdisjointsublist": check it.returns
 testIt "spiralmatrix": check it.returns
 testIt "stacks": check it.returns
 testIt "stacktraces": check it.compiles
+#testIt "stairclimbing": check it.compiles
 testIt "statistics": check it.compiles
 testIt "stoogesort": check it.returns
 testIt "strandsort": check it.returns
@@ -450,7 +459,10 @@ testIt "webserver": check it.compiles
 testIt "wordwrap": check it.returns
 testIt "xmlin": check it.returns
 testIt "xmlout": check it.returns
-testIt "xml_dom": check it.returns
+# testIt "xml_dom": check it.returns # Actually broken
+testIt "xmlxpath": check it.returns
 testIt "zeckendorf": check it.returns
 testIt "zeropowzero": check it.returns
 testIt "zigzagmatrix": check it.returns
+#testIt "zmq_client": check it.returns # Actually broken
+#testIt "zmq_server": check it.returns # Actually broken

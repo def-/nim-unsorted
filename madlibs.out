@@ -1,0 +1,11 @@
+The story template is:
+<name> went for a walk in the park. <he or she>
+found a <noun>. <name> decided to take it home.
+
+Input a comma-separated list of words to replace the following items
+  <he or she>,<name>,<noun>: She,Monica L.,cockerel
+
+The story becomes:
+
+Monica L. went for a walk in the park. She
+found a cockerel. Monica L. decided to take it home.
