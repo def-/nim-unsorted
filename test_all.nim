@@ -122,6 +122,7 @@ testIt "currying": check it.returns
 testIt "datemanipulation": check it.returns
 testIt "dayoftheweek": check it.returns
 testIt "digitalroot": check it.returns
+testIt "dininingphilosophers": check it.compiles("--threads:on -d:preventDeadlocks")
 testIt "dirempty": check it.compiles
 testIt "divzero": check it.returns
 testIt "distributedcomputing": check it.compiles
@@ -209,6 +210,8 @@ testIt "helloworldgraphical": check it.compiles
 testIt "heredoc": check it.returns
 testIt "higherorder": check it.returns
 testIt "hofstadter": check it.returns
+testIt "hofstadterconway": check it.returns
+testIt "hofstadterq": check it.returns
 testIt "horizontalsundial": check it.compiles
 #testIt "horner": check it.returns
 testIt "hostintro": check it.compiles
