@@ -124,6 +124,7 @@ testIt "dayoftheweek": check it.returns
 testIt "digitalroot": check it.returns
 testIt "dirempty": check it.compiles
 testIt "divzero": check it.returns
+testIt "distributedcomputing": check it.compiles
 testIt "dns2": check it.compiles
 testIt "dns": check it.compiles
 testIt "doc": check it.compiles
@@ -183,6 +184,7 @@ testIt "formatnum": check it.returns
 testIt "forwarddifference": check it.returns
 testIt "fourbitadder": check it.returns
 testIt "functionprototype": check it.returns
+testIt "game24": check it.compiles
 testIt "gameoflife": check it.compiles
 testIt "gamma": check it.returns
 testIt "globallyreplacetext": check it.compiles
@@ -459,10 +461,8 @@ testIt "webserver": check it.compiles
 testIt "wordwrap": check it.returns
 testIt "xmlin": check it.returns
 testIt "xmlout": check it.returns
-# testIt "xml_dom": check it.returns # Actually broken
+testIt "xml_dom": check it.returns
 testIt "xmlxpath": check it.returns
 testIt "zeckendorf": check it.returns
 testIt "zeropowzero": check it.returns
 testIt "zigzagmatrix": check it.returns
-#testIt "zmq_client": check it.returns # Actually broken
-#testIt "zmq_server": check it.returns # Actually broken

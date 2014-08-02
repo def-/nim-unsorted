@@ -1,4 +1,3 @@
-# TODO: Submit to http://rosettacode.org/wiki/XML/DOM_serialization after xmldom is fixed
 import xmldom
 
 var
