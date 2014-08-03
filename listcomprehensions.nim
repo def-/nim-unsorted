@@ -3,7 +3,7 @@ import macros
 type ListComprehension = object
 var lc*: ListComprehension
 
-macro `[]`*(lc: ListComprehension, t, x): expr =
+macro `[]`*(lc: ListComprehension, x, t): expr =
   expectLen(x, 3)
   expectKind(x, nnkInfix)
   expectKind(x[0], nnkIdent)
@@ -45,6 +45,6 @@ macro `[]`*(lc: ListComprehension, t, x): expr =
               newNimNode(nnkBracket))),
           result))))
 
-var n = 10
-var c = lc[tuple[a,b,c: int], (x,y,z) | (x <- 1..n, y <- x..n, z <- y..n, x*x+y*y == z*z)]
-echo c
+const n = 20
+echo lc[(x,y,z) | (x <- 1..n, y <- x..n, z <- y..n, x*x + y*y == z*z),
+        tuple[a,b,c: int]]

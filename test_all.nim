@@ -250,6 +250,7 @@ testIt "letters": check it.compiles
 testIt "levenshtein": check it.returns
 testIt "linearcongruential": check it.compiles
 testIt "linkedlist": check it.returns
+testIt "listcomprehensions": check it.returns
 testIt "litchar": check it.returns
 testIt "litfloat": check it.returns
 testIt "litint": check it.returns
