@@ -1,15 +1,14 @@
-import strutils, sequtils
+import strutils, future
 
 proc solve(tri): int =
   var tri = tri
   while tri.len > 1:
-    let t0 = tri.pop()
-    let t1 = tri.pop()
-    tri.add newSeq[int]()
-    for i, t in t1: tri[tri.high].add max(t0[i], t0[i+1]) + t
-  return tri[0][0]
+    let t0 = tri.pop
+    for i, t in tri[tri.high]: tri[tri.high][i] = max(t0[i], t0[i+1]) + t
+  tri[0][0]
 
-const data = """                          55
+const data = """
+                          55
                         94 48
                        95 30 96
                      77 71 26 67
@@ -28,6 +27,4 @@ const data = """                          55
   06 71 28 75 94 48 37 10 23 51 06 48 53 18 74 98 15
 27 02 92 23 08 71 76 84 15 52 92 63 81 10 44 10 69 93"""
 
-var s = newSeq[seq[int]]()
-for row in data.splitLines(): s.add row.split().map(parseInt)
-echo solve(s)
+echo solve data.splitLines.map((x: string) => x.split.map parseInt)

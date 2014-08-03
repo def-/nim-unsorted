@@ -73,6 +73,7 @@ testIt "bottles": check it.returns
 testIt "boxthecompass": check it.returns
 testIt "brainfuck": check it.returns("", ">++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>>+++++++.<<<[[-]<[-]>]<+++++++++++++++.>>.+++.------.--------.>>+.>++++.")
 testIt "break": check it.returns
+testIt "breakoo": check it.returns
 testIt "bubblesort": check it.returns
 #testIt "bufferedfile": check it.returns
 testIt "bullsandcows": check it.compiles
@@ -95,6 +96,7 @@ testIt "cocktailsort": check it.returns
 testIt "coins": check it.returns
 testIt "collections": check it.compiles
 testIt "combinations": check it.returns
+testIt "combinationsrepetitions": check it.returns
 testIt "combsort": check it.returns
 testIt "comma": check it.returns
 testIt "commondirpath": check it.returns
@@ -271,6 +273,7 @@ testIt "matrixtranspose": check it.returns
 testIt "maxlicenses": check it.returns
 testIt "maxsum": check it.returns
 testIt "maxtrianglepathsum": check it.returns
+testIt "mazegeneration": check it.compiles
 testIt "md4": check it.returns("-d:ssl")
 testIt "meanangle": check it.returns
 testIt "mean": check it.returns
@@ -291,8 +294,10 @@ testIt "montecarlo": check it.compiles
 testIt "montyhall": check it.compiles
 testIt "multifactorial": check it.returns
 testIt "multipledistinctobjects": check it.returns
+testIt "multiplicativeroot": check it.returns
 testIt "multisplit": check it.returns
 testIt "multtable": check it.returns
+testIt "mutex": check it.returns("--threads:on")
 testIt "mutrec": check it.returns
 testIt "namedparam": check it.returns
 #testIt "nil": check it.returns
@@ -310,6 +315,7 @@ testIt "numericalintegration": check it.returns
 #testIt "objectserial": check it.returns # Actually broken
 testIt "oct": check it.compiles
 testIt "oddword": check it.compiles
+testIt "oldlady": check it.returns
 testIt "oneinstane": check it.compiles
 testIt "oneofnlines": check it.compiles
 testIt "optionalparameters": check it.returns
