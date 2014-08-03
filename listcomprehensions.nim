@@ -46,5 +46,14 @@ macro `[]`*(lc: ListComprehension, x, t): expr =
           result))))
 
 const n = 20
+
 echo lc[(x,y,z) | (x <- 1..n, y <- x..n, z <- y..n, x*x + y*y == z*z),
         tuple[a,b,c: int]]
+
+#var result: seq[tuple[a,b,c: int]] = @[]
+#for x in 1..n:
+#  for y in x..n:
+#    for z in y..n:
+#      if x*x + y*y == z*z:
+#        result.add((x,y,z))
+#echo result
