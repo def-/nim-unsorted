@@ -124,6 +124,7 @@ testIt "curry": check it.returns
 testIt "currying": check it.returns
 testIt "datemanipulation": check it.returns
 testIt "dayoftheweek": check it.returns
+testIt "dealcards": check it.returns
 testIt "digitalroot": check it.returns
 testIt "dininingphilosophers": check it.compiles("--threads:on -d:preventDeadlocks")
 testIt "dirempty": check it.compiles
