@@ -60,6 +60,7 @@ testIt "ascii3d": check it.returns
 testIt "asciialphabet": check it.returns
 testIt "assarray": check it.returns
 testIt "avg": check it.returns("", "foo\nbar\nfoobar")
+testIt "avglooplength": check it.compiles
 testIt "balanced": check it.compiles
 testIt "beadsort": check it.returns
 testIt "bell": check it.returns
