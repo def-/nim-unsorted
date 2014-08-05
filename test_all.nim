@@ -381,6 +381,7 @@ testIt "rot13": check it.compiles
 testIt "rpncalculator": check it.returns
 testIt "runlengthenc": check it.returns
 testIt "safeadd": check it.returns
+testIt "scopemodifiers": check it.returns
 testIt "searchlist": check it.compiles
 testIt "sedols": check it.returns
 testIt "selectionsort": check it.returns
