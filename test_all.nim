@@ -399,6 +399,7 @@ testIt "sierpinkskicarpet": check it.returns
 testIt "sieve": check it.returns
 testIt "signals2": check it.compiles
 testIt "signals": check it.compiles
+testIt "singuser": check it.returns
 testIt "simplemovingaverage": check it.returns
 testIt "simplewindow": check it.compiles
 testIt "sleepsort": check it.compiles
