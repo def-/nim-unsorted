@@ -258,6 +258,7 @@ testIt "litchar": check it.returns
 testIt "litfloat": check it.returns
 testIt "litint": check it.returns
 testIt "logicop": check it.returns
+testIt "longestincreasingsubsequence": check it.returns
 testIt "longmultiplication": check it.returns
 testIt "loopmult": check it.returns
 testIt "loop": check it.returns

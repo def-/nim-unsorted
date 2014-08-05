@@ -41,7 +41,8 @@ var tree = 1.newNode(
                  8.newNode,
                  9.newNode)))
 
-var tree2 = deepCopy tree # not implemented yet, TODO: update then
+var tree2: Node[int]
+tree2.deepCopy(tree) # not implemented yet, TODO: update then
 tree2.data = 10
 tree2.left.data = 20
 tree2.right.left.data = 90
