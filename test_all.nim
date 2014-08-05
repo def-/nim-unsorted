@@ -249,7 +249,6 @@ testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
 testIt "lcs": check it.returns
 testIt "leapyear": check it.returns
-testIt "leftfactorials": check it.returns
 testIt "letters": check it.compiles
 testIt "levenshtein": check it.returns
 testIt "linearcongruential": check it.compiles
@@ -378,6 +377,7 @@ testIt "rngdevice": check it.compiles
 testIt "romandec": check it.returns
 testIt "romanenc": check it.returns
 testIt "rootmean": check it.returns
+testIt "rootsofunity": check it.returns
 testIt "rot13": check it.compiles
 testIt "rpncalculator": check it.returns
 testIt "runlengthenc": check it.returns
