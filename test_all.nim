@@ -249,6 +249,7 @@ testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
 testIt "lcs": check it.returns
 testIt "leapyear": check it.returns
+testIt "leftfactorials": check it.returns
 testIt "letters": check it.compiles
 testIt "levenshtein": check it.returns
 testIt "linearcongruential": check it.compiles
