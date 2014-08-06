@@ -483,6 +483,7 @@ testIt "walkrec": check it.compiles
 testIt "wcl": check it.compiles
 testIt "webscraping": check it.compiles # Website down
 testIt "webserver": check it.compiles
+testIt "wireworld": check it.compiles
 testIt "wordwrap": check it.returns
 testIt "xmlin": check it.returns
 testIt "xmlout": check it.returns
