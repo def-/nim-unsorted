@@ -382,6 +382,7 @@ testIt "rootmean": check it.returns
 testIt "rootsofunity": check it.returns
 testIt "rot13": check it.compiles
 testIt "rpncalculator": check it.returns
+testIt "rpntoinfix": check it.returns
 testIt "runlengthenc": check it.returns
 testIt "safeadd": check it.returns
 testIt "scopemodifiers": check it.returns
