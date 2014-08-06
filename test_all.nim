@@ -26,10 +26,10 @@ if compCommand == "":
 proc compiles(name: string; params = ""): bool =
   execCmd(compCommand & " --verbosity:0 --warnings:off --hints:off " & params & " " & name & ".nim") == 0
 
-proc returns(name: string; params = ""; input = ""): bool =
+proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
   try: removeFile(name)
   except: discard
-  if not name.compiles(params):
+  if not name.compiles(compParams):
     echo "Compilation failed"
     return false
   var p = startProcess(name)
@@ -37,7 +37,7 @@ proc returns(name: string; params = ""; input = ""): bool =
   p.inputStream.close()
   if p.waitForExit > 0: return false
   if not existsFile(name & ".out"):
-    return execProcess("./" & name) == ""
+    return execProcess("./" & name & " " & params) == ""
   return p.outputStream.readStr(100000) == readFile(name & ".out")
 
 template testIt(name: string, rest: stmt): stmt {.immediate.} =
@@ -59,7 +59,7 @@ testIt "arr": check it.returns
 testIt "ascii3d": check it.returns
 testIt "asciialphabet": check it.returns
 testIt "assarray": check it.returns
-testIt "avg": check it.returns("", "foo\nbar\nfoobar")
+testIt "avg": check it.returns("", "", "foo\nbar\nfoobar")
 testIt "avglooplength": check it.compiles
 testIt "balanced": check it.compiles
 testIt "beadsort": check it.returns
@@ -73,7 +73,7 @@ testIt "bogosort": check it.returns
 #testIt "booleanvalues": check it.returns
 testIt "bottles": check it.returns
 testIt "boxthecompass": check it.returns
-testIt "brainfuck": check it.returns("", ">++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>>+++++++.<<<[[-]<[-]>]<+++++++++++++++.>>.+++.------.--------.>>+.>++++.")
+testIt "brainfuck": check it.returns("", "", ">++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>>+++++++.<<<[[-]<[-]>]<+++++++++++++++.>>.+++.------.--------.>>+.>++++.")
 testIt "break": check it.returns
 testIt "breakoo": check it.returns
 testIt "bubblesort": check it.returns
@@ -245,8 +245,8 @@ testIt "jsons": check it.returns
 testIt "kaprekar": check it.returns
 testIt "langtonsant": check it.returns
 #testIt "largestint": check it.returns # Actually broken
-testIt "lastfriday": check it.returns("2013")
-testIt "lastsunday": check it.returns("2012")
+testIt "lastfriday": check it.returns("", "2013")
+testIt "lastsunday": check it.returns("", "2012")
 testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
 testIt "lcs": check it.returns
@@ -268,7 +268,7 @@ testIt "lucaslehmertest": check it.returns
 testIt "luhntest": check it.returns
 testIt "machinecode": check it.compiles
 testIt "magicsquares": check it.returns
-testIt "madlibs": check it.returns("", "She,Monica L.,cockerel\n")
+testIt "madlibs": check it.returns("", "", "She,Monica L.,cockerel\n")
 testIt "mail": check it.compiles("-d:ssl")
 testIt "manboy": check it.returns
 testIt "mandel": check it.returns
@@ -451,7 +451,7 @@ testIt "timefunction": check it.compiles
 testIt "tokenize": check it.returns
 testIt "topranks": check it.returns
 testIt "totalcirclearea": check it.returns
-testIt "trabb_pardo_knuth": check it.returns("", "1 2 3 4 5 6 7 8 9 10 11")
+testIt "trabb_pardo_knuth": check it.returns("", "", "1 2 3 4 5 6 7 8 9 10 11")
 testIt "treelist": check it.returns
 testIt "treetrav": check it.returns
 testIt "trigonom": check it.returns
