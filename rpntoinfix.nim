@@ -41,6 +41,5 @@ proc parseRPN(e: string) =
 
   echo "infix: ", stack[0].expr
 
-for test in ["3 4 2 * 1 5 - 2 3 ^ ^ / +",
-             "1 2 + 3 4 + ^ 5 6 + ^"]:
+for test in ["3 4 2 * 1 5 - 2 3 ^ ^ / +", "1 2 + 3 4 + ^ 5 6 + ^"]:
   test.parseRPN

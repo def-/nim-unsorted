@@ -13,24 +13,6 @@ proc preorder[T](n: Node[T]): seq[T] =
   if n == nil: @[]
   else: @[n.data] & preorder(n.left) & preorder(n.right)
 
-proc inorder[T](n: Node[T]): seq[T] =
-  if n == nil: @[]
-  else: inorder(n.left) & @[n.data] & inorder(n.right)
-
-proc postorder[T](n: Node[T]): seq[T] =
-  if n == nil: @[]
-  else: postorder(n.left) & postorder(n.right) & @[n.data]
-
-proc levelorder[T](n: Node[T]): seq[T] =
-  result = @[]
-  var queue = initQueue[Node[T]]()
-  queue.enqueue(n)
-  while queue.len > 0:
-    let next = queue.dequeue()
-    result.add next.data
-    if next.left != nil: queue.enqueue(next.left)
-    if next.right != nil: queue.enqueue(next.right)
-
 var tree = 1.newNode(
              2.newNode(
                4.newNode(
@@ -42,18 +24,13 @@ var tree = 1.newNode(
                  9.newNode)))
 
 var tree2: Node[int]
-tree2.deepCopy(tree) # not implemented yet, TODO: update then
+tree2.deepCopy tree
 tree2.data = 10
 tree2.left.data = 20
 tree2.right.left.data = 90
 
-echo preorder tree
-echo inorder tree
-echo postorder tree
-echo levelorder tree
-
 echo "Tree2:"
 echo preorder tree2
-echo inorder tree2
-echo postorder tree2
-echo levelorder tree2
+
+echo "Tree:"
+echo preorder tree
