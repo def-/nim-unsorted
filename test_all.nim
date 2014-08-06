@@ -365,6 +365,7 @@ testIt "ranges": check it.returns
 testIt "ranklanguages": check it.compiles
 testIt "rational": check it.returns
 testIt "realconstfn": check it.returns
+testIt "recordsound": check it.compiles
 testIt "recurse": check it.returns
 testIt "recursionlimit": check it.compiles
 testIt "reg": check it.returns
