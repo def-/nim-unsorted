@@ -1,7 +1,10 @@
-import posix, strutils
+import math, strutils
 
 proc `++`(a, b: float): tuple[lower, upper: float] =
-  let orig = fegetround()
+  let
+    a {.volatile.} = a
+    b {.volatile.} = b
+    orig = fegetround()
   discard fesetround FE_DOWNWARD
   result.lower = a + b
   discard fesetround FE_UPWARD
