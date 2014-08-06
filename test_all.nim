@@ -338,6 +338,7 @@ testIt "pascalstriangle": check it.returns
 testIt "permsort": check it.returns
 testIt "permutations": check it.returns
 testIt "permutationsswap": check it.returns
+testIt "pixelcolor": check it.compiles
 testIt "playingcards": check it.compiles
 testIt "polymorphiccopy": check it.returns
 testIt "polymorphism": check it.returns
