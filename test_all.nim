@@ -151,6 +151,7 @@ testIt "equilibriumindex": check it.returns
 testIt "ethiopian": check it.returns
 testIt "euler": check it.returns
 testIt "evenodd": check it.returns
+testIt "events": check it.returns
 testIt "evolutionary": check it.compiles
 testIt "exceptionnested": check it.compiles
 testIt "exceptions": check it.returns
