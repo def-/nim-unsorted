@@ -441,6 +441,7 @@ testIt "termclear": check it.compiles
 testIt "termcolor": check it.returns
 testIt "termcursorpos": check it.returns
 testIt "termextendchar": check it.returns
+testIt "ternarylogic": check it.returns
 testIt "tests2": check it.compiles
 testIt "tests": check it.returns
 testIt "textproc1": check it.returns
