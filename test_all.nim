@@ -266,6 +266,7 @@ testIt "loopmult": check it.returns
 testIt "loop": check it.returns
 testIt "lucaslehmertest": check it.returns
 testIt "luhntest": check it.returns
+testIt "machinecode": check it.compiles
 testIt "magicsquares": check it.returns
 testIt "madlibs": check it.returns("", "She,Monica L.,cockerel\n")
 testIt "mail": check it.compiles("-d:ssl")
