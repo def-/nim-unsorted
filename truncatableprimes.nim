@@ -1,15 +1,15 @@
 import sets, strutils, algorithm
 
-proc primes(n): seq[int] =
+proc primes(n): seq[int64] =
   result = @[]
-  var multiples = initSet[int]()
+  var multiples = initSet[int64]()
   for i in 2..n:
     if i notin multiples:
       result.add i
-      for j in countup(i*i, n, i):
+      for j in countup(i * i, n, i.int):
         multiples.incl j
 
-proc truncatablePrime(n): tuple[left: int, right: int] =
+proc truncatablePrime(n): tuple[left: int64, right: int64] =
   var
     primelist: seq[string] = @[]
   for x in primes(n):
@@ -31,4 +31,4 @@ proc truncatablePrime(n): tuple[left: int, right: int] =
       result.right = parseInt(n)
       break
 
-echo truncatablePrime(1000000)
+echo truncatablePrime(1000000'i64)
