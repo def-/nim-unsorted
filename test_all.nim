@@ -451,7 +451,7 @@ testIt "timefunction": check it.compiles
 testIt "tokenize": check it.returns
 testIt "topranks": check it.returns
 testIt "totalcirclearea": check it.returns
-testIt "trabb_pardo_knuth": check it.returns("", "", "1 2 3 4 5 6 7 8 9 10 11")
+testIt "trabb_pardo_knuth": check it.returns("", "", "", "1 2 3 4 5 6 7 8 9 10 11")
 testIt "treelist": check it.returns
 testIt "treetrav": check it.returns
 testIt "trigonom": check it.returns
