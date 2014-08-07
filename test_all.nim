@@ -470,7 +470,7 @@ testIt "unimplementedtasks": check it.compiles
 testIt "urldecode": check it.returns
 testIt "urlencode": check it.returns
 testIt "userinput": check it.compiles
-testIt "variablesizeget": check it.returns
+testIt "variablesizeget": check it.compiles
 testIt "variablesizeset": check it.returns
 testIt "variadic": check it.returns
 testIt "varlenquantity": check it.returns
