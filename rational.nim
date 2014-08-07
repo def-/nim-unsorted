@@ -1,6 +1,6 @@
 import math
 
-proc `^`(base: int, exp: int): int =
+proc `^`[T](base, exp: T): T =
   var (base, exp) = (base, exp)
   result = 1
 
@@ -10,16 +10,16 @@ proc `^`(base: int, exp: int): int =
     exp = exp shr 1
     base *= base
 
-proc gcd(u, v: int): int =
+proc gcd[T](u, v: T): T =
   if v != 0:
     gcd(v, u mod v)
   else:
     u.abs
 
-proc lcm(a, b: int): int =
+proc lcm[T](a, b: T): T =
   a div gcd(a, b) * b
 
-type Rational* = tuple[num, den: int]
+type Rational* = tuple[num, den: int64]
 
 proc fromInt*(x: TInteger): Rational =
   result.num = x
@@ -72,7 +72,7 @@ proc `div`*(x, y: Rational): Rational =
 proc toFloat*(x: Rational): float =
   x.num.float / x.den.float
 
-proc toInt*(x: Rational): int =
+proc toInt*(x: Rational): int64 =
   x.num div x.den
 
 proc cmp*(x, y: Rational): int =
@@ -88,11 +88,11 @@ proc abs*(x: Rational): Rational =
   result.num = abs x.num
   result.den = abs x.den
 
-for candidate in 2 .. <(2^19):
-  var sum: Rational = (1, candidate)
-  for factor in 2 .. pow(candidate.float, 0.5).int:
+for candidate in 2'i64 .. <((2'i64)^19):
+  var sum: Rational = (1'i64, candidate)
+  for factor in 2'i64 .. pow(candidate.float, 0.5).int64:
     if candidate mod factor == 0:
-      sum += (1, factor) + (1, candidate div factor)
+      sum += (1'i64, factor) + (1'i64, candidate div factor)
   if sum.den == 1:
     echo "Sum of recipr. factors of ",candidate," = ",sum.num," exactly ",
       if sum.num == 1: "perfect!" else: ""
