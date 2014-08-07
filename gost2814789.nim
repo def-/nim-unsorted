@@ -8,7 +8,7 @@ var
   k2 = [ 4, 11,  2, 14, 15,  0,  8, 13,  3, 12,  9,  7,  5, 10,  6,  1]
   k1 = [13,  2,  8,  4,  6, 15, 11,  1, 10,  9,  3, 14,  5,  0, 12,  7]
 
-  k87, k65, k43, k21 = newSeq[int](256)
+  k87, k65, k43, k21 = newSeq[int64](256)
 
 proc kboxInit =
   for i in 0 .. 255:
@@ -17,7 +17,7 @@ proc kboxInit =
     k43[i] = k4[i shr 4] shl 4 or k3[i and 15]
     k21[i] = k2[i shr 4] shl 4 or k1[i and 15]
 
-proc f(x): int =
+proc f(x): int64 =
   let x = k87[x shr 24 and 255] shl 24 or k65[x shr 16 and 255] shl 16 or
           k43[x shr 8 and 255] shl 8 or k21[x and 255]
   x shl 11 or x shr (32 - 11)
