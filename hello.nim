@@ -15,6 +15,6 @@ var y = {'a': 2, 'b': 3, 'c': 4}.toTable
 echo y
 echo y['a']
 
-echo int.high
+echo int64.high
 
 echo "foobar".len
