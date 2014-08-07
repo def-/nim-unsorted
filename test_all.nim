@@ -245,8 +245,8 @@ testIt "jsons": check it.returns
 testIt "kaprekar": check it.returns
 testIt "langtonsant": check it.returns
 #testIt "largestint": check it.returns # Actually broken
-testIt "lastfriday": check it.returns("", "2013")
-testIt "lastsunday": check it.returns("", "2012")
+testIt "lastfriday": check it.returns("", "", "2013")
+testIt "lastsunday": check it.returns("", "", "2012")
 testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
 testIt "lcs": check it.returns
