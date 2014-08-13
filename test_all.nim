@@ -268,7 +268,7 @@ testIt "lucaslehmertest": check it.returns
 testIt "luhntest": check it.returns
 testIt "machinecode": check it.compiles
 testIt "magicsquares": check it.returns
-testIt "madlibs": check it.returns("", "", "", "She,Monica L.,cockerel\n")
+testIt "madlibs": check it.returns("", "", "She,Monica L.,cockerel\n")
 testIt "mail": check it.compiles("-d:ssl")
 testIt "manboy": check it.returns
 testIt "mandel": check it.returns
@@ -451,7 +451,7 @@ testIt "timefunction": check it.compiles
 testIt "tokenize": check it.returns
 testIt "topranks": check it.returns
 testIt "totalcirclearea": check it.returns
-testIt "trabb_pardo_knuth": check it.returns("", "", "", "1 2 3 4 5 6 7 8 9 10 11")
+testIt "trabb_pardo_knuth": check it.returns("", "", "1 2 3 4 5 6 7 8 9 10 11")
 testIt "treelist": check it.returns
 testIt "treetrav": check it.returns
 testIt "trigonom": check it.returns
