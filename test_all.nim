@@ -19,6 +19,13 @@
 
 import unittest, osproc, streams, os, strutils
 
+type EKeyboardInterrupt = object of EBase
+
+proc handler() {.noconv.} =
+  raise newException(EKeyboardInterrupt, "Keyboard Interrupt")
+
+setControlCHook(handler)
+
 var compCommand = commandLineParams().join(" ")
 if compCommand == "":
   compCommand = "nimrod c"
@@ -32,13 +39,27 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
   if not name.compiles(compParams):
     echo "Compilation failed"
     return false
-  var p = startProcess(name)
-  p.inputStream.write(input)
-  p.inputStream.close()
-  if p.waitForExit > 0: return false
-  if not existsFile(name & ".out"):
-    return execProcess("./" & name & " " & params) == ""
-  return p.outputStream.readStr(100000) == readFile(name & ".out")
+  if compCommand.contains " js ":
+    if not existsFile(name & ".out"):
+      return execProcess("/usr/bin/node nimcache/" & name & ".js " & params) == ""
+    else:
+      var p = startProcess("/usr/bin/node", args = @["nimcache/" & name & ".js"] & params)
+      p.inputStream.write(input)
+      p.inputStream.close()
+      try:
+        if p.waitForExit > 0: return false
+      except EKeyboardInterrupt:
+        echo "Interrupted"
+      return p.outputStream.readStr(100000) == readFile(name & ".out")
+  else:
+    if not existsFile(name & ".out"):
+      return execProcess("./" & name & " " & params) == ""
+    else:
+      var p = startProcess(name, args = params.split)
+      p.inputStream.write(input)
+      p.inputStream.close()
+      if p.waitForExit > 0: return false
+      return p.outputStream.readStr(100000) == readFile(name & ".out")
 
 template testIt(name: string, rest: stmt): stmt {.immediate.} =
   test name:
@@ -74,7 +95,7 @@ testIt "bogosort": check it.returns
 testIt "bottles": check it.returns
 testIt "boxthecompass": check it.returns
 testIt "brainfuck": check it.returns("", "", ">++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>>+++++++.<<<[[-]<[-]>]<+++++++++++++++.>>.+++.------.--------.>>+.>++++.")
-testIt "break": check it.returns
+testIt "break": check it.compiles
 testIt "breakoo": check it.returns
 testIt "bubblesort": check it.returns
 #testIt "bufferedfile": check it.returns

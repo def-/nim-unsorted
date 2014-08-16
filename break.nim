@@ -1,4 +1,5 @@
 import math
+randomize()
 
 while True:
   let a = random(20)
