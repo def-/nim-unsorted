@@ -1,4 +1,4 @@
-import math, strutils
+import fenv, strutils
 
 proc `++`(a, b: float): tuple[lower, upper: float] =
   let
