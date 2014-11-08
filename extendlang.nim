@@ -6,6 +6,8 @@ proc newIfElse(c, t, e): PNimrodNode {.compiletime.} =
 
 macro if2(x, y: expr; z: stmt): stmt {.immediate.} =
   var parts: array[4, PNimrodNode]
+  for i in parts.low .. parts.high:
+    parts[i] = newNimNode(nnkDiscardStmt).add(nil)
 
   assert z.kind == nnkStmtList
   assert z.len <= 4
@@ -23,7 +25,6 @@ macro if2(x, y: expr; z: stmt): stmt {.immediate.} =
     of "else3": j = 3
     else: assert false
 
-    assert isNil(parts[j])
     parts[j] = z[i][1].last
 
   result = newIfElse(x,

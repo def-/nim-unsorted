@@ -2,8 +2,8 @@ proc lastChar(): char =
   let line = stdin.readLine()
   # Hint: FReadIO [User]
   if line.len == 0:
-    raise newException(EIO, "IO")
-    # Hint: ref EIO [User]
+    raise newException(IOError, "IO")
+    # Hint: ref IOError [User]
   return line[line.high]
   {.effects.}
 

@@ -4,7 +4,7 @@
 proc divCheck(x, y): bool =
   try:
     discard x div y
-  except EDivByZero:
+  except DivByZeroError:
     return true
   return false
 {.pop.} # Restore default check settings

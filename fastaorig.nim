@@ -1,4 +1,4 @@
-iterator fasta_pairs*(f: TFile): tuple[header: string, sequence: string] {.inline.} =
+iterator fasta_pairs*(f: File): tuple[header: string, sequence: string] {.inline.} =
   var sequence = ""
   var header = ""
   var seq_index = -1

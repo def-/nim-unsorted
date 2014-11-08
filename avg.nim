@@ -2,19 +2,19 @@
 # But fgets does not regard CR, so this is different from readLine
 # Same as Python though
 
-proc fgets(c: cstring, n: int, f: TFile): cstring {.
-  importc: "fgets", header: "<stdio.h>", tags: [FReadIO].}
+proc fgets(c: cstring, n: int, f: File): cstring {.
+  importc: "fgets", header: "<stdio.h>", tags: [ReadIOEffect].}
 
-proc getc(stream: TFile): cint {.importc: "getc", header: "<stdio.h>",
-  tags: [FReadIO].}
+proc getc(stream: File): cint {.importc: "getc", header: "<stdio.h>",
+  tags: [ReadIOEffect].}
 
-proc getc_unlocked(stream: TFile): cint {.importc: "getc_unlocked", header: "<stdio.h>",
-  tags: [FReadIO].}
+proc getc_unlocked(stream: File): cint {.importc: "getc_unlocked", header: "<stdio.h>",
+  tags: [ReadIOEffect].}
 
-proc ungetc(c: cint, f: TFile) {.importc: "ungetc", header: "<stdio.h>",
+proc ungetc(c: cint, f: File) {.importc: "ungetc", header: "<stdio.h>",
   tags: [].}
 
-proc myReadLine2(f: TFile, line: var TaintedString): bool =
+proc myReadLine2(f: File, line: var TaintedString): bool =
   # of course this could be optimized a bit; but IO is slow anyway...
   # and it was difficult to get this CORRECT with Ansi C's methods
   setLen(line.string, 0) # reuse the buffer!
@@ -31,7 +31,7 @@ proc myReadLine2(f: TFile, line: var TaintedString): bool =
     add line.string, chr(int(c))
   result = true
 
-proc myReadLine(f: TFile, line: var TaintedString): bool =
+proc myReadLine(f: File, line: var TaintedString): bool =
   var buf {.noinit.}: array[8192, char]
   setLen(line.string, 0)
   result = true

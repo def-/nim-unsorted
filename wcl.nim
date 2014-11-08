@@ -25,7 +25,7 @@ var
   s = 0
   size = 4096
   #buf: array[4096, char]
-  buf = cast[ptr string](alloc0(SIZE))
+  buf = cast[ptr string](alloc0(size))
 
 # 0.2
 # wc -l

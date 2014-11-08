@@ -4,7 +4,7 @@ proc nothing(): bool{.closure.} = false
 
 proc odd(prev = nothing): bool =
   let a = stdin.readChar()
-  if not isAlpha(TRune(ord(a))):
+  if not isAlpha(Rune(ord(a))):
     discard prev()
     stdout.write(a)
     return a != '.'
@@ -20,7 +20,7 @@ proc even(): bool =
   while true:
     let c = stdin.readChar()
     stdout.write(c)
-    if not isAlpha(TRune(ord(c))):
+    if not isAlpha(Rune(ord(c))):
       return c != '.'
 
 var e = false

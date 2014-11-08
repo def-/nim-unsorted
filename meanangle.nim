@@ -1,13 +1,13 @@
 import math, complex
 
-proc rect(r, phi): TComplex = (r * cos(phi), sin(phi))
+proc rect(r, phi): Complex = (r * cos(phi), sin(phi))
 proc phase(c): float = arctan2(c.im, c.re)
 
-proc radians(x): float = (x * pi) / 180.0
-proc degrees(x): float = (x * 180.0) / pi
+proc radians(x): float = (x * Pi) / 180.0
+proc degrees(x): float = (x * 180.0) / Pi
 
 proc meanAngle(deg): float =
-  var c: TComplex
+  var c: Complex
   for d in deg:
     c += rect(1.0, radians(d))
   degrees(phase(c / float(deg.len)))

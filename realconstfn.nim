@@ -2,8 +2,8 @@ import math
 
 var x, y = 12.5
 
-echo e
-echo pi
+echo E
+echo Pi
 echo sqrt(x)
 echo ln(x)
 echo log10(x)

@@ -1,6 +1,5 @@
 proc bubbleSort[T](a: var openarray[T]) =
   var
-    j = 1
     t = true
   for n in countdown(a.len-2, 0):
     if not t: break

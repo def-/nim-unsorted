@@ -1,3 +1,3 @@
 import cgi
 
-echo urlEncode("http://foo/bar/")
+echo URLEncode("http://foo/bar/")

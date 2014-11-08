@@ -3,7 +3,7 @@ proc fib(x): int =
   proc fibI(n): int =
     if n < 2: n else: fibI(n-2) + fibI(n-1)
   if x < 0:
-    raise newException(EInvalidValue, "Invalid argument")
+    raise newException(ValueError, "Invalid argument")
   return fibI(x)
 
 for i in 0..4:

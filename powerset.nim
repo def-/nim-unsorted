@@ -5,7 +5,7 @@ proc hash(x): THash =
   for i in x: h = h !& hash(i)
   result = !$h
 
-proc powerset[T](inset: TSet[T]): auto =
+proc powerset[T](inset: HashSet[T]): auto =
   result = toSet([initSet[T]()])
 
   for i in inset:

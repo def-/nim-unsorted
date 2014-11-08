@@ -11,7 +11,7 @@ while answer != target:
   inc i
   let txt = readLineFromStdin("Your guess " & $i & ": ")
   try: answer = parseInt(txt)
-  except EInvalidValue:
+  except InvalidValueError:
     echo "  I don't understand your input of '", txt, "'"
     continue
   if answer < iRange.a or answer > iRange.b: echo "  Out of range!"

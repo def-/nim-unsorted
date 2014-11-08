@@ -1,25 +1,25 @@
-# in config/nimrod.cfg: cc = gcc
+# in config/nim.cfg: cc = gcc
 # ./test_all
-# ./test_all nimrod --gc:boehm c
-# ./test_all nimrod -d:release c
-# ./test_all nimrod -d:release --gc:boehm c
+# ./test_all nim --gc:boehm c
+# ./test_all nim -d:release c
+# ./test_all nim -d:release --gc:boehm c
 #
-# in config/nimrod.cfg: cc = clang
+# in config/nim.cfg: cc = clang
 # ./test_all
-# ./test_all nimrod -d:release c
+# ./test_all nim -d:release c
 #
 # TODO:
-# in config/nimrod.cfg: cc = tcc
+# in config/nim.cfg: cc = tcc
 # ./test_all
-# ./test_all nimrod -d:release c
+# ./test_all nim -d:release c
 #
-# in config/nimrod.cfg: cc = gcc
-# ./test_all nimrod cpp
-# ./test_all nimrod -d:release cpp
+# in config/nim.cfg: cc = gcc
+# ./test_all nim cpp
+# ./test_all nim -d:release cpp
 
 import unittest, osproc, streams, os, strutils
 
-type EKeyboardInterrupt = object of EBase
+type EKeyboardInterrupt = object of Exception
 
 proc handler() {.noconv.} =
   raise newException(EKeyboardInterrupt, "Keyboard Interrupt")
@@ -28,10 +28,11 @@ setControlCHook(handler)
 
 var compCommand = commandLineParams().join(" ")
 if compCommand == "":
-  compCommand = "nimrod c"
+  compCommand = "nim c"
 
 proc compiles(name: string; params = ""): bool =
   execCmd(compCommand & " --verbosity:0 --warnings:off --hints:off " & params & " " & name & ".nim") == 0
+  #execCmd(compCommand & " --verbosity:0 " & params & " " & name & ".nim") == 0
 
 proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
   try: removeFile(name)

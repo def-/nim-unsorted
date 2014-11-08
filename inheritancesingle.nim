@@ -1,5 +1,5 @@
 type
-  Animal = object of TObject
+  Animal = object of RootObj
   Dog    = object of Animal
   Cat    = object of Animal
   Lab    = object of Dog

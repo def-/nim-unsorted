@@ -4,4 +4,4 @@ echo chr(97) # echoes a
 import unicode
 
 echo int("π".runeAt(0)) # echoes 960
-echo TRune(960) # echoes π
+echo Rune(960) # echoes π

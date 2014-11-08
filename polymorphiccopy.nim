@@ -1,5 +1,5 @@
 type
-  T = object of TObject
+  T = object of RootObj
     myValue: string
   S1 = object of T
   S2 = object of T

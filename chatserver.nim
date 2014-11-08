@@ -1,16 +1,16 @@
 import asyncnet, asyncdispatch
 
-type TClient = tuple[socket: PAsyncSocket, name: string]
-var clients: seq[TClient] = @[]
+type Client = tuple[socket: AsyncSocket, name: string]
+var clients: seq[Client] = @[]
 
-proc sendOthers(client: TClient, line: string) {.async.} =
+proc sendOthers(client: Client, line: string) {.async.} =
   for c in clients:
     if c != client:
       await c.socket.send(line & "\c\L")
 
-proc processClient(socket: PAsyncSocket) {.async.} =
+proc processClient(socket: AsyncSocket) {.async.} =
   await socket.send("Please enter your name: ")
-  let client: TClient = (socket, await socket.recvLine())
+  let client: Client = (socket, await socket.recvLine())
 
   clients.add client
   discard client.sendOthers "+++ " & client.name & " arrived +++"
@@ -29,7 +29,7 @@ proc processClient(socket: PAsyncSocket) {.async.} =
 
 proc serve() {.async.} =
   var server = newAsyncSocket()
-  server.bindAddr(TPort(4004))
+  server.bindAddr(Port(4004))
   server.listen()
 
   while true:

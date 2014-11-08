@@ -11,7 +11,7 @@ proc count(s, sub): int =
 
 proc findrc(category): seq[string] =
   var
-    name = "http://www.rosettacode.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:$#&cmlimit=500&format=xml" % urlEncode(category)
+    name = "http://www.rosettacode.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:$#&cmlimit=500&format=xml" % URLEncode(category)
     cmcontinue = @[""]
     titles = newSeq[string]()
 
@@ -23,7 +23,7 @@ proc findrc(category): seq[string] =
     cmcontinue = @[]
     for i in x.getElementsByTagName("categorymembers"):
       let u = PElement(i).getAttribute("cmcontinue")
-      if u != nil: cmcontinue.add urlEncode(u)
+      if u != nil: cmcontinue.add URLEncode(u)
 
     if cmcontinue.len > 0:
       cmcontinue[0] = "&cmcontinue=" & cmcontinue[0]

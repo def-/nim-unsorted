@@ -1,6 +1,6 @@
 import xmltree, strtabs, sequtils
 
-proc charsToXML(names, remarks): PXmlNode =
+proc charsToXML(names, remarks): XmlNode =
   result = <>CharacterRemarks()
   for name, remark in items zip(names, remarks):
     result.add(<>Character(name=name, remark.newText))

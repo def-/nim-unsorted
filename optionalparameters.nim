@@ -18,5 +18,5 @@ printTable data
 printTable sortTable(data)
 printTable sortTable(data, column = 2)
 printTable sortTable(data, column = 1)
-printTable sortTable(data, column = 1, reverse = True)
+printTable sortTable(data, column = 1, reverse = true)
 printTable sortTable(data, ordering = (a,b) => cmp[int](b.len,a.len))

@@ -1,7 +1,7 @@
-proc fgets(c: cstring, n: int, f: TFile): cstring {.
-  importc: "fgets", header: "<stdio.h>", tags: [FReadIO].}
+proc fgets(c: cstring, n: int, f: File): cstring {.
+  importc: "fgets", header: "<stdio.h>", tags: [ReadIOEffect].}
 
-proc myReadLine(f: TFile, line: var TaintedString): bool =
+proc myReadLine(f: File, line: var TaintedString): bool =
   var buf {.noinit.}: array[8192, char]
   setLen(line.string, 0)
   result = true

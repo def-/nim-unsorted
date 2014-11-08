@@ -1,7 +1,7 @@
 import math
 randomize()
 
-while True:
+while true:
   let a = random(20)
   echo a
   if a == 10:

@@ -21,7 +21,7 @@ proc lcm[T](a, b: T): T =
 
 type Rational* = tuple[num, den: int64]
 
-proc fromInt*(x: TInteger): Rational =
+proc fromInt*(x: SomeInteger): Rational =
   result.num = x
   result.den = 1
 

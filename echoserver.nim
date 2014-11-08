@@ -1,13 +1,13 @@
 import asyncnet, asyncdispatch
 
-proc processClient(client: PAsyncSocket) {.async.} =
+proc processClient(client: AsyncSocket) {.async.} =
   while true:
     let line = await client.recvLine()
     await client.send(line & "\c\L")
 
 proc serve() {.async.} =
   var server = newAsyncSocket()
-  server.bindAddr(TPort(12321))
+  server.bindAddr(Port(12321))
   server.listen()
 
   while true:

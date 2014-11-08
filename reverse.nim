@@ -11,21 +11,21 @@ proc reversed(s: string): string =
 
 proc uniReversed(s: string): string =
   result = newStringOfCap(s.len)
-  var tmp: seq[TRune] = @[]
+  var tmp: seq[Rune] = @[]
   for r in runes(s):
     tmp.add(r)
   for i in countdown(tmp.high, 0):
     result.add(toUtf8(tmp[i]))
 
-proc isComb(r: TRune): bool =
-  (r >=% TRune(0x300) and r <=% TRune(0x36f)) or
-    (r >=% TRune(0x1dc0) and r <=% TRune(0x1dff)) or
-    (r >=% TRune(0x20d0) and r <=% TRune(0x20ff)) or
-    (r >=% TRune(0xfe20) and r <=% TRune(0xfe2f))
+proc isComb(r: Rune): bool =
+  (r >=% Rune(0x300) and r <=% Rune(0x36f)) or
+    (r >=% Rune(0x1dc0) and r <=% Rune(0x1dff)) or
+    (r >=% Rune(0x20d0) and r <=% Rune(0x20ff)) or
+    (r >=% Rune(0xfe20) and r <=% Rune(0xfe2f))
 
 proc uniReversedPreserving(s: string): string =
   result = newStringOfCap(s.len)
-  var tmp: seq[TRune] = @[]
+  var tmp: seq[Rune] = @[]
   for r in runes(s):
     if isComb(r): tmp.insert(r, tmp.high)
     else: tmp.add(r)

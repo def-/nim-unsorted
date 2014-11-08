@@ -1,8 +1,8 @@
-import smtp
+import smtp, net
 
 proc sendMail(fromAddr: string; toAddrs, ccAddrs: seq[string];
               subject, message, login, password: string;
-              server = "smtp.gmail.com"; port = 465; ssl = true) =
+              server = "smtp.gmail.com"; port = Port 465; ssl = true) =
   var msg = createMessage(subject, message, toAddrs, ccAddrs)
   var s = connect(server, port, ssl, debug = true)
   s.auth(login, password)

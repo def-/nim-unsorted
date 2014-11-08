@@ -66,7 +66,7 @@ type
   GraphicKind = enum Circle, Rectangle
 
   PGraphic = ref Graphic
-  Graphic = object of TObject
+  Graphic = object of RootObj
     pos: Position
 
     case kind: GraphicKind

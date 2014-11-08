@@ -20,7 +20,7 @@ proc powers(m): auto =
 iterator filtered(s1, s2): int =
   var v = next(s1)
   var f = next(s2)
-  while True:
+  while true:
     if v > f:
       f = next(s2)
       continue

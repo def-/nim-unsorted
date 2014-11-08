@@ -1,5 +1,5 @@
 # Defining an exception
-type SillyError = object of EBase
+type SillyError = object of Exception
 
 # Throwing an exception
 proc spam() =

@@ -28,13 +28,13 @@ for c in stdin.readLine:
   of '-': op `-`
   of '/': op `/`
   of Whitespace: discard
-  else: raise EInvalidValue.newException "Wrong char: " & c
+  else: raise ValueError.newException "Wrong char: " & c
 
 sort digits, cmp[int]
 sort problem, cmp[int]
 if digits.deduplicate != problem.deduplicate:
-  raise EInvalidValue.newException "Not using the given digits."
+  raise ValueError.newException "Not using the given digits."
 if stack.len != 1:
-  raise EInvalidValue.newException "Wrong expression."
+  raise ValueError.newException "Wrong expression."
 echo "Result: ", stack[0]
 echo if abs(stack[0] - 24) < 0.001: "Good job!" else: "Try again."

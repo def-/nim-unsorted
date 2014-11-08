@@ -1,6 +1,6 @@
 import math
 
-proc radians(x): float = x * pi / 180
+proc radians(x): float = x * Pi / 180
 
 proc haversine(lat1, lon1, lat2, lon2): float =
   const r = 6372.8 # Earth radius in kilometers

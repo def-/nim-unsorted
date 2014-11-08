@@ -18,7 +18,7 @@ type
     
 proc initQueue*[T](initialSize=4): TQueue[T] =
   ## creates a new queue. `initialSize` needs to be a power of 2.
-  assert IsPowerOfTwo(initialSize)
+  assert isPowerOfTwo(initialSize)
   result.mask = initialSize-1
   newSeq(result.data, initialSize)
 

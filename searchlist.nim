@@ -5,4 +5,4 @@ for needle in ["Bush", "Washington"]:
   if f >= 0:
     echo f, " ", needle
   else:
-    raise newException(EInvalidValue, needle & " not in haystack")
+    raise newException(ValueError, needle & " not in haystack")

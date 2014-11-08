@@ -60,7 +60,7 @@ proc print(img: Image) =
       write 'H'
     write "\n"
 
-proc writePPM(img: Image, f: TFile) =
+proc writePPM(img: Image, f: File) =
   f.writeln "P6\n", img.w, " ", img.h, "\n255"
 
   for x,y in img.indices:
@@ -68,9 +68,9 @@ proc writePPM(img: Image, f: TFile) =
     f.write char(img[x,y].g)
     f.write char(img[x,y].b)
 
-proc readPPM(f: TFile): Image =
+proc readPPM(f: File): Image =
   if f.readLine != "P6":
-    raise newException(E_base, "Invalid file format")
+    raise newException(Exception, "Invalid file format")
 
   var line = ""
   while f.readLine(line):
@@ -81,7 +81,7 @@ proc readPPM(f: TFile): Image =
   result = img(parseInt parts[0], parseInt parts[1])
 
   if f.readLine != "255":
-    raise newException(E_base, "Invalid file format")
+    raise newException(Exception, "Invalid file format")
 
   var
     arr: array[256, int8]

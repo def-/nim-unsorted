@@ -1,5 +1,5 @@
 # A slice just contains the first and last value
-let alpha: TSlice[char] = 'a'..'z'
+let alpha: Slice[char] = 'a'..'z'
 echo alpha # (a: a, b: z)
 
 # but can be used to check if a character is in it:

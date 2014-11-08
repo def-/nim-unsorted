@@ -1,4 +1,4 @@
-echo NimrodVersion
+echo NimVersion
 
 var bloop = -12
 

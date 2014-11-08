@@ -3,8 +3,8 @@ let accTime = getLastAccessTime("filename")
 let modTime = getLastModificationTime("filename")
 
 import posix
-var unixAccTime = TTimeval(tv_sec: int(accTime))
-var unixModTime = TTimeval(tv_sec: int(modTime))
+var unixAccTime = Timeval(tv_sec: int(accTime))
+var unixModTime = Timeval(tv_sec: int(modTime))
 
 # Set the modification time
 unixModTime.tv_sec = 0

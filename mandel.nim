@@ -1,6 +1,6 @@
 import complex
 
-proc mandelbrot(a): TComplex =
+proc mandelbrot(a): Complex =
   for i in 0 .. <50:
     result = result * result + a
 

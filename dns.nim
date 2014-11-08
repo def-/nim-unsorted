@@ -1,5 +1,5 @@
 import rawsockets
-var infos = getAddrInfo("ddnet.tw", TPort 80)
+var infos = getAddrInfo("ddnet.tw", Port 80)
 
 var info = infos
 while info != nil:
