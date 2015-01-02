@@ -17,7 +17,7 @@ var sum = 0
 
 for i in getContent(mainSite).loadXML().getElementsByTagName("cm"):
   let t = PElement(i).getAttribute("title").replace(" ", "_")
-  let content = getContent(subSite % URLencode(t)).toLower()
+  let content = getContent(subSite % encodeUrl(t)).toLower()
   let c = content.count("{{header|")
   let nim = if content.count("{{header|nimrod}}") == 0: " [NIMROD MISSING]" else: ""
   echo c," examples for ",t.replace("_", " "),nim

@@ -1,4 +1,5 @@
 # TODO: There are more bitmap tasks!
+{.experimental.}
 
 import unsigned, strutils, math
 

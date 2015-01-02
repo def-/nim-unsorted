@@ -31,7 +31,7 @@ proc integrate(f: Function; a, b: float; steps: int; meth: Rule): float =
     result += meth(f, a+float(i)*h, h)
   result = h * result
 
-for fName, a, b, steps, func in items(
+for fName, a, b, steps, fun in items(
    [("cube", 0, 1, 100, cube),
     ("reciprocal", 1, 100, 1000, reciprocal),
     ("identity", 0, 5000, 5_000_000, identity),
@@ -42,4 +42,4 @@ for fName, a, b, steps, func in items(
 
     echo fName, " integrated using ", rName
     echo "  from ", a, " to ", b, " (", steps, " steps) = ",
-      integrate(func, float(a), float(b), steps, rule)
+      integrate(fun, float(a), float(b), steps, rule)

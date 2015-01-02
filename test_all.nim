@@ -31,8 +31,8 @@ if compCommand == "":
   compCommand = "nim c"
 
 proc compiles(name: string; params = ""): bool =
-  execCmd(compCommand & " --verbosity:0 --warnings:off --hints:off " & params & " " & name & ".nim") == 0
-  #execCmd(compCommand & " --verbosity:0 " & params & " " & name & ".nim") == 0
+  execCmd(compCommand & " --verbosity:0 " & params & " " & name & ".nim") == 0
+  #execCmd(compCommand & " --verbosity:0 --warnings:off --hints:off " & params & " " & name & ".nim") == 0
 
 proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
   try: removeFile(name)

@@ -1,8 +1,8 @@
 type
-  T = object of RootObj
+  T = ref object of RootObj
     myValue: string
-  S1 = object of T
-  S2 = object of T
+  S1 = ref object of T
+  S2 = ref object of T
 
 method speak(x: T)  = echo "T Hello ", x.myValue
 method speak(x: S1) = echo "S1 Meow ", x.myValue
@@ -17,7 +17,7 @@ var u = T(myValue: "Blue")
 u.speak
 
 echo "Making copy of a as u, colors and types should match"
-u = a
+u.deepCopy(a)
 u.speak
 a.speak
 
