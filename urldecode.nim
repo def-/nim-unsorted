@@ -1,3 +1,3 @@
 import cgi
 
-echo URLDecode("http%3A%2F%2Ffoo%20bar%2F")
+echo decodeUrl("http%3A%2F%2Ffoo%20bar%2F")
