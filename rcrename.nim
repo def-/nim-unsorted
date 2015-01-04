@@ -23,19 +23,23 @@ let
   regs = [(re"Nimrod", "Nim"), (re"nimrod", "nim")]
   desc = "Nimrod -> Nim"
 
+var
+  loginData   = newData({"action": "login", "format": "json",
+                         "lgname": user, "lgpassword": pass})
+let
   # Need to get a token first
-  loginTData  = @{"action": "login", "format": "json",
-                  "lgname": user, "lgpassword": pass}
-  loginTJson  = postContent(loginPage, multipart = loginTData).parseJson()
+  loginTJson  = postContent(loginPage, multipart = loginData).parseJson()
   loginTToken = loginTJson["login"]["token"].str
   loginTId    = loginTJson["login"]["sessionid"].str
 
   cookies     = "Cookie: rosettacodeToken=$#; rosettacode_session=$#\c\L"
                 .format(loginTToken, loginTId)
 
+loginData["lgtoken"] = loginTToken
+
+let
   # Now really log in
-  loginData   = loginTData & @{"lgtoken": loginTToken}
-  loginJson   = postContent(loginPage, cookies, multipart = loginData).parseJson()
+  loginJson = postContent(loginPage, cookies, multipart = loginData).parseJson()
 
 if loginJson["login"]["result"].str != "Success":
   raise newException(ValueError, "Login failed")
@@ -65,8 +69,8 @@ for catMember in titlesJson["query"]["categorymembers"]:
     tokenJson = getContent(editTokenPage % uriTitle, cookies).parseJson()
     editToken = tokenJson["query"]["pages"].fields[0].val["edittoken"].str
 
-    editData  = {"action": "edit", "format": "json", "summary": desc,
-                 "title": uriTitle, "text": newText, "token": editToken}
+    editData = newData({"action": "edit", "format": "json", "summary": desc,
+                        "title": uriTitle, "text": newText, "token": editToken})
 
   # Finally edit the page, print the result
   echo postContent(postPage, cookies, multipart = editData)
