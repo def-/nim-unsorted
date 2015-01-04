@@ -387,6 +387,7 @@ testIt "randomcircle": check it.compiles
 testIt "ranges": check it.returns
 testIt "ranklanguages": check it.compiles
 testIt "rational": check it.returns
+testIt "rcrename": check it.compiles
 testIt "realconstfn": check it.returns
 testIt "recordsound": check it.compiles
 testIt "recurse": check it.returns
