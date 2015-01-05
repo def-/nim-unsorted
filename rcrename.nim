@@ -24,8 +24,8 @@ let
   desc = "Nimrod -> Nim"
 
 var
-  loginData   = newData({"action": "login", "format": "json",
-                         "lgname": user, "lgpassword": pass})
+  loginData   = newMultipartData(
+    {"action": "login", "format": "json", "lgname": user, "lgpassword": pass})
 let
   # Need to get a token first
   loginTJson  = postContent(loginPage, multipart = loginData).parseJson()
@@ -69,8 +69,9 @@ for catMember in titlesJson["query"]["categorymembers"]:
     tokenJson = getContent(editTokenPage % uriTitle, cookies).parseJson()
     editToken = tokenJson["query"]["pages"].fields[0].val["edittoken"].str
 
-    editData = newData({"action": "edit", "format": "json", "summary": desc,
-                        "title": uriTitle, "text": newText, "token": editToken})
+    editData = newMultipartData(
+      {"action": "edit", "format": "json", "summary": desc,
+       "title": uriTitle, "text": newText, "token": editToken})
 
   # Finally edit the page, print the result
   echo postContent(postPage, cookies, multipart = editData)
