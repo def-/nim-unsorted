@@ -1,0 +1,2 @@
+#!/bin/sh
+nim --verbosity:0 -d:release -r --cc:tcc c $*

@@ -1,3 +1,4 @@
+# This code is not IEEE 754 conformant and will fail in TCC
 import complex
 
 proc mandelbrot(a): Complex =

@@ -1,21 +1,24 @@
-# in config/nim.cfg: cc = gcc
-# ./test_all
-# ./test_all nim --gc:boehm c
-# ./test_all nim -d:release c
-# ./test_all nim -d:release --gc:boehm c
-#
-# in config/nim.cfg: cc = clang
-# ./test_all
-# ./test_all nim -d:release c
-#
-# TODO:
-# in config/nim.cfg: cc = tcc
-# ./test_all
-# ./test_all nim -d:release c
-#
-# in config/nim.cfg: cc = gcc
-# ./test_all nim cpp
-# ./test_all nim -d:release cpp
+## Interesting tests:
+##
+## ./test_all nim --cc:gcc c
+## ./test_all nim --cc:gcc --gc:boehm c
+## ./test_all nim --cc:gcc -d:release c
+## ./test_all nim --cc:gcc -d:release --gc:boehm c
+##
+## ./test_all nim --cc:clang c
+## ./test_all nim --cc:clang -d:release c
+##
+## TODO:
+## ./test_all nim --cc:tcc c
+## ./test_all nim --cc:tcc -d:release c
+##
+## ./test_all nim --cc:gcc cpp
+## ./test_all nim --cc:gcc -d:release cpp
+##
+## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc c
+## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc -d:release c
+##
+## Javascript? node
 
 import unittest, osproc, streams, os, strutils
 
@@ -248,7 +251,7 @@ testIt "hostname": check it.compiles
 testIt "htmltable": check it.compiles
 testIt "http": check it.compiles
 testIt "https": check it.compiles("-d:ssl")
-testIt "iban": check it.returns
+testIt "iban": check it.returns # Wrong result with boehm, wtf
 testIt "identitymatrix": check it.returns
 #testIt "immutability": check it.returns
 testIt "incrementnumstring": check it.returns
@@ -267,8 +270,8 @@ testIt "jsons": check it.returns
 testIt "kaprekar": check it.returns
 testIt "langtonsant": check it.returns
 #testIt "largestint": check it.returns # Actually broken
-testIt "lastfriday": check it.returns("", "", "2013")
-testIt "lastsunday": check it.returns("", "", "2012")
+testIt "lastfriday": check it.returns("", "2013")
+testIt "lastsunday": check it.returns("", "2012")
 testIt "lcm": check it.returns
 testIt "lcs2": check it.returns
 testIt "lcs": check it.returns
