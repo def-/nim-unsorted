@@ -11,15 +11,15 @@
 ## ./test_all nim --cc:tcc c
 ## ./test_all nim --cc:tcc -d:release c
 ##
-## TODO:
+## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc c
+## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc -d:release c
+##
 ## ./test_all nim --cc:gcc cpp
 ## ./test_all nim --cc:gcc -d:release cpp
 ## https://github.com/Araq/Nim/issues/1389
 ## https://github.com/Araq/Nim/issues/1888
 ##
-## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc c
-## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc -d:release c
-##
+## TODO:
 ## Javascript? node
 
 import unittest, osproc, streams, os, strutils
