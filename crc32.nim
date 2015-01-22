@@ -14,10 +14,34 @@ proc createCrcTable(): array[0..255, TCrc32] =
 # Table created at compile time
 const crc32table = createCrcTable()
 
-proc crc32(s: string): TCrc32 =
+proc updateCrc32(c: char, crc: var TCrc32) =
+  crc = (crc shr 8) xor crc32table[(crc and 0xff) xor ord(c)]
+
+proc crc32*(s: string): TCrc32 =
   result = InitCrc32
   for c in s:
-    result = (result shr 8) xor crc32table[(result and 0xff) xor ord(c)]
+    updateCrc32(c, result)
   result = not result
 
-echo crc32("The quick brown fox jumps over the lazy dog").int64.toHex(8)
+proc crc32FromFile*(filename: string): TCrc32 = 
+  const bufSize = 8192
+  var bin: File
+  result = InitCrc32
+
+  if not open(bin, filename):
+    return
+
+  var buf {.noinit.}: array[bufSize, char]
+
+  while true:
+    var readBytes = bin.readChars(buf, 0, bufSize)
+    for i in countup(0, readBytes - 1):
+      updateCrc32(buf[i], result)
+    if readBytes != bufSize:
+      break
+
+  close(bin)
+  result = not result
+
+when isMainModule:
+  echo crc32("The quick brown fox jumps over the lazy dog").int64.toHex(8)
