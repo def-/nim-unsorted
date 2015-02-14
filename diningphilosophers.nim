@@ -1,37 +1,45 @@
-import os, math, locks
+import threadpool, locks, math, os
 randomize()
 
-type Philosopher = tuple
+type Philosopher = ref object
   name: string
-  forkLeft, forkRight: TLock
-
-proc run(p: ptr Philosopher) {.thread.} =
-  while true:
-    sleep random 3_000 .. 13_000
-    echo p.name, " is hungry."
-
-    acquire p.forkLeft
-    acquire p.forkRight
-
-    echo p.name, " starts eating."
-    sleep random 1_000 .. 10_000
-    echo p.name, " finishes eating and leaves to think."
-
-    release p.forkLeft
-    release p.forkRight
+  forkLeft, forkRight: int
 
 const
-  number = 5
-  names: array[number, string] =
-    ["Aristotle", "Kant", "Spinoza", "Marx", "Russell"]
+  n = 5
+  names = ["Aristotle", "Kant", "Spinoza", "Marx", "Russell"]
 
 var
-  forks: array[number, TLock]
-  phils: array[number, Philosopher]
-  threads: array[number, TThread[ptr Philosopher]]
+  forks: array[n, TLock]
+  phils: array[n, Philosopher]
+  threads: array[n, TThread[Philosopher]]
 
-for i in 0 .. <number: initLock forks[i]
-for i in 0 .. <number: phils[i] = (names[i], forks[i], forks[(i+1) mod 5])
-for i in 0 .. <number: threads[i].createThread run, addr phils[i]
+proc run(p: Philosopher) {.thread.} =
+  while true:
+    sleep random 1 .. 10
+    echo p.name, " is hungry."
+
+    acquire forks[p.forkLeft]
+    sleep random 1 .. 5
+    acquire forks[p.forkRight]
+
+    echo p.name, " starts eating."
+    sleep random 1 .. 10
+
+    echo p.name, " finishes eating and leaves to think."
+
+    release forks[p.forkLeft]
+    release forks[p.forkRight]
+
+for i in 0 .. <n:
+  initLock forks[i]
+
+for i in 0 .. <n:
+  phils[i] = Philosopher(name: names[i],
+    forkLeft: i,
+    forkRight: (i+1) mod n)
+
+for i in 0 .. <n:
+  threads[i].createThread run, phils[i]
 
 threads.joinThreads
