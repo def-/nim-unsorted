@@ -7,7 +7,8 @@ let regex = re"title=""Category:(.*?)"">.+?</a>.*\((.*) members\)"
 
 var langs = newSeq[string]()
 for l in parseJson(getContent(langSite))["query"]["categorymembers"]:
-  langs.add(l["title"].str.split("Category:")[1])
+  try: langs.add(l["title"].str.split("Category:")[1])
+  except: discard
 
 var ranks = newSeq[tuple[lang: string, count: int]]()
 for line in getContent(catSize).findAll(regex):
