@@ -19,9 +19,9 @@ proc run(p: Philosopher) {.thread.} =
     sleep random 1 .. 10
     echo p.name, " is hungry."
 
-    acquire forks[p.forkLeft]
+    acquire forks[min(p.forkLeft, p.forkRight)]
     sleep random 1 .. 5
-    acquire forks[p.forkRight]
+    acquire forks[max(p.forkLeft, p.forkRight)]
 
     echo p.name, " starts eating."
     sleep random 1 .. 10
