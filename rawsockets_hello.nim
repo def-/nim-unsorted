@@ -22,7 +22,7 @@ var incoming: array[8192, char]
 
 while true:
   var sock2 = sock.accept(cast[ptr SockAddr](addr(sockAddress)), addr(addrLen))
-  #discard sock2.recv(addr incoming, incoming.len, 0)
+  discard sock2.recv(addr incoming, incoming.len, 0)
   discard sock2.send(addr data[0], data.len, int32(MSG_NOSIGNAL))
   sock2.close()
 
