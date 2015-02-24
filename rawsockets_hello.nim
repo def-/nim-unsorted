@@ -16,12 +16,14 @@ name.sin_addr.s_addr = htonl(INADDR_ANY)
 discard sock.bindAddr(cast[ptr SockAddr](addr name), Socklen(sizeof(name)))
 discard sock.listen()
 
-var sockAddress: Sockaddr_in
-var addrLen = SockLen(sizeof(sockAddress))
-var incoming: array[8192, char]
+var
+  sockAddress: Sockaddr_in
+  addrLen = SockLen(sizeof(sockAddress))
+  incoming: array[8192, char]
+  sock2: SocketHandle
 
 while true:
-  var sock2 = sock.accept(cast[ptr SockAddr](addr(sockAddress)), addr(addrLen))
+  sock2 = sock.accept(cast[ptr SockAddr](addr(sockAddress)), addr(addrLen))
   discard sock2.recv(addr incoming, incoming.len, 0)
   discard sock2.send(addr data[0], data.len, int32(MSG_NOSIGNAL))
   sock2.close()
