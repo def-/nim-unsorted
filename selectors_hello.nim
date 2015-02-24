@@ -4,6 +4,7 @@ type Data* = ref object of RootRef
   socket: SocketHandle
 
 var hw = """HTTP/1.1 200 OK
+Connection: close
 Content-Length: 11
 
 Hello World"""
