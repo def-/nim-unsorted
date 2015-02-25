@@ -16,7 +16,7 @@ sock.setSockOptInt(cint(SOL_SOCKET), SO_REUSEADDR, 1)
 sock.setBlocking(false)
 
 var sel = newSelector()
-var data = Data(socket: sock, isServer: false, done: false)
+var data = Data(socket: sock, isServer: true, done: false)
 sel.register(sock, {EvRead}, data)
 
 var name: SockAddr_in
@@ -36,11 +36,11 @@ while true:
   for info in sel.select(1000):
     let data = Data(info[0].data)
     if EvRead in info.events:
-      if not data.isServer:
+      if data.isServer:
         #echo "Read, not server"
         var sock2 = sock.accept(cast[ptr SockAddr](addr(sockAddress)), addr(addrLen))
         sock2.setBlocking(false)
-        var data2 = Data(socket: sock2, isServer: true)
+        var data2 = Data(socket: sock2, isServer: false)
         sel.register(sock2, {EvRead, EvWrite}, data2)
       else:
         #echo "Read, server"
