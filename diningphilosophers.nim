@@ -1,4 +1,4 @@
-import threadpool, locks, math, os
+import locks, math, os
 randomize()
 
 type Philosopher = ref object
