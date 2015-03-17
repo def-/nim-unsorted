@@ -1,13 +1,13 @@
-import os, posix, strutils
+import os, strutils
 
-var c = paramCount() + 1
-while true:
-  dec c
-  if c <= 1: break
-  if fork() == 0: break
+proc single(n: int) =
+  sleep n
+  echo n
 
-let i = parseInt paramStr c
-sleep i
-echo i
-var pid: cint = 0
-discard wait(pid)
+proc main =
+  var thr = newSeq[TThread[int]](paramCount())
+  for i,c in commandLineParams():
+    thr[i].createThread(single, c.parseInt)
+  thr.joinThreads
+
+main()
