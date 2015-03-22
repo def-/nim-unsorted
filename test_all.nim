@@ -45,7 +45,7 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
   if not name.compiles(compParams):
     echo "Compilation failed"
     return false
-  if compCommand.contains " js ":
+  if compCommand.contains " js":
     if not existsFile(name & ".out"):
       return execProcess("/usr/bin/node nimcache/" & name & ".js " & params) == ""
     else:
