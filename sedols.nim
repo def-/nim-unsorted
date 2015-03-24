@@ -1,6 +1,6 @@
 import strutils
 
-proc c2v(c): int =
+proc c2v(c: char): int =
   assert c notin "AEIOU"
   let a = ord(c)
   if a < 65: a - 48
@@ -8,7 +8,7 @@ proc c2v(c): int =
 
 const weight = [1,3,1,7,3,9]
 
-proc checksum(sedol): string =
+proc checksum(sedol: string): string =
   var tmp = 0
   for i,s in sedol:
     tmp += c2v(s) * weight[i]

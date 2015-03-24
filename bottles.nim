@@ -1,4 +1,4 @@
-proc bottles(n): string =
+proc bottles(n: int): string =
   case n
   of 0: "no more bottles"
   of 1: "1 bottle"

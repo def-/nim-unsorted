@@ -1,6 +1,6 @@
 import sequtils
 
-proc levenshteinDistance(s1, s2): int =
+proc levenshteinDistance(s1, s2: string): int =
   var (s1, s2) = (s1, s2)
 
   if s1.len > s2.len:

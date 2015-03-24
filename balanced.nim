@@ -5,7 +5,7 @@ proc shuffle(s: var string) =
   for i in countdown(s.high, 0):
     swap(s[i], s[random(s.len)])
 
-proc gen(n): string =
+proc gen(n: int): string =
   result = newString(2 * n)
   for i in 0 .. <n:
     result[i] = '['
@@ -13,7 +13,7 @@ proc gen(n): string =
     result[i] = ']'
   shuffle(result)
 
-proc balanced(txt): bool =
+proc balanced(txt: string): bool =
   var b = 0
   for c in txt:
     case c

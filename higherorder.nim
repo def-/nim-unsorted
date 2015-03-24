@@ -1,4 +1,4 @@
-proc first(fn): auto =
+proc first(fn: proc): auto =
   return fn()
 
 proc second(): string =

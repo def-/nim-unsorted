@@ -15,7 +15,7 @@ proc `$`(m: seq[seq[int]]): string =
       result.add align($c, 2) & " "
     result.add "\n"
 
-proc zigzagMatrix(n): auto =
+proc zigzagMatrix(n: int): auto =
   result = newSeqWith(n, newSeq[int](n))
 
   var indices = newSeq[Pos]()

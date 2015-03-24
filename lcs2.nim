@@ -1,4 +1,4 @@
-proc lcs(a, b): string =
+proc lcs(a, b: string): string =
   var ls = newSeq[seq[int]] a.len+1
   for i in 0 .. a.len:
     ls[i].newSeq b.len+1

@@ -9,7 +9,7 @@ proc cholesky[T](a: T): T =
       result[i][j] = if i == j: sqrt(a[i][i]-s)
         else: (1.0 / result[j][j] * (a[i][j] - s))
 
-proc `$`(a): string =
+proc `$`(a: auto): string =
   result = ""
   for b in a:
     for c in b:

@@ -1,15 +1,15 @@
 import strutils, rdstdin
 
-proc menu(xs) =
+proc menu(xs: openarray[string]) =
   for i,x in xs: echo "  ",i,") ",x
 
-proc ok(reply, count): bool =
+proc ok(reply: string, count: int): bool =
   try:
     let n = parseInt(reply)
     return 0 <= n and n < count
   except: return false
 
-proc selector(xs, prompt): string =
+proc selector(xs: openarray[string], prompt: string): string =
   if xs.len == 0: return ""
   var reply = "-1"
   while not ok(reply, xs.len):

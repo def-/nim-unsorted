@@ -1,6 +1,6 @@
 import math
 
-proc middleThreeDigits(i): auto =
+proc middleThreeDigits(i: int): auto =
   var s = $abs(i)
   if s.len < 3 or s.len mod 2 == 0:
     raise newException(ValueError, "Need odd and >= 3 digits")

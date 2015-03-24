@@ -18,7 +18,7 @@ type
     gender: Gender
     age: Natural
 
-proc initMyOtherClass(name; gender = female; age = 50): auto =
+proc initMyOtherClass(name: string; gender = female; age = 50): auto =
   MyOtherClass(name: name, gender: gender, age: age)
 
 var person1 = initMyOtherClass("Jane")

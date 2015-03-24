@@ -1,4 +1,4 @@
-proc mulInv(a0, b0): int =
+proc mulInv(a0, b0: int): int =
   var (a, b, x0) = (a0, b0, 0)
   result = 1
   if b == 1: return

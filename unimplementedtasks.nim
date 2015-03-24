@@ -1,6 +1,6 @@
 import httpclient, strutils, xmldom, xmldomparser, cgi, os
 
-proc count(s, sub): int =
+proc count(s: string, sub: char): int =
   var i = 0
   while true:
     i = s.find(sub, i)
@@ -9,7 +9,7 @@ proc count(s, sub): int =
     inc i
     inc result
 
-proc findrc(category): seq[string] =
+proc findrc(category: string): seq[string] =
   var
     name = "http://www.rosettacode.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:$#&cmlimit=500&format=xml" % encodeUrl(category)
     cmcontinue = @[""]

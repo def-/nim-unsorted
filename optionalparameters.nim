@@ -1,8 +1,8 @@
 import algorithm, strutils, future
 
-proc printTable(a) =
+proc printTable(a: seq[seq[string]]) =
   for row in a:
-    for x in row: stdout.write x, repeatChar(4 - x.len)
+    for x in row: stdout.write x, spaces(4 - x.len)
     echo ""
   echo ""
 

@@ -1,6 +1,6 @@
 import strutils
 
-proc rot13(c): char =
+proc rot13(c: char): char =
   case toLower(c)
   of 'a'..'m': chr(ord(c) + 13)
   of 'n'..'z': chr(ord(c) - 13)

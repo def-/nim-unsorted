@@ -1,6 +1,6 @@
 import strutils
 
-iterator tokenize(text, sep): tuple[token: string, isSep: bool] =
+iterator tokenize(text: string, sep: openarray[string]): tuple[token: string, isSep: bool] =
   var i, lastMatch = 0
   while i < text.len:
     for j, s in sep:

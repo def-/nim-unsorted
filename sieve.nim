@@ -1,6 +1,6 @@
 import math
 
-proc eratosthenes(n): auto =
+proc eratosthenes(n: int): seq[int8] =
   result = newSeq[int8](n+1)
   result[0] = 1; result[1] = 1
 

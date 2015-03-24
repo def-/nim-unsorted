@@ -13,7 +13,7 @@ proc dot(a, b: Point): float =
 
 let light = normalize(30.0, 30.0, -50.0)
 
-proc drawSphere(r, k, ambient) =
+proc drawSphere(r: int, k, ambient: float) =
   for i in -r .. r:
     let x = i.float + 0.5
     for j in -2*r .. 2*r:

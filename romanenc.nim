@@ -3,11 +3,11 @@ import strutils
 const nums = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"), (90, "XC"),
               (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")]
 
-proc toRoman(x): string =
+proc toRoman(x: int): string =
   var x = x
   result = ""
   for a,r in items(nums):
-    result.add(repeatStr(x div a, r))
+    result.add(r.repeat(x div a))
     x = x mod a
 
 for i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,25,30,40,

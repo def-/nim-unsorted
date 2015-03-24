@@ -1,8 +1,8 @@
 import strutils
 
-proc isAlpha(c): bool = c in 'a'..'z' or c in 'A'..'Z'
+proc isAlpha(c: char): bool = c in 'a'..'z' or c in 'A'..'Z'
 
-proc encrypt(msg, key): string =
+proc encrypt(msg, key: string): string =
   result = ""
   var pos = 0
   for c in msg:
@@ -10,7 +10,7 @@ proc encrypt(msg, key): string =
       result.add chr(((ord(key[pos]) + ord(toUpper c)) mod 26) + ord('A'))
       pos = (pos + 1) mod key.len
 
-proc decrypt(msg, key): string =
+proc decrypt(msg, key: string): string =
   result = ""
   var pos = 0
   for c in msg:

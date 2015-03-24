@@ -1,9 +1,9 @@
 # Recursive
-proc multifact(n, deg): int =
+proc multifact(n, deg: int): int =
   result = (if n <= deg: n else: n * multifact(n - deg, deg))
 
 # Iterative
-proc multifactI(n, deg): int =
+proc multifactI(n, deg: int): int =
   result = n
   var n = n
   while n >= deg + 1:

@@ -2,7 +2,7 @@ import strutils
 
 type FloatRange = tuple[s,e: float]
 
-proc mapRange(a,b: FloatRange, s): float =
+proc mapRange(a,b: FloatRange, s: float): float =
   b.s + (s - a.s) * (b.e - b.s) / (a.e - a.s)
 
 for i in 0..10:

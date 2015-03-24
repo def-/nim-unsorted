@@ -10,19 +10,19 @@
 # ./pair node1 tcp://127.0.0.1:25000
 import os, nanomsg
 
-proc sendMsg(s, msg) =
+proc sendMsg(s: cint, msg: string) =
   echo "SENDING \"",msg,"\""
   let bytes = s.send(msg.cstring, msg.len + 1, 0)
   assert bytes == msg.len + 1
 
-proc recvMsg(s) =
+proc recvMsg(s: cint) =
   var buf: cstring
   let bytes = s.recv(addr buf, MSG, 0)
   if bytes > 0:
     echo "RECEIVED \"",buf,"\""
     discard freemsg buf
 
-proc sendRecv(s, msg) =
+proc sendRecv(s: cint, msg: string) =
   var to: cint = 100
   discard s.setSockOpt(SOL_SOCKET, RCVTIMEO, addr to, sizeof to)
   while true:

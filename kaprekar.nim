@@ -1,6 +1,6 @@
 import strutils, sequtils
 
-proc k(n): bool =
+proc k(n: int): bool =
   let n2 = $(n.int64 * n)
   for i in 0 .. <n2.len:
     let a = if i > 0: parseBiggestInt n2[0 .. <i] else: 0

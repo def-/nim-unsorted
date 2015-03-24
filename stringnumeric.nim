@@ -3,7 +3,7 @@ let s = "123"
 var f: float
 try:
   f = parseFloat s
-except EInvalidValue:
+except ValueError:
   echo "not numeric"
 
 if s.contains AllChars - Digits:

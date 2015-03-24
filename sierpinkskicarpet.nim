@@ -8,7 +8,7 @@ proc `^`*(base: int, exp: int): int =
     exp = exp shr 1
     base *= base
 
-proc inCarpet(x, y): bool =
+proc inCarpet(x, y: int): bool =
   var x = x
   var y = y
   while true:
@@ -20,7 +20,7 @@ proc inCarpet(x, y): bool =
     x = x div 3
     y = y div 3
 
-proc carpet(n) =
+proc carpet(n: int) =
   for i in 0 .. <(3^n):
     for j in 0 .. <(3^n):
       if inCarpet(i, j):

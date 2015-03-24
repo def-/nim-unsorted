@@ -1,6 +1,6 @@
 import strutils
 
-proc ti(a): int = ord(a) - ord('0')
+proc ti(a: char): int = ord(a) - ord('0')
 
 proc longmulti(a, b: string): string =
   var
@@ -23,7 +23,7 @@ proc longmulti(a, b: string): string =
     result.add longmulti(a[i..a.high], b[j..b.high])
     return
 
-  result = repeatChar(a.len + b.len, '0')
+  result = '0'.repeat(a.len + b.len)
 
   for i in countdown(a.high, 0):
     var carry = 0

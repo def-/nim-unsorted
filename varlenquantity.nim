@@ -13,7 +13,7 @@ proc toSeq(x: uint64): seq[uint8] =
 
   result[f] = result[f] xor 128'u8
 
-proc fromSeq(xs): uint64 =
+proc fromSeq(xs: openarray[uint8]): uint64 =
   result = 0
   for x in xs:
     result = (result shl 7) or (x and 127)

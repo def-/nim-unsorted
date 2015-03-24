@@ -9,11 +9,11 @@ const
 
 proc random(a: string): char = a[random(a.low..a.len)]
 
-proc negFitness(trial): int =
+proc negFitness(trial: string): int =
   for i in 0 .. <trial.len:
     if target[i] != trial[i]: inc result
 
-proc mutate(parent): string =
+proc mutate(parent: string): string =
   result = ""
   for c in parent: result.add if random(1.0) < p: random(alphabet) else: c
 

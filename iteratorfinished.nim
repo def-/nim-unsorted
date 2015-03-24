@@ -4,7 +4,7 @@ iterator iter(): int {.closure.} =
     yield x
     inc x
 
-proc finished[T](iter; x: var T): bool =
+proc finished[T](iter: auto; x: var T): bool =
   var y: T = iter()
   if finished(iter):
     result = true

@@ -17,12 +17,12 @@ var people: seq[Record] =
     ("Kim Arlich", "E10001", 57000, "D190"),
     ("Timothy Grove", "E16398", 29900, "D190")]
 
-proc pcmp(a, b): int =
+proc pcmp(a, b: Record): int =
   result = cmp(a.department, b.department)
   if result != 0: return
   result = cmp(b.salary, a.salary)
 
-proc top(n) =
+proc top(n: int) =
   sort(people, pcmp)
 
   var rank = 0

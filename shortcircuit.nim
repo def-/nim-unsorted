@@ -1,7 +1,7 @@
-proc a(x): bool =
+proc a(x: bool): bool =
   echo "a called"
   result = x
-proc b(x): bool =
+proc b(x: bool): bool =
   echo "b called"
   result = x
 

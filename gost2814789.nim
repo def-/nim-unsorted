@@ -1,4 +1,4 @@
-var 
+var
   k8 = [14,  4, 13,  1,  2, 15, 11,  8,  3, 10,  6, 12,  5,  9,  0,  7]
   k7 = [15,  1,  8, 14,  6, 11,  3,  4,  9,  7,  2, 13, 12,  0,  5, 10]
   k6 = [10,  0,  9, 14,  6,  3, 15,  5,  1, 13, 12,  7, 11,  4,  2,  8]
@@ -17,7 +17,7 @@ proc kboxInit =
     k43[i] = k4[i shr 4] shl 4 or k3[i and 15]
     k21[i] = k2[i shr 4] shl 4 or k1[i and 15]
 
-proc f(x): int64 =
+proc f(x: int64): int64 =
   let x = k87[x shr 24 and 255] shl 24 or k65[x shr 16 and 255] shl 16 or
           k43[x shr 8 and 255] shl 8 or k21[x and 255]
   x shl 11 or x shr (32 - 11)

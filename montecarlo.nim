@@ -1,7 +1,7 @@
 import math
 randomize()
 
-proc pi(nthrows): float =
+proc pi(nthrows: float): float =
   var inside = 0
   for i in 1..int64(nthrows):
     if hypot(random(1.0), random(1.0)) < 1:

@@ -5,7 +5,7 @@ import sequtils, algorithm, intsets
 var items = @[1, 2, 3, 2, 3, 4, 5, 6, 7]
 echo deduplicate(items) # O(n^2)
 
-proc filterDup(xs): seq[int] =
+proc filterDup(xs: seq[int]): seq[int] =
   result = @[xs[0]]
   var last = xs[0]
   for x in xs[1..xs.high]:

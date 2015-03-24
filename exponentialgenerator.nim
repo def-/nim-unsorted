@@ -8,16 +8,16 @@ proc `^`*(base: int, exp: int): int =
     exp = exp shr 1
     base *= base
 
-proc next(s): int =
+proc next(s: auto): int =
   for n in s(): return n
 
-proc powers(m): auto =
+proc powers(m: int): auto =
   iterator it(): int{.closure.} =
     for n in 0 .. <int.high:
       yield n ^ m
   return it
 
-iterator filtered(s1, s2): int =
+iterator filtered(s1, s2: auto): int =
   var v = next(s1)
   var f = next(s2)
   while true:

@@ -1,6 +1,6 @@
 import times, os
 
-proc doWork(x) =
+proc doWork(x: int) =
   var n = x
   for i in 0..10000000:
     n += i

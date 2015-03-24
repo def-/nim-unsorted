@@ -3,7 +3,7 @@ proc printer(x: int): proc =
     echo "hello " & $x
   return y
 
-proc callMe(p) =
+proc callMe(p: auto) =
   for i in 1..3:
     p()
 

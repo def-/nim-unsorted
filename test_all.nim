@@ -438,7 +438,7 @@ testIt "signals": check it.compiles
 testIt "singuser": check it.returns
 testIt "simplemovingaverage": check it.returns
 testIt "simplewindow": check it.compiles
-testIt "sleepsort": check it.compiles
+testIt "sleepsort": check it.compiles("--threads:on")
 testIt "slice": check it.returns
 testIt "sock": check it.compiles
 testIt "sortcmp": check it.returns

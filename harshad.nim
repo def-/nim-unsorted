@@ -1,15 +1,15 @@
 import strutils
 
-proc slice[T](iter: iterator(): T {.closure.}, sl): seq[T] =
-  var result {.gensym.}: seq[int64] = @[]
+proc slice[T](iter: iterator(): T {.closure.}, sl: auto): seq[T] =
+  var res {.gensym.}: seq[int64] = @[]
   var i = 0
   for n in iter():
     if i > sl.b:
       break
     if i >= sl.a:
-      result.add(n)
+      res.add(n)
     inc i
-  result
+  res
 
 iterator harshad(): int64 {.closure.} =
   for n in 1 .. < int64.high:

@@ -1,4 +1,4 @@
-iterator comb(m, n): seq[int] =
+iterator comb(m, n: int): seq[int] =
   var c = newSeq[int](n)
   for i in 0 .. <n: c[i] = i
 

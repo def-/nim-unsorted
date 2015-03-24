@@ -1,7 +1,7 @@
 import math, strutils
 randomize()
 
-proc sd(ns): auto =
+proc sd(ns: openarray[float]): auto =
   var sx, sxx = 0.0
   for x in ns:
     sx += x
@@ -10,7 +10,7 @@ proc sd(ns): auto =
            else: 0
   (sd, sx / float(ns.len))
 
-proc histogram(ns) =
+proc histogram(ns: openarray[float]) =
   var h = newSeq[int](10)
   for n in ns:
     let pos = int(n * 10)
@@ -20,7 +20,7 @@ proc histogram(ns) =
   let mx = max(h)
   echo ""
   for n, i in h:
-    echo n/10,": ",repeatChar(int(i / mx * maxWidth), '+')
+    echo n/10,": ",'+'.repeat(int(i / mx * maxWidth))
   echo ""
 
 for i in [10, 100, 1_000, 10_000, 100_000]:

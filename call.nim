@@ -3,7 +3,7 @@ proc no_args() =
 # call
 no_args()
 
-proc fixed_args(x, y) =
+proc fixed_args(x, y: int) =
   echo x
   echo y
 # calls
@@ -32,7 +32,7 @@ fixed_args(y=2, x=1)    # x=1, y=2
 if true:
   no_args()
 
-proc return_something(x): int =
+proc return_something(x: int): int =
   x + 1
 
 var a = return_something(2)

@@ -1,4 +1,4 @@
-proc hailstone*(n): auto =
+proc hailstone*(n: int): seq[int] =
   result = @[n]
   var n = n
   while n > 1:

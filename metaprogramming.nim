@@ -135,12 +135,12 @@ dumpTree:
 
 # Using this information we could create an if over two values:
 
-proc newIfElse(c, t, e): PNimrodNode {.compiletime.} =
+proc newIfElse(c, t, e: NimNode): NimNode {.compiletime.} =
   result = newIfStmt((c, t))
   result.add(newNimNode(nnkElse).add(e))
 
 macro if2(x, y: expr; z: stmt): stmt {.immediate.} =
-  var parts: array[4, PNimrodNode]
+  var parts: array[4, NimNode]
   for i in parts.low .. parts.high:
     parts[i] = newNimNode(nnkDiscardStmt).add(nil)
 

@@ -1,4 +1,4 @@
-proc bitwise(a, b) =
+proc bitwise(a, b: int) =
   echo "a and b: " , a and b
   echo "a or b: ", a or b
   echo "a xor b: ", a xor b

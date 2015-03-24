@@ -1,6 +1,6 @@
 import strutils
 
-proc z(n): string =
+proc z(n: int): string =
   if n == 0: return "0"
   var fib = @[2,1]
   var n = n

@@ -1,6 +1,6 @@
 import intsets, math, algorithm
 
-proc factors(n): seq[int] =
+proc factors(n: int): seq[int] =
   var fs = initIntSet()
   for x in 1 .. int(sqrt(float(n))):
     if n mod x == 0:

@@ -1,6 +1,6 @@
 import strutils
 
-proc removeComments(line, sep): string =
+proc removeComments(line: string, sep: char): string =
   line.split(sep)[0].strip(leading = false)
 
 echo removeComments("apples, pears # and bananas", '#')

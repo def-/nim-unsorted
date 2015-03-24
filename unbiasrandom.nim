@@ -7,11 +7,11 @@ template newSeqWith(len: int, init: expr): expr =
     result[i] = init
   result
 
-proc randN(n): (proc: range[0..1]) =
+proc randN(n: int): (proc: range[0..1]) =
   result = proc(): range[0..1] =
     if random(n) == 0: 1 else: 0
 
-proc unbiased(biased): range[0..1] =
+proc unbiased(biased: proc): range[0..1] =
   var (this, that) = (biased(), biased())
   while this == that:
     this = biased()

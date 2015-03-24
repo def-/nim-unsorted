@@ -2,7 +2,7 @@ import strutils
 
 proc cline(n, x, y: int, cde: string) =
   echo cde[0..0].align n+1,
-    repeatChar(9*x-1, cde[1]),
+    cde[1].repeat 9*x-1,
     cde[0], cde[2..2].align y+1
 
 proc cuboid(x, y, z: int) =

@@ -24,7 +24,7 @@ const sets = @[@["the", "that", "a"],
                @["walked", "treaded", "grows"],
                @["slowly", "quickly"]]
 
-let result = amb((s, t: string) => (s[s.high] == t[0]), sets)
+let result = amb((s: string, t: string) => (s[s.high] == t[0]), sets)
 if result.len == 0:
   echo "No matches found!"
 else:

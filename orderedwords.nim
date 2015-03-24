@@ -1,6 +1,6 @@
 import httpclient, strutils
 
-proc isSorted(s): bool =
+proc isSorted(s: string): bool =
   var last = low(char)
   for c in s:
     if c < last:

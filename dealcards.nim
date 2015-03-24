@@ -7,7 +7,7 @@ proc randomGenerator(seed: int): iterator: int =
       seed = (seed.int64 * 214013 + 2531011) and int32.high
       yield seed shr 16
 
-proc deal(seed): seq[int] =
+proc deal(seed: int): seq[int] =
   const nc = 52
   result = toSeq countdown(nc - 1, 0)
   var rnd = randomGenerator seed
@@ -16,7 +16,7 @@ proc deal(seed): seq[int] =
     let j = (nc - 1) - r mod (nc - i)
     swap result[i], result[j]
 
-proc show(cards) =
+proc show(cards: seq[int]) =
   var l = newSeq[string]()
   for c in cards:
     l.add "A23456789TJQK"[c div 4] & "CDHS"[c mod 4]

@@ -1,9 +1,9 @@
-proc dif(s): seq[int] =
+proc dif(s: seq[int]): seq[int] =
   result = newSeq[int](s.len-1)
   for i, x in s[1..s.high]:
     result[i] = x - s[i]
 
-proc difn(s, n): seq[int] =
+proc difn(s: seq[int], n: int): seq[int] =
   if n > 0: difn(dif(s), n-1)
   else: s
 

@@ -1,7 +1,7 @@
 import rdstdin, strutils, math, strfmt
 
-proc radians(x): float = x * Pi / 180
-proc degrees(x): float = x * 180 / Pi
+proc radians(x: float): float = x * Pi / 180
+proc degrees(x: float): float = x * 180 / Pi
 
 let lat = parseFloat readLineFromStdin "Enter latitude       => "
 let lng = parseFloat readLineFromStdin "Enter longitude      => "

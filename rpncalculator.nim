@@ -2,8 +2,8 @@ import math, rdstdin, strutils, tables
 
 type Stack = seq[float]
 
-proc lalign(s, x): string =
-  s & repeatChar(x - s.len, ' ')
+proc lalign(s: string, x: int): string =
+  s & spaces(x - s.len)
 
 proc opPow(s: var Stack) =
   let b = s.pop
@@ -30,7 +30,7 @@ proc opSub(s: var Stack) =
   let a = s.pop
   s.add a - b
 
-proc opNum(s: var Stack, num) = s.add num
+proc opNum(s: var Stack, num: float) = s.add num
 
 let ops = toTable({"^": opPow,
                    "*": opMul,
@@ -44,7 +44,7 @@ proc getInput(inp = ""): seq[string] =
     inp = readLineFromStdin "Expression: "
   result = inp.strip.split
 
-proc rpnCalc(tokens): auto =
+proc rpnCalc(tokens: openarray[string]): auto =
   var s: Stack = @[]
   result = @[@["TOKEN","ACTION","STACK"]]
   for token in tokens:

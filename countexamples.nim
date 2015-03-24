@@ -1,6 +1,6 @@
 import httpclient, strutils, xmldom, xmldomparser, cgi
 
-proc count(s, sub): int =
+proc count(s, sub: string): int =
   var i = 0
   while true:
     i = s.find(sub, i)

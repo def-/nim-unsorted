@@ -1,6 +1,6 @@
 import strutils, future
 
-proc solve(tri): int =
+proc solve(tri: seq[seq[int]]): int =
   var tri = tri
   while tri.len > 1:
     let t0 = tri.pop

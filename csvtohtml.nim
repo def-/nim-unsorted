@@ -7,14 +7,14 @@ The multitude,Who are you?
 Brians mother,I'm his mother; that's who!
 The multitude,Behold his mother! Behold his mother!"""
 
-proc row2tr(row): string =
+proc row2tr(row: string): string =
   result = "<tr>"
   let cols = xmlEncode(row).split(",")
   for col in cols:
     result.add "<td>"&col&"</td>"
   result.add "</tr>"
 
-proc csv2html(txt): string =
+proc csv2html(txt: string): string =
   result = "<table summary=\"csv2html program output\">\n"
   for row in txt.splitLines():
     result.add "  <tbody>"&row2tr(row)&"</tbody>\n"

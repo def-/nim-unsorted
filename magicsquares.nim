@@ -10,7 +10,7 @@ proc `^`*(base: int, exp: int): int =
     exp = exp shr 1
     base *= base
 
-proc magic(n) =
+proc magic(n: int) =
   for row in 1 .. n:
     for col in 1 .. n:
       let cell = (n * ((row + col - 1 + n div 2) mod n) +

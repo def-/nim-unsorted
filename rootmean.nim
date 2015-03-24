@@ -1,6 +1,6 @@
 import math
 
-proc qmean(num): float =
+proc qmean(num: openarray[float]): float =
   for n in num:
     result += n*n
   result = sqrt(result / float(num.len))

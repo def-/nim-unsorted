@@ -30,5 +30,5 @@ while i < maxSteps and x in 0 .. < width and y in 0 .. < height:
   inc i
 
 for row in m:
-  echo map(row, proc(x): string =
+  echo map(row, proc(x: Color): string =
     if x == white: "." else: "#").join("")

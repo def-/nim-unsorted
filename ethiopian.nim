@@ -1,8 +1,8 @@
-proc halve(x): int = x div 2
-proc double(x): int = x * 2
-proc even(x): bool = x mod 2 == 0
+proc halve(x: int): int = x div 2
+proc double(x: int): int = x * 2
+proc even(x: int): bool = x mod 2 == 0
 
-proc ethiopian(x, y): int =
+proc ethiopian(x, y: int): int =
   var x = x
   var y = y
 

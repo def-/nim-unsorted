@@ -1,6 +1,6 @@
 import strutils
 
-proc mean(xs): float =
+proc mean(xs: openarray[float]): float =
   for x in xs:
     result += x
   result = result / float(xs.len)

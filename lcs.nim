@@ -1,4 +1,4 @@
-proc lcs(x, y): string =
+proc lcs(x, y: string): string =
   if x == "" or y == "":
     return ""
 

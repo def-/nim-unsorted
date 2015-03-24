@@ -7,12 +7,12 @@ proc extendRS =
   for y in cs[cs.high] + 1 .. <x: cs.add y
   cs.add x + 1
 
-proc ffr(n): int =
+proc ffr(n: int): int =
   assert n > 0
   while n > cr.len: extendRS()
   cr[n - 1]
 
-proc ffs(n): int =
+proc ffs(n: int): int =
   assert n > 0
   while n > cs.len: extendRS()
   cs[n - 1]

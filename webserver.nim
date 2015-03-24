@@ -1,7 +1,7 @@
-import httpserver, sockets
+import asynchttpserver, asyncdispatch
 
-proc handleRequest(client, path, query): bool =
-  client.send("Goodbye, World!")
-  false
+proc cb(req: Request) {.async.} =
+  await req.respond(Http200, "Goodbye, World!")
 
-run(handleRequest, Port(8080))
+asyncCheck newAsyncHttpServer().serve(Port(8080), cb)
+runForever()

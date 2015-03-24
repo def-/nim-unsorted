@@ -17,7 +17,7 @@ type
   Point = tuple
     x, y: Index
 
-proc px(r, g, b): Pixel =
+proc px(r, g, b: int): Pixel =
   result.r = r.uint8
   result.g = g.uint8
   result.b = b.uint8

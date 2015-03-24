@@ -1,6 +1,6 @@
 import strutils
 
-proc isRepeated(text): int =
+proc isRepeated(text: string): int =
   for x in countdown(text.len div 2, 0):
     if text.startsWith(text[x..text.high]): return x
 

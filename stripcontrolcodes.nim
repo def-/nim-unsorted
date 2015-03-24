@@ -1,4 +1,4 @@
-proc stripped(str): string =
+proc stripped(str: string): string =
   result = ""
   for c in str:
     if ord(c) in 32..126:

@@ -1,6 +1,6 @@
 const suffix = ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"]
 
-proc nth(n): string =
+proc nth(n: int): string =
   $n & "'" & (if n mod 100 <= 10 or n mod 100 > 20: suffix[n mod 10] else: "th")
 
 for j in countup(0, 1000, 250):

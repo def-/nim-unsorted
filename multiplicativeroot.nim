@@ -6,7 +6,7 @@ template newSeqWith(len: int, init: expr): expr =
     result[i] = init
   result
 
-proc mdroot(n): tuple[mp, mdr: int] =
+proc mdroot(n: int): tuple[mp, mdr: int] =
   var mdr = @[n]
   while mdr[mdr.high] > 9:
     var n = 1

@@ -1,6 +1,6 @@
 import strutils
 
-proc commentStripper(txt; delim: tuple[l,r: string] = ("/*", "*/")): string =
+proc commentStripper(txt: string; delim: tuple[l,r: string] = ("/*", "*/")): string =
   let i = txt.find(delim.l)
   if i < 0:
     return txt
@@ -16,13 +16,13 @@ echo commentStripper("""/**
    * Some comments
    * longer comments here that we can parse.
    *
-   * Rahoo 
+   * Rahoo
    */
    function subroutine() {
     a = /* inline comment */ b + c ;
    }
    /*/ <-- tricky comments */
- 
+
    /**
     * Another comment.
     */
@@ -34,7 +34,7 @@ echo commentStripper("""  /**
    * Some comments
    * longer comments here that we can parse.
    *
-   * Rahoo 
+   * Rahoo
    *//*
    function subroutine() {
     a = /* inline comment */ b + c ;

@@ -1,4 +1,4 @@
-proc merge[T](a, b: var openarray[T], left, middle, right) =
+proc merge[T](a, b: var openarray[T], left, middle, right: int) =
   let
     leftLen = middle - left
     rightLen = right - middle
@@ -35,7 +35,7 @@ proc merge[T](a, b: var openarray[T], left, middle, right) =
     inc r
     inc i
 
-proc mergeSort[T](a, b: var openarray[T], left, right) =
+proc mergeSort[T](a, b: var openarray[T], left, right: int) =
   if right - left <= 1: return
 
   let middle = (left + right) div 2

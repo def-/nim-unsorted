@@ -13,5 +13,5 @@ var x: int
 
 let
   colors = @["red", "yellow", "black"]
-  f1 = filter(colors, proc(x): bool = x.len < 6)
-  f2 = colors.filter do (x) -> bool : x.len > 5
+  f1 = filter(colors, proc(x: string): bool = x.len < 6)
+  f2 = colors.filter do (x: string) -> bool : x.len > 5

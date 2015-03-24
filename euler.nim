@@ -7,7 +7,7 @@ proc euler(f: proc (x,y: float): float; y0, a, b, h: float) =
     t += h
     y += h * f(t,y)
 
-proc newtoncooling(time, temp): float =
+proc newtoncooling(time, temp: float): float =
   -0.07 * (temp - 20)
 
 euler(newtoncooling, 100.0, 0.0, 100.0, 10.0)

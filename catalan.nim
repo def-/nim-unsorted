@@ -1,6 +1,6 @@
 import strutils
 
-proc binomial(m, n): auto =
+proc binomial(m, n: int): int =
   result = 1
   var
     d = m - n
@@ -16,16 +16,16 @@ proc binomial(m, n): auto =
       result = result div d
       dec d
 
-proc catalan1(n): auto =
+proc catalan1(n: int): int =
   binomial(2 * n, n) div (n + 1)
 
-proc catalan2(n): auto =
+proc catalan2(n: int): int =
   if n == 0:
     result = 1
   for i in 0 .. <n:
     result += catalan2(i) * catalan2(n - 1 - i)
 
-proc catalan3(n): int =
+proc catalan3(n: int): int =
   if n > 0: 2 * (2 * n - 1) * catalan3(n - 1) div (1 + n)
   else: 1
 

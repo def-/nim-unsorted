@@ -1,6 +1,6 @@
 import math
 
-proc nthroot(a, n): float =
+proc nthroot(a: float, n: int): float =
   var n = float(n)
   result = a
   var x = a / n

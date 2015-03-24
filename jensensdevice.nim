@@ -1,6 +1,6 @@
 var i: int
 
-proc harmonicSum(i: var int, lo, hi, term): float =
+proc harmonicSum(i: var int, lo, hi: int, term: proc): float =
   i = lo
   while i <= hi:
     result += term()

@@ -1,4 +1,4 @@
-proc gcd(u, v): auto =
+proc gcd(u, v: int): int =
   var
     t = 0
     u = u
@@ -9,7 +9,7 @@ proc gcd(u, v): auto =
     v = t %% v
   abs(u)
 
-proc lcm(a, b): auto = abs(a * b) div gcd(a, b)
+proc lcm(a, b: int): int = abs(a * b) div gcd(a, b)
 
 echo lcm(12, 18)
 echo lcm(-6, 14)

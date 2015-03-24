@@ -15,7 +15,7 @@ proc myReadLine(f: File, line: var TaintedString): bool =
       break
     add(line, cstring(buf))
 
-proc handleFasta(header, sequence) =
+proc handleFasta(header, sequence: string) =
   echo header.len, " ", sequence.len
 
 var sequence = ""

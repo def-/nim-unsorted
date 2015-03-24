@@ -1,6 +1,6 @@
 import sets, strutils, algorithm
 
-proc primes(n): seq[int64] =
+proc primes(n: int64): seq[int64] =
   result = @[]
   var multiples = initSet[int64]()
   for i in 2..n:
@@ -9,7 +9,7 @@ proc primes(n): seq[int64] =
       for j in countup(i * i, n, i.int):
         multiples.incl j
 
-proc truncatablePrime(n): tuple[left: int64, right: int64] =
+proc truncatablePrime(n: int64): tuple[left: int64, right: int64] =
   var
     primelist: seq[string] = @[]
   for x in primes(n):

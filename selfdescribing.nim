@@ -1,6 +1,6 @@
 import strutils
 
-proc count(s, sub): int =
+proc count(s, sub: string): int =
   var i = 0
   while true:
     i = s.find(sub, i)
@@ -9,7 +9,7 @@ proc count(s, sub): int =
     inc i
     inc result
 
-proc isSelfDescribing(n): bool =
+proc isSelfDescribing(n: int): bool =
   let s = $n
   for i, ch in s:
     if s.count($i) != parseInt("" & ch):

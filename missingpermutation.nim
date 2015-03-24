@@ -1,6 +1,6 @@
 import strutils
 
-proc missingPermutation(arr): string =
+proc missingPermutation(arr: openarray[string]): string =
   result = ""
   if arr.len == 0: return
   if arr.len == 1: return arr[0][1] & arr[0][0]

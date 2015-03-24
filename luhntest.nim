@@ -1,4 +1,4 @@
-proc luhn(cc): bool =
+proc luhn(cc: string): bool =
   const m = [0,2,4,6,8,1,3,5,7,9]
   var sum = 0
   var odd = true

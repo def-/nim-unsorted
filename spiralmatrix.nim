@@ -24,7 +24,7 @@ proc `$`(m: seq[seq[int]]): string =
       result.add align($c, 2) & " "
     result.add "\n"
 
-proc spiral(n): auto =
+proc spiral(n: int): auto =
   result = newSeqWith(n, newSeqWith[int](n, -1))
   var dx = 1
   var dy, x, y = 0

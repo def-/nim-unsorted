@@ -1,6 +1,6 @@
 import sets, hashes
 
-proc hash(x): THash =
+proc hash(x: HashSet[int]): THash =
   var h = 0
   for i in x: h = h !& hash(i)
   result = !$h

@@ -1,4 +1,4 @@
-proc handleFasta(header, sequence) =
+proc handleFasta(header, sequence: string) =
   echo header.len, " ", sequence.len
 
 var f = system.open("sequence.fasta")
