@@ -5,7 +5,7 @@ proc commonprefix(paths: openarray[string], sep = "/"): string =
 
   block outer:
     for i in 0..paths[0].len:
-      result = paths[0][0..i]
+      result = paths[0][..i]
       for path in paths:
         if not path.startsWith(result):
           break outer

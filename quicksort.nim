@@ -1,22 +1,23 @@
-proc quickSort[T](a: var openarray[T], inl = 0, inr = -1) =
-  var r = if inr >= 0: inr else: a.high
-  var l = inl
-  let n = r - l + 1
-  if n < 2: return
-  let p = a[l + 3 * n div 4]
-  while l <= r:
-    if a[l] < p:
-      inc l
-      continue
-    if a[r] > p:
-      dec r
-      continue
-    if l <= r:
-      swap a[l], a[r]
-      inc l
-      dec r
-  quickSort(a, inl, r)
-  quickSort(a, l, inr)
+proc quickSort[T](a: var openarray[T], l, r: int) =
+  if r <= l: return
+  let pivot = a[l]
+  var (i, j) = (l, r)
+
+  while i <= j:
+    if a[i] < pivot:
+      inc i
+    elif a[j] > pivot:
+      dec j
+    elif i <= j:
+      swap a[i], a[j]
+      inc i
+      dec j
+
+  quickSort(a, l, j)
+  quickSort(a, i, r)
+
+proc quickSort*[T](a: var openarray[T]) =
+  quickSort(a, 0, a.high)
 
 var a = @[4, 65, 2, -31, 0, 99, 2, 83, 782]
 quickSort a

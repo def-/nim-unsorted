@@ -36,6 +36,6 @@ proc longmulti(a, b: string): string =
     result[k] = chr(ord(result[k]) + carry)
 
   if result[0] == '0':
-    result[0..result.high-1] = result[1..result.high]
+    result[.. ^2] = result[1.. ^1]
 
 echo longmulti("-18446744073709551616", "-18446744073709551616")

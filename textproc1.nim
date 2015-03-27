@@ -19,7 +19,7 @@ for filename in commandLineParams():
       data: seq[float] = @[]
       flags: seq[int] = @[]
 
-    for i, f in field[1 .. -1]:
+    for i, f in field[1 .. ^1]:
       if i mod 2 == 0: data.add parseFloat(f)
       else: flags.add parseInt(f)
 

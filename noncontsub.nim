@@ -4,8 +4,8 @@ proc ncsub[T](se: seq[T], s = 0): seq[seq[T]] =
   result = @[]
   if se.len > 0:
     let
-      x = se[0..0]
-      xs = se[1 .. -1]
+      x = se[..0]
+      xs = se[1 .. ^1]
       p2 = s mod 2
       p1 = (s + 1) mod 2
     for ys in ncsub(xs, s + p1):

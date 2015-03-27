@@ -1,1 +1,1 @@
-echo "foo"[0..1]
+echo "foo"[..1]

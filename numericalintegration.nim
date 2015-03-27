@@ -17,7 +17,7 @@ proc simpson(f: Function, x, h: float): float =
   (f(x) + 4.0*f(x+h/2.0) + f(x+h)) / 6.0
 
 proc cube(x: float): float =
-  x * x *x
+  x * x * x
 
 proc reciprocal(x: float): float =
   1.0 / x

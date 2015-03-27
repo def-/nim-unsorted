@@ -3,7 +3,7 @@ import math, rdstdin, strutils, algorithm
 proc f(x: float): float = x.abs.pow(0.5) + 5 * x.pow(3)
 
 proc ask: seq[float] =
-  readLineFromStdin("\n11 numbers: ").strip.split[0..10].map(parseFloat)
+  readLineFromStdin("\n11 numbers: ").strip.split[..10].map(parseFloat)
 
 var s = ask()
 reverse s

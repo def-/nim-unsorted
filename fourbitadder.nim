@@ -11,7 +11,7 @@ proc fa4(a, b: array[4, bool]): array[5, bool] =
     let r = fa(a[i], b[i], if i > 0: co[i-1] else: false)
     s[i] = r[0]
     co[i] = r[1]
-  result[0..3] = s
+  result[..3] = s
   result[4] = co[3]
 
 proc int2bus(n: int): array[4, bool] =
