@@ -1,6 +1,7 @@
-proc ha(a, b: bool): auto = [a xor b, a and b] # sum, carry
+proc ha(a, b: bool): array[2, bool] =
+  [a xor b, a and b] # sum, carry
 
-proc fa(a, b, ci: bool): auto =
+proc fa(a, b, ci: bool): array[2, bool] =
   let a = ha(ci, a)
   let b = ha(a[0], b)
   [b[0], a[1] or b[1]] # sum, carry

@@ -1,12 +1,10 @@
 import times, os, strutils
 
-var timeinfo = getLocalTime getTime()
-timeinfo.year = paramStr(1).parseInt
+let year = paramStr(1).parseInt
 for month in mJan .. mDec:
-  timeinfo.month = month
-  for day in countdown(31, 1):
-    timeinfo.monthday = day
-    let t = getLocalTime(timeInfoToTime timeinfo)
-    if t.month == month and t.weekday == dSun:
+  for day in countdown(getDaysInMonth(month, year), 1):
+    let t = getGMTime timeInfoToTime TimeInfo(second: 0, minute: 0, hour: 12,
+      monthday: day, month: month, year: year, tzname: "GMT")
+    if t.weekday == dSun:
       echo t.format "yyyy-MM-dd"
       break
