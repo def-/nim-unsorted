@@ -1,6 +1,6 @@
 ## Nimrod directly supports documentation using comments that start with two
-## hashes (##). To create the documentation run ``nimrod doc file.nim``.
-## ``nimrod doc2 file.nim`` is the same, but run after semantic checking, which
+## hashes (##). To create the documentation run ``nim doc file.nim``.
+## ``nim doc2 file.nim`` is the same, but run after semantic checking, which
 ## allows it to process macros and output more information.
 ##
 ## These are the comments for the entire module.  We can have long descriptions
@@ -9,7 +9,7 @@
 ##
 ## Here comes a code block inside our documentation:
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##   var inputStrings : seq[string]
 ##   newSeq(inputStrings, 3)
 ##   inputStrings[0] = "The fourth"

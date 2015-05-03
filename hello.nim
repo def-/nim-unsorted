@@ -1,4 +1,4 @@
-# nimrod js hello.nim
+# nim js hello.nim
 import tables
 
 echo "Hello World"

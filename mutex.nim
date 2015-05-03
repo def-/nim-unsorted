@@ -1,4 +1,4 @@
-# Compile with nimrod --threads:on c mutex
+# Compile with nim --threads:on c mutex
 import locks
 
 # Creating a mutex:

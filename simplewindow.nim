@@ -11,7 +11,7 @@ proc clickedMe(o: var PButton, l: PLabel) =
   inc counter
   l.setText "You clicked me " & $counter & " times"
 
-nimrod_init()
+nim_init()
 win.setTitle "Click me"
 vbox.add label
 vbox.add button

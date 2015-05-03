@@ -1,5 +1,5 @@
 import gtk2, gdk2, gdk2pixbuf
-gtk2.nimrod_init()
+gtk2.nim_init()
 
 proc getPixelColor(x, y: int32): auto =
   var p = pixbufNew(COLORSPACE_RGB, false, 8, 1, 1)

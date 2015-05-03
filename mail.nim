@@ -8,10 +8,10 @@ proc sendMail(fromAddr: string; toAddrs, ccAddrs: seq[string];
   s.auth(login, password)
   s.sendmail(fromAddr, toAddrs, $msg)
 
-sendMail(fromAddr = "nimrod@gmail.com",
+sendMail(fromAddr = "nim@gmail.com",
          toAddrs  = @["someone@example.com"],
          ccAddrs  = @[],
-         subject  = "Hi from Nimrod",
-         message  = "Nimrod says hi!\nAnd bye again!",
+         subject  = "Hi from Nim",
+         message  = "Nim says hi!\nAnd bye again!",
          login    = "foo@gmail.com",
          password = "XXXXXX")

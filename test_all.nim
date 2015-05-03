@@ -205,6 +205,7 @@ testIt "file5": check it.compiles
 testIt "fileexists": check it.compiles
 testIt "fileinfo": check it.compiles
 testIt "file": check it.compiles
+testIt "fileline": check it.compiles
 testIt "filesize": check it.compiles
 testIt "filetape": check it.compiles
 testIt "filex": check it.compiles
