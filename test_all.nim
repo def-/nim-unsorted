@@ -1,8 +1,12 @@
 ## Interesting tests:
 ##
 ## ./test_all nim --cc:gcc c
+## ./test_all nim --cc:gcc --gc:markandsweep c
+## ./test_all nim --cc:gcc --gc:v2 c
 ## ./test_all nim --cc:gcc --gc:boehm c
 ## ./test_all nim --cc:gcc -d:release c
+## ./test_all nim --cc:gcc -d:release --gc:markandsweep c
+## ./test_all nim --cc:gcc -d:release --gc:v2 c
 ## ./test_all nim --cc:gcc -d:release --gc:boehm c
 ##
 ## ./test_all nim --cc:clang c
@@ -16,6 +20,13 @@
 ##
 ## ./test_all nim --cc:gcc cpp
 ## ./test_all nim --cc:gcc -d:release cpp
+##
+## ./test_all nim --cc:clang cpp
+## ./test_all nim --cc:clang -d:release cpp
+##
+## ./test_all nim --cc:gcc --cpu:i386 --passC:-m32 --passL:-m32 c
+## ./test_all nim --cc:clang --cpu:i386 --passC:-m32 --passL:-m32 c
+##
 ## https://github.com/Araq/Nim/issues/1389
 ## https://github.com/Araq/Nim/issues/1888
 ##
@@ -72,7 +83,7 @@ template testIt(name: string, rest: stmt): stmt {.immediate.} =
     let it {.inject.} = name
     rest
 
-discard execCmd("rm -rf nimcache")
+#discard execCmd("rm -rf nimcache")
 
 testIt "abstract_type": check it.compiles
 testIt "accumulatorfactory": check it.returns

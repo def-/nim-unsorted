@@ -1,5 +1,5 @@
-proc changes(amount: int, coins: openarray[int]): int =
-  var ways = @[1]
+proc changes(amount: int, coins: openarray[int]): int64 =
+  var ways = @[1'i64]
   ways.setLen(amount+1)
   for coin in coins:
     for j in coin..amount:

@@ -107,7 +107,7 @@ proc readChars*(bf: var BufferedFile, a: var openArray[char], start,
                 len: int): int =
   result = readBuffer(bf, addr(a[start]), len)
 
-iterator items*(bf: var BufferedFile): string =
+iterator lines*(bf: var BufferedFile): string =
   var line = TaintedString(newStringOfCap(80))
   while bf.readLine(line):
     yield line
@@ -120,7 +120,7 @@ proc main() =
   var bstdin = stdin.buffered
   #while stdin.readLine(line): # 3.8 s
   #while bstdin.readLine(line): # 0.6 s
-  for line in bstdin: # 0.6 s
+  for line in bstdin.lines: # 0.6 s
     count += 1
     sum += line.len
 
