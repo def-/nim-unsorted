@@ -1,1 +1,1 @@
-stderr.writeln "Hello World"
+stderr.writeLine "Hello World"

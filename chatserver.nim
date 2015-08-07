@@ -36,5 +36,5 @@ proc serve() {.async.} =
     let socket = await server.accept()
     discard processClient socket
 
-discard serve()
+asyncCheck serve()
 runForever()

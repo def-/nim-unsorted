@@ -10,9 +10,9 @@ const
   names = ["Aristotle", "Kant", "Spinoza", "Marx", "Russell"]
 
 var
-  forks: array[n, TLock]
+  forks: array[n, Lock]
   phils: array[n, Philosopher]
-  threads: array[n, TThread[Philosopher]]
+  threads: array[n, Thread[Philosopher]]
 
 proc run(p: Philosopher) {.thread.} =
   while true:

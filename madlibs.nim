@@ -8,7 +8,8 @@ echo "The story template is:\n", templ
 var fields = templ.findAll re"<[^>]+>"
 fields.sort(cmp)
 fields = deduplicate fields
-let values = readLineFromStdin("\nInput a comma-separated list of words to replace the following items\n  " & fields.join(",") & ": ").split(",")
+echo "\nInput a comma-separated list of words to replace the following items"
+let values = readLineFromStdin("  " & fields.join(",") & ": ").split(",")
 
 var story = templ
 for f,v in zip(fields, values).items:

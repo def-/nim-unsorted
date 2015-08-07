@@ -1,5 +1,3 @@
-import unsigned
-
 var
   i32: int32
   i64: int64

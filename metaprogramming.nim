@@ -165,6 +165,7 @@ macro if2(x, y: expr; z: stmt): stmt {.immediate.} =
   result = newIfElse(x,
     newIfElse(y, parts[0], parts[1]),
     newIfElse(y, parts[2], parts[3]))
+  echo result.repr
 
 if2 2 > 1, 3 < 2:
   then:

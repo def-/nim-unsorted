@@ -5,7 +5,7 @@ proc single(n: int) =
   echo n
 
 proc main =
-  var thr = newSeq[TThread[int]](paramCount())
+  var thr = newSeq[Thread[int]](paramCount())
   for i,c in commandLineParams():
     thr[i].createThread(single, c.parseInt)
   thr.joinThreads

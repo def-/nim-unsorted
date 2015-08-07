@@ -1,7 +1,7 @@
 # TODO: There are more bitmap tasks!
 {.experimental.}
 
-import unsigned, strutils, math
+import strutils, math
 
 type
   Luminance = uint8
@@ -62,7 +62,7 @@ proc print(img: Image) =
     write "\n"
 
 proc writePPM(img: Image, f: File) =
-  f.writeln "P6\n", img.w, " ", img.h, "\n255"
+  f.writeLine "P6\n", img.w, " ", img.h, "\n255"
 
   for x,y in img.indices:
     f.write char(img[x,y].r)

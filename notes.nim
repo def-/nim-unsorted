@@ -5,6 +5,6 @@ if paramCount() == 0:
   except IOError: discard
 else:
   var f = open("notes.txt", fmAppend)
-  f.writeln getTime()
-  f.writeln "\t", commandLineParams().join(" ")
+  f.writeLine getTime()
+  f.writeLine "\t", commandLineParams().join(" ")
   f.close()

@@ -3,7 +3,7 @@ var
   o = open("output.txt", fmWrite)
 
 for line in i.lines:
-  o.writeln(line)
+  o.writeLine(line)
 
 i.close()
 o.close()

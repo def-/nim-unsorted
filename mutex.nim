@@ -2,7 +2,7 @@
 import locks
 
 # Creating a mutex:
-var mutex: TLock
+var mutex: Lock
 initLock mutex
 
 # Locking:

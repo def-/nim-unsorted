@@ -1,4 +1,4 @@
-import unsigned, strutils
+import strutils
 
 type TCrc32* = uint32
 const InitCrc32* = TCrc32(-1)
@@ -23,7 +23,7 @@ proc crc32*(s: string): TCrc32 =
     updateCrc32(c, result)
   result = not result
 
-proc crc32FromFile*(filename: string): TCrc32 = 
+proc crc32FromFile*(filename: string): TCrc32 =
   const bufSize = 8192
   var bin: File
   result = InitCrc32

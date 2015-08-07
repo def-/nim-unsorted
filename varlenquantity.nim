@@ -1,4 +1,4 @@
-import unsigned, strutils
+import strutils
 
 proc toSeq(x: uint64): seq[uint8] =
   var x = x

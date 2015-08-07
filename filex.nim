@@ -8,4 +8,4 @@ template upon(a: expr, b: expr, c: stmt) {.immediate.} =
 upon open("input.txt"), i:
   upon open("output.txt", fmWrite), o:
     for line in i.lines:
-      o.writeln(line)
+      o.writeLine line
