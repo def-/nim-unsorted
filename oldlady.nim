@@ -1,4 +1,4 @@
-import zlib, base64
+import zip/zlib, base64
 
 const b64 = """
 eNrtVE1rwzAMvedXaKdeRn7ENrb21rHCzmrs1m49K9gOJv9+cko/HBcGg0LHcpOfnq2np0QL
