@@ -1,4 +1,4 @@
-import strutils, future
+import strutils, sequtils, future
 
 template newSeqWith(len: int, init: expr): expr =
   var result {.gensym.} = newSeq[type(init)](len)

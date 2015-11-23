@@ -1,4 +1,4 @@
-import math, rdstdin, strutils, tables
+import math, rdstdin, strutils, sequtils, tables
 
 type Stack = seq[float]
 

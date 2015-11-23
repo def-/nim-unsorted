@@ -10,7 +10,7 @@ if w <= 0: w = 30
 if h <= 0: h = 30
 
 # Iterate over fields in the universe
-iterator fields(a = (0,0), b = (h-1,w-1)) =
+iterator fields(a = (0,0), b = (h-1,w-1)): (int,int) =
   for y in a[0]..b[0]:
     for x in a[1]..b[1]:
       yield (y,x)

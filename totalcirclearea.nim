@@ -1,4 +1,4 @@
-import future
+import sequtils, future
 
 type Circle = tuple[x, y, r: float]
 

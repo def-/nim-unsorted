@@ -19,7 +19,7 @@ proc gmeanFunctional(num: seq[float]): float =
   num.foldl(a * b).pow(1.0 / float(num.len))
 
 proc hmeanFunctional(num: seq[float]): float =
-  float(num.len) / sum(num.mapIt(float, 1.0 / it))
+  float(num.len) / sum(num.mapIt(1.0 / it))
 
 let numbers = toSeq(1..10).map((x: int) => float(x))
 echo amean(numbers), " ", gmean(numbers), " ", hmean(numbers)

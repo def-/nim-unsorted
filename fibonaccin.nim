@@ -25,4 +25,4 @@ for n, name in items({2: "fibo", 3: "tribo", 4: "tetra", 5: "penta", 6: "hexa",
     se.add(1 shl i)
   let fibber = fiblike(se)
   echo "n = ", align($n,2), ", ", align(name, 5), "nacci -> ",
-    toSeq(0..14).mapIt(string, $fibber(it)).join(" "), " ..."
+    toSeq(0..14).mapIt($fibber(it)).join(" "), " ..."

@@ -1,4 +1,4 @@
-import strutils
+import strutils, sequtils
 
 type
   Direction = enum up, right, down, left

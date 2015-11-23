@@ -1,4 +1,4 @@
-import tables, strutils, re, bigints
+import tables, strutils, nre, options, bigints
 
 let countryLen = toTable({
   "AL": 28, "AD": 24, "AT": 20, "AZ": 28, "BE": 16, "BH": 22, "BA": 20, "BR": 29,
@@ -13,7 +13,7 @@ let countryLen = toTable({
 proc validIban(iban: string): bool =
   # Ensure upper alphanumeric input
   var iban = iban.replace(" ","").replace("\t","")
-  if not iban.match(re"^[\dA-Z]+$"):
+  if iban.match(re"^[\dA-Z]+$").isNone:
     return false
 
   # Validate country code against expected length

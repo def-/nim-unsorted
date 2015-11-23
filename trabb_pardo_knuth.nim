@@ -1,4 +1,4 @@
-import math, rdstdin, strutils, algorithm
+import math, rdstdin, strutils, sequtils, algorithm
 
 proc f(x: float): float = x.abs.pow(0.5) + 5 * x.pow(3)
 

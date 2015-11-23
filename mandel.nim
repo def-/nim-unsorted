@@ -5,7 +5,7 @@ proc mandelbrot(a: Complex): Complex =
   for i in 0 .. <50:
     result = result * result + a
 
-iterator stepIt(start, step: float, iterations: int) =
+iterator stepIt(start, step: float, iterations: int): float =
   for i in 0 .. iterations:
     yield start + float(i) * step
 

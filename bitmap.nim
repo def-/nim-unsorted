@@ -53,13 +53,12 @@ proc fill(img: var Image, color: Pixel) =
     img[x,y] = color
 
 proc print(img: Image) =
-  using stdout
   for x,y in img.indices:
     if img[x,y] == White:
-      write ' '
+      stdout.write ' '
     else:
-      write 'H'
-    write "\n"
+      stdout.write 'H'
+    stdout.write "\n"
 
 proc writePPM(img: Image, f: File) =
   f.writeLine "P6\n", img.w, " ", img.h, "\n255"

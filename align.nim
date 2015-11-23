@@ -7,8 +7,8 @@ column$are$separated$by$at$least$one$space.
 Further,$allow$for$each$word$in$a$column$to$be$either$left$
 justified,$right$justified,$or$center$justified$within$its$column."""
 
-var words = textinfile.splitLines.mapIt(seq[string], it.split '$')
-var maxs = newSeq[int](max words.mapIt(int, it.len))
+var words = textinfile.splitLines.mapIt(it.split '$')
+var maxs = newSeq[int](max words.mapIt(it.len))
 
 for l in words:
   for j,w in l:

@@ -7,7 +7,7 @@ if fork() > 0:
   discard sleep 1
   discard p[1].write(addr p[0], 1)
   var x: cint = 0
-  discard wait x
+  discard wait(addr x)
 else:
   discard close p[1]
   discard p[0].read(addr p[1], 1)

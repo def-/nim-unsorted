@@ -1,6 +1,6 @@
 import os, unicode, future
 
-proc nothing(): bool{.closure.} = false
+let nothing = proc: bool{.closure.} = false
 
 proc odd(prev = nothing): bool =
   let a = stdin.readChar()
@@ -10,7 +10,7 @@ proc odd(prev = nothing): bool =
     return a != '.'
 
   # delay action until later, in the shape of a closure
-  proc clos(): bool =
+  proc clos: bool =
     stdout.write(a)
     prev()
 

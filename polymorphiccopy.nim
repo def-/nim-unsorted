@@ -4,7 +4,7 @@ type
   S1 = ref object of T
   S2 = ref object of T
 
-method speak(x: T)  = echo "T Hello ", x.myValue
+method speak(x: T) {.base.}  = echo "T Hello ", x.myValue
 method speak(x: S1) = echo "S1 Meow ", x.myValue
 method speak(x: S2) = echo "S2 Woof ", x.myValue
 

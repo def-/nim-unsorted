@@ -16,7 +16,7 @@ proc insertAppend(a, n: var Node) =
 a.insertAppend(b)
 b.insertAppend(c)
 
-iterator items(a: Node) =
+iterator items(a: Node): Node =
   var x = a
   while x != nil:
     yield x

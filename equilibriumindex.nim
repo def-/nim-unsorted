@@ -1,6 +1,6 @@
 import math, sequtils
 
-iterator eqindex(data: openarray[int]) =
+iterator eqindex(data: openarray[int]): int =
   var suml, ddelayed = 0
   var sumr = sum(data)
   for i,d in data:

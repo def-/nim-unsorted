@@ -1,4 +1,4 @@
-import rdstdin, re, algorithm, sequtils, strutils
+import rdstdin, nre, algorithm, sequtils, strutils
 
 #let templ = readLineFromStdin "Enter your story: "
 const templ = """<name> went for a walk in the park. <he or she>

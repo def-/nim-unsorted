@@ -1,4 +1,4 @@
-import math, complex, strutils
+import math, complex, strutils, sequtils
 
 proc rect(r, phi: float): Complex = (r * cos(phi), sin(phi))
 proc phase(c: Complex): float = arctan2(c.im, c.re)
