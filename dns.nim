@@ -1,4 +1,4 @@
-import rawsockets
+import nativesockets
 var infos = getAddrInfo("ddnet.tw", Port 80)
 
 var info = infos

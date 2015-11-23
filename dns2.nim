@@ -1,4 +1,4 @@
-import rawsockets
+import nativesockets
 echo getHostByName("google.com")
 echo getHostByName("ddnet.tw")
 for i in getHostByName("ddnet.tw").addrList:
