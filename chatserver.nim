@@ -27,8 +27,9 @@ proc processClient(socket: AsyncSocket) {.async.} =
       clients.del i
       break
 
-proc serve() {.async.} =
+proc serve {.async.} =
   var server = newAsyncSocket()
+  server.setSockOpt(OptReuseAddr, true)
   server.bindAddr(Port(4004))
   server.listen()
 
