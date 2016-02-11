@@ -90,6 +90,7 @@ testIt "accumulatorfactory": check it.returns
 testIt "address": check it.compiles
 testIt "align": check it.returns
 testIt "amb": check it.returns
+testIt "amicablepairs": check it.returns
 testIt "anonymousrecursion": check it.returns
 testIt "apollonius": check it.returns
 testIt "append": check it.compiles
