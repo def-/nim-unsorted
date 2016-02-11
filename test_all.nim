@@ -27,6 +27,9 @@
 ## ./test_all nim --cc:gcc --cpu:i386 --passC:-m32 --passL:-m32 c
 ## ./test_all nim --cc:clang --cpu:i386 --passC:-m32 --passL:-m32 c
 ##
+## ./test_all wine nim c
+## ./test_all wine nim -d:release c
+##
 ## https://github.com/Araq/Nim/issues/1389
 ## https://github.com/Araq/Nim/issues/1888
 ##
@@ -50,6 +53,9 @@ proc compiles(name: string; params = ""): bool =
   execCmd(compCommand & " --verbosity:0 --hints:off " & params & " " & name & ".nim") == 0
   #execCmd(compCommand & " --verbosity:0 --warnings:off --hints:off " & params & " " & name & ".nim") == 0
 
+proc closeEnough(x, y: string): bool =
+  x.splitLines == y.splitLines
+
 proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
   try: removeFile(name)
   except: discard
@@ -72,11 +78,15 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
     if not existsFile(name & ".out"):
       return execProcess("./" & name & " " & params) == ""
     else:
-      var p = startProcess(name, args = params.split)
+      var p: Process
+      if "wine " in compCommand or "mingw" in compCommand:
+        p = startProcess("/usr/bin/wine", args = @[name & ".exe"] & params.split)
+      else:
+        p = startProcess(name, args = params.split)
       p.inputStream.write(input)
       p.inputStream.close()
       if p.waitForExit > 0: return false
-      return p.outputStream.readStr(100000) == readFile(name & ".out")
+      return closeEnough(p.outputStream.readStr(100000), readFile(name & ".out"))
 
 template testIt(name: string, rest: stmt): stmt {.immediate.} =
   test name:

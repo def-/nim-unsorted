@@ -1,7 +1,4 @@
-import math
-
-proc isEven(x: int): bool =
-  x mod 2 == 0
+from math import sqrt
 
 proc sumProperDivisors(x: int, checkLess: bool): int =
   template check(divNum) =
@@ -11,8 +8,8 @@ proc sumProperDivisors(x: int, checkLess: bool): int =
         return 0
 
   result = 1
-  let maxPD = math.sqrt(x.float).int
-  if x.isEven:
+  let maxPD = sqrt(x.float).int
+  if x mod 2 == 0:
     for divNum in 2..maxPD:
       check divNum
   else:
@@ -22,6 +19,5 @@ proc sumProperDivisors(x: int, checkLess: bool): int =
 #for n in countdown(524_000_000, 2):
 for n in countdown(20_000, 2):
   let m = sumProperDivisors(n, true)
-  if m != 0:
-    if n == sumProperDivisors(m, false):
-      echo m, " ", n
+  if m != 0 and n == sumProperDivisors(m, false):
+    echo m, " ", n
