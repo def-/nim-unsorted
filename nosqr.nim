@@ -3,7 +3,7 @@ import math
 proc nosqr(n: int): seq[int] =
   result = @[]
   for i in 1..n:
-    result.add(i + round(sqrt(float(i))))
+    result.add(i + int(round(sqrt(float(i)))))
 
 proc issqr(n: int): bool =
   let sqr = sqrt(float(n))

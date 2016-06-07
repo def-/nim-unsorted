@@ -1,4 +1,4 @@
-import httpclient, strutils, json, re, os
+import httpclient, strutils, json, re, os, tables
 
 ## This code was used to convert all mentions of Nimrod to Nim on Rosetta Code
 ## automatically.
@@ -67,9 +67,14 @@ for catMember in titlesJson["query"]["categorymembers"]:
 
     # Get a token so that we're allowed to edit the page
     tokenJson = getContent(editTokenPage % uriTitle, cookies).parseJson()
-    editToken = tokenJson["query"]["pages"].fields[0].val["edittoken"].str
 
-    editData = newMultipartData(
+  var editToken: string
+  for x in tokenJson["query"]["pages"].fields.values:
+    editToken = x["edittoken"].str
+    break
+
+
+  let editData = newMultipartData(
       {"action": "edit", "format": "json", "summary": desc,
        "title": uriTitle, "text": newText, "token": editToken})
 

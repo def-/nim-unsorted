@@ -1,4 +1,4 @@
-import tables, math, strutils, complex
+import tables, random, strutils, complex
 randomize()
 
 proc random[T](a: openarray[T]): T =

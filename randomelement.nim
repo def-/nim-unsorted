@@ -1,4 +1,4 @@
-import math
+import random
 randomize()
 
 proc random[T](a: openarray[T]): T =

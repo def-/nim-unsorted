@@ -1,4 +1,4 @@
-import math, htmlgen
+import random, htmlgen
 randomize()
 
 template randTD(): expr = td($random(1000..9999))

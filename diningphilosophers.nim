@@ -1,4 +1,4 @@
-import locks, math, os
+import locks, random, os
 randomize()
 
 type Philosopher = ref object

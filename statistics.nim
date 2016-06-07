@@ -1,4 +1,4 @@
-import math, strutils
+import random, math, strutils
 randomize()
 
 proc sd(ns: openarray[float]): auto =

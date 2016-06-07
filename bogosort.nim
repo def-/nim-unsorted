@@ -1,4 +1,4 @@
-import math
+import random
 randomize()
 
 proc shuffle[T](x: var openarray[T]) =

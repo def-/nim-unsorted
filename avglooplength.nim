@@ -1,4 +1,4 @@
-import math, strfmt
+import math, random, strfmt
 randomize()
 
 const

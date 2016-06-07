@@ -1,4 +1,4 @@
-import math, os, strutils
+import random, os, strutils
 randomize()
 
 type State = enum Empty, Tree, Fire

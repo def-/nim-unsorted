@@ -11,7 +11,7 @@ for year in 1900..2100:
   for month in LongMonths:
     timeinfo.year = year
     timeinfo.month = month
-    if getLocalTime(timeInfoToTime timeinfo).weekday == dFri:
+    if getLocalTime(toTime timeinfo).weekday == dFri:
       echo month," ",year
       none = false
   if none: inc sumNone

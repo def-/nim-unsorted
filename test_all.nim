@@ -31,7 +31,6 @@
 ## ./test_all wine nim -d:release c
 ##
 ## https://github.com/Araq/Nim/issues/1389
-## https://github.com/Araq/Nim/issues/1888
 ##
 ## TODO:
 ## Javascript? node
@@ -75,18 +74,17 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
         echo "Interrupted"
       return p.outputStream.readStr(100000) == readFile(name & ".out")
   else:
-    if not existsFile(name & ".out"):
-      return execProcess("./" & name & " " & params) == ""
+    var p: Process
+    if "wine " in compCommand or "mingw" in compCommand:
+      p = startProcess("/usr/bin/wine", args = @[name & ".exe"] & params.split)
     else:
-      var p: Process
-      if "wine " in compCommand or "mingw" in compCommand:
-        p = startProcess("/usr/bin/wine", args = @[name & ".exe"] & params.split)
-      else:
-        p = startProcess(name, args = params.split)
-      p.inputStream.write(input)
-      p.inputStream.close()
-      if p.waitForExit > 0: return false
-      return closeEnough(p.outputStream.readStr(100000), readFile(name & ".out"))
+      p = startProcess(name, args = params.split)
+    p.inputStream.write(input)
+    p.inputStream.close()
+    if p.waitForExit > 0: return false
+    if not existsFile(name & ".out"):
+      return p.outputStream.readStr(100000) == ""
+    return closeEnough(p.outputStream.readStr(100000), readFile(name & ".out"))
 
 template testIt(name: string, rest: stmt): stmt {.immediate.} =
   test name:

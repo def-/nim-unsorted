@@ -1,4 +1,4 @@
-import math, strutils
+import random, strutils
 randomize()
 
 template newSeqWith(len: int, init: expr): expr =

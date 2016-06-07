@@ -1,4 +1,4 @@
-import math
+import random
 randomize()
 
 proc shuffle(s: var string) =

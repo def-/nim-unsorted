@@ -5,6 +5,6 @@ timeinfo.monthday = 25
 timeinfo.month = mDec
 for year in 2008..2121:
   timeinfo.year = year
-  if getLocalTime(timeInfoToTime timeinfo).weekday == dSun:
+  if getLocalTime(toTime timeinfo).weekday == dSun:
     stdout.write year," "
 echo ""

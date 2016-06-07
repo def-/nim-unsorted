@@ -1,4 +1,4 @@
-# In Nimrod type classes can be seen as an abstract type. Type classes specify
+# In Nim type classes can be seen as an abstract type. Type classes specify
 # interfaces, which can be instantiated by concrete types.
 type
   Comparable = concept x, y

@@ -1,4 +1,4 @@
-import math
+import random, math
 randomize()
 
 proc pi(nthrows: float): float =

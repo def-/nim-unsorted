@@ -1,4 +1,4 @@
-import math, rdstdin, strutils, algorithm
+import random, rdstdin, strutils, algorithm
 randomize()
 
 proc shuffle[T](x: var seq[T]) =

@@ -1,4 +1,4 @@
-import math, strutils, rdstdin
+import random, strutils, rdstdin
 randomize()
 
 proc random(a: string): char = a[random(0..a.len)]

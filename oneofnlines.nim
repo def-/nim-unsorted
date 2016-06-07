@@ -1,4 +1,4 @@
-import math
+import random
 randomize()
 
 proc oneOfN(n: int): int =

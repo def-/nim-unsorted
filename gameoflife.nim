@@ -1,5 +1,4 @@
-import os, strutils, math
-
+import os, strutils, random
 randomize()
 
 var w, h: int

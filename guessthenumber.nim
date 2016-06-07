@@ -1,5 +1,4 @@
-import math, rdstdin, strutils
-
+import random, rdstdin, strutils
 randomize()
 
 let iRange = 1..100

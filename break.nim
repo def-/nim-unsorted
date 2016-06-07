@@ -1,4 +1,4 @@
-import math
+import random
 randomize()
 
 while true:
