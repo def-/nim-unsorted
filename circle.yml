@@ -30,4 +30,6 @@ dependencies:
 ## Customize test commands
 test:
   override:
-    - nimble tests
+    - |
+      nimble install
+      nimble tests

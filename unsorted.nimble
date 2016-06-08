@@ -10,7 +10,7 @@ license       = "MIT"
 requires "nim >= 0.14.0"
 requires "strfmt"
 requires "dialogs"
-requires "nim-nanomsg"
+requires "nanomsg"
 
 task tests, "Run all tests":
   exec "nim c -r test_all"
