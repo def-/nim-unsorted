@@ -9,7 +9,11 @@ license       = "MIT"
 
 requires "nim >= 0.14.0"
 requires "strfmt"
+requires "gtk2"
 requires "dialogs"
+requires "zip"
+requires "bigints"
+requires "opengl"
 requires "nanomsg"
 
 task tests, "Run all tests":

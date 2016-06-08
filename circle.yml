@@ -20,6 +20,7 @@ dependencies:
           cd ~/nimble; git fetch origin
           git merge FETCH_HEAD | grep "Already up-to-date" || (nim -d:release c -r src/nimble -y install)
         fi
+        nimble update
 
   cache_directories:
     - "~/bin/"
