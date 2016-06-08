@@ -32,5 +32,5 @@ dependencies:
 test:
   override:
     - |
-      nimble install
+      nimble install --depsOnly --accept
       nimble tests
