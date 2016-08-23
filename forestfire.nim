@@ -1,4 +1,4 @@
-import random, os, strutils
+import random, os, strutils, sequtils
 randomize()
 
 type State = enum Empty, Tree, Fire
@@ -23,12 +23,6 @@ iterator fields(a = (0,0), b = (h-1,w-1)): (int,int) =
   for y in max(a[0], 0) .. min(b[0], h-1):
     for x in max(a[1], 0) .. min(b[1], w-1):
       yield (y,x)
-
-# Create a sequence with an initializer
-proc newSeqWith[T](len: int, init: T): seq[T] =
-  result = newSeq[T] len
-  for i in 0 .. <len:
-    result[i] = init
 
 # Initialize
 var univ, univNew = newSeqWith(h, newSeq[State] w)

@@ -3,7 +3,7 @@ import strutils
 proc caesar(s: string, k: int, decode = false): string =
   var k = if decode: 26 - k else: k
   result = ""
-  for i in toUpper(s):
+  for i in toUpperAscii(s):
     if ord(i) >= 65 and ord(i) <= 90:
       result.add(chr((ord(i) - 65 + k) mod 26 + 65))
 

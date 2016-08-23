@@ -8,6 +8,6 @@ proc SHA256(s: string): string =
   result = ""
   let s = SHA256(s.cstring, s.len.culong)
   for i in 0 .. < SHA256Len:
-    result.add s[i].BiggestInt.toHex(2).toLower
+    result.add s[i].BiggestInt.toHex(2).toLowerAscii
 
 echo SHA256("Rosetta code")

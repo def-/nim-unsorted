@@ -20,7 +20,7 @@ var xs = newSeqWith(n, foo())
 
 # To get the initial behaviour, where foo() is called to create each object, a
 # template can be used:
-template newSeqWith2(len: int, init: expr): expr =
+template newSeqWith2(len: int, init): untyped =
   var result {.gensym.} = newSeq[type(init)](len)
   for i in 0 .. <len:
     result[i] = init

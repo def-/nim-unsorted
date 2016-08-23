@@ -101,7 +101,7 @@ echo som2.z[50]
 #for i in 1..100000000:
 #  doSth(som2)
 
-template times(x: expr, y: stmt): stmt =
+template times(x, y) =
   for i in 1..x:
     y
 
@@ -155,7 +155,7 @@ echo potSum(10)
 proc `+=`[T: float|float32|float64](x: var T, y: T) =
   x = x + y
 
-macro `:=`(assign, data): stmt =
+macro `:=`(assign, data): typed =
   assert(assign.kind == nnkIdent)
   let to = $assign.ident
 

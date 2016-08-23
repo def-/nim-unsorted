@@ -1,4 +1,4 @@
-template doWhile(a: expr, b: stmt): stmt =
+template doWhile(a, b) =
   b
   while a:
     b

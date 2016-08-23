@@ -3,7 +3,7 @@ import macros
 type ListComprehension = object
 var lc*: ListComprehension
 
-macro `[]`*(lc: ListComprehension, x, t): expr =
+macro `[]`*(lc: ListComprehension, x, t): untyped =
   expectLen(x, 3)
   expectKind(x, nnkInfix)
   expectKind(x[0], nnkIdent)

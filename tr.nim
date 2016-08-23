@@ -1,6 +1,6 @@
 import macros, sequtils
 
-macro optMul{`*`(a,2)}(a: int): expr =
+macro optMul{`*`(a,2)}(a: int): typed =
   let x = a
   return parseExpr("12")
 

@@ -1,7 +1,7 @@
 proc commaQuibble(s: openarray[string]): string =
   result = ""
   for i, c in s:
-    if i > 0: result.add (if i < s.high: ", " else: " and ")
+    if i > 0: result.add(if i < s.high: ", " else: " and ")
     result.add c
   result = "{" & result & "}"
 

@@ -1,12 +1,6 @@
-import algorithm, strutils
+import algorithm, strutils, sequtils
 
 type Pos = tuple[x, y: int]
-
-template newSeqWith(len: int, init: expr): expr =
-  var result {.gensym.} = newSeq[type(init)](len)
-  for i in 0 .. <len:
-    result[i] = init
-  result
 
 proc `$`(m: seq[seq[int]]): string =
   result = ""

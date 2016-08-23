@@ -1,7 +1,7 @@
 import random, htmlgen
 randomize()
 
-template randTD(): expr = td($random(1000..9999))
+template randTD: untyped = td($random(1000..9999))
 proc randTR(x: int): auto =
   tr(td($x, style="font-weight: bold"), randTD, randTD, randTD)
 

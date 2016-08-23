@@ -1,12 +1,6 @@
 import random, strutils, algorithm, sequtils
 randomize()
 
-template newSeqWith(len: int, init: expr): expr =
-  var result {.gensym.} = newSeq[type(init)](len)
-  for i in 0 .. <len:
-    result[i] = init
-  result
-
 var
   problem = newSeqWith(4, random(1..9))
   stack = newSeq[float]()
@@ -14,7 +8,7 @@ var
 
 echo "Make 24 with the digits: ", problem
 
-template op(c): stmt =
+template op(c) =
   let a = stack.pop
   stack.add c(stack.pop, a)
 

@@ -86,7 +86,7 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
       return p.outputStream.readStr(100000) == ""
     return closeEnough(p.outputStream.readStr(100000), readFile(name & ".out"))
 
-template testIt(name: string, rest: stmt): stmt {.immediate.} =
+template testIt(name: string, rest) =
   test name:
     let it {.inject.} = name
     rest

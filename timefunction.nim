@@ -5,7 +5,7 @@ proc doWork(x: int) =
   for i in 0..10000000:
     n += i
 
-template time(s: stmt): expr =
+template time(s): untyped =
   let t0 = cpuTime()
   s
   cpuTime() - t0

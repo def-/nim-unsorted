@@ -1,12 +1,6 @@
 import random, sequtils, strutils
 randomize()
 
-template newSeqWith(len: int, init: expr): expr =
-  var result {.gensym.} = newSeq[type(init)](len)
-  for i in 0 .. <len:
-    result[i] = init
-  result
-
 iterator randomCover[T](xs: openarray[T]): T =
   var js = toSeq 0..xs.high
   for i in countdown(js.high, 0):

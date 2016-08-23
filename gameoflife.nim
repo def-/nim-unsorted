@@ -1,4 +1,4 @@
-import os, strutils, random
+import os, strutils, random, sequtils
 randomize()
 
 var w, h: int
@@ -13,12 +13,6 @@ iterator fields(a = (0,0), b = (h-1,w-1)): (int,int) =
   for y in a[0]..b[0]:
     for x in a[1]..b[1]:
       yield (y,x)
-
-# Create a sequence with an initializer
-proc newSeqWith[T](len: int, init: T): seq[T] =
-  result = newSeq[T] len
-  for i in 0 .. <len:
-    result[i] = init
 
 # Initialize
 var univ, univNew = newSeqWith(h, newSeq[bool] w)

@@ -7,7 +7,7 @@ proc encrypt(msg, key: string): string =
   var pos = 0
   for c in msg:
     if isAlpha c:
-      result.add chr(((ord(key[pos]) + ord(toUpper c)) mod 26) + ord('A'))
+      result.add chr(((ord(key[pos]) + ord(toUpperAscii c)) mod 26) + ord('A'))
       pos = (pos + 1) mod key.len
 
 proc decrypt(msg, key: string): string =

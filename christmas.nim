@@ -21,4 +21,4 @@ for n, day in days:
   reverse(g)
   echo "\nOn the ", day, " day of Christmas\nMy true love gave to me:\n" &
     g[.. ^2].join("\n") &
-    (if n > 0: " and\n" & g[g.high] else: capitalize(g[g.high]))
+    (if n > 0: " and\n" & g[g.high] else: capitalizeAscii(g[g.high]))

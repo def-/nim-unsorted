@@ -1,11 +1,5 @@
-import random, strutils
+import random, strutils, sequtils
 randomize()
-
-template newSeqWith(len: int, init: expr): expr =
-  var result {.gensym.} = newSeq[type(init)](len)
-  for i in 0 .. <len:
-    result[i] = init
-  result
 
 proc randN(n: int): (proc: range[0..1]) =
   result = proc(): range[0..1] =

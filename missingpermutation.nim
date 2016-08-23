@@ -14,6 +14,6 @@ proc missingPermutation(arr: openarray[string]): string =
     for c in s: result.add c
 
 const given = """ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB DABC BCAD CADB CDBA
-  CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB""".split()
+    CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB""".splitWhitespace()
 
 echo missingPermutation(given)

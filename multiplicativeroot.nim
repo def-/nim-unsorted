@@ -1,11 +1,5 @@
 import strutils, sequtils, future
 
-template newSeqWith(len: int, init: expr): expr =
-  var result {.gensym.} = newSeq[type(init)](len)
-  for i in 0 .. <len:
-    result[i] = init
-  result
-
 proc mdroot(n: int): tuple[mp, mdr: int] =
   var mdr = @[n]
   while mdr[mdr.high] > 9:

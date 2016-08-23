@@ -10,7 +10,7 @@ proc `^`*(base: int, exp: int): int =
     exp = exp shr 1
     base *= base
 
-macro compiletime(n: int): expr =
+macro compiletime(n: int): untyped =
   var sum = 0
   for i in 1..int(n.intVal):
     sum += 2^i
@@ -37,7 +37,7 @@ proc prime(n: int): int =
       if primes.len > n:
         return primes[n]
 
-macro comp(): stmt =
+macro comp(): typed =
   result = parseStmt("echo " & $prime(500))
 
 #comp()

@@ -1,6 +1,6 @@
 import os
 
-template upon(a: expr, b: expr, c: stmt) {.immediate.} =
+template upon(a, b, c) =
   var b = a
   c
   close(b)

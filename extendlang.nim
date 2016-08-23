@@ -4,7 +4,7 @@ proc newIfElse(c, t, e: NimNode): NimNode {.compiletime.} =
   result = newIfStmt((c, t))
   result.add(newNimNode(nnkElse).add(e))
 
-macro if2(x, y: expr; z: stmt): stmt {.immediate.} =
+macro if2(x, y, z: untyped): typed =
   var parts: array[4, NimNode]
   for i in parts.low .. parts.high:
     parts[i] = newNimNode(nnkDiscardStmt).add(nil)

@@ -1,4 +1,4 @@
-template trySwap(): stmt {.immediate.} =
+template trySwap =
   if a[i] < a[i-1]:
     swap a[i], a[i-1]
     t = false
