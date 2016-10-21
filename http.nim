@@ -1,3 +1,3 @@
 import httpclient
 
-echo getContent "http://rosettacode.org"
+echo newHttpClient().getContent("http://rosettacode.org")

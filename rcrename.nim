@@ -24,11 +24,13 @@ let
   desc = "Nimrod -> Nim"
 
 var
+  client      = newHttpClient()
   loginData   = newMultipartData(
     {"action": "login", "format": "json", "lgname": user, "lgpassword": pass})
+
 let
   # Need to get a token first
-  loginTJson  = postContent(loginPage, multipart = loginData).parseJson()
+  loginTJson  = client.postContent(loginPage, multipart = loginData).parseJson()
   loginTToken = loginTJson["login"]["token"].str
   loginTId    = loginTJson["login"]["sessionid"].str
 
@@ -39,7 +41,7 @@ loginData["lgtoken"] = loginTToken
 
 let
   # Now really log in
-  loginJson = postContent(loginPage, cookies, multipart = loginData).parseJson()
+  loginJson = client.postContent(loginPage, cookies, multipart = loginData).parseJson()
 
 if loginJson["login"]["result"].str != "Success":
   raise newException(ValueError, "Login failed")
@@ -51,22 +53,25 @@ let
   userId      = loginJson["login"]["lguserid"].num
 
   # List of all titles that exist for our language
-  titlesJson  = getContent(categoryPage % lang).parseJson()
+  titlesJson  = client.getContent(categoryPage % lang).parseJson()
 
 for catMember in titlesJson["query"]["categorymembers"]:
   let
     title     = catMember["title"].str
     uriTitle  = title.replace(' ', '_')
-    newText   = getContent(rawActionPage % uriTitle).parallelReplace(regs)
+    newText   = client.getContent(rawActionPage % uriTitle).parallelReplace(regs)
 
-    # Would be nice to keep track of cookies automatically in a higher level
-    # HTTP client library
-    cookies   = ("Cookie: rosettacodeToken=$#; rosettacode_session=$#; " &
-                 "rosettacodeUserName=$#; rosettacodeUserID=$#\c\L")
-                 .format(loginToken, loginId, userName, userId)
+  # Would be nice to keep track of cookies automatically in a higher level
+  # HTTP client library
+  client.headers = newHttpHeaders(
+      {"Cookie": ("rosettacodeToken=$#; rosettacode_session=$#; " &
+                  "rosettacodeUserName=$#; rosettacodeUserID=$#\c\L")
+                  .format(loginToken, loginId, userName, userId)})
 
-    # Get a token so that we're allowed to edit the page
-    tokenJson = getContent(editTokenPage % uriTitle, cookies).parseJson()
+  # Get a token so that we're allowed to edit the page
+  let tokenJson = client.getContent(editTokenPage % uriTitle).parseJson()
+
+  client.headers = newHttpHeaders()
 
   var editToken: string
   for x in tokenJson["query"]["pages"].fields.values:
@@ -79,4 +84,4 @@ for catMember in titlesJson["query"]["categorymembers"]:
        "title": uriTitle, "text": newText, "token": editToken})
 
   # Finally edit the page, print the result
-  echo postContent(postPage, cookies, multipart = editData)
+  echo client.postContent(postPage, cookies, multipart = editData)

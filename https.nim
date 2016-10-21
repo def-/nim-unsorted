@@ -1,3 +1,3 @@
 import httpclient
 
-echo getContent "https://sourceforge.net/"
+echo newHttpClient().getContent("https://sourceforge.net/")

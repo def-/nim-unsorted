@@ -11,8 +11,9 @@ proc isSorted(s: string): bool =
 const url = "http://www.puzzlers.org/pub/wordlists/unixdict.txt"
 var mx = 0
 var words: seq[string] = @[]
+var client = newHttpClient()
 
-for word in getContent(url).split():
+for word in client.getContent(url).split():
   if word.len >= mx and isSorted(word):
     if word.len > mx:
       words = @[]

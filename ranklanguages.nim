@@ -8,12 +8,13 @@ const
 let regex = re"title=""Category:(.*?)"">.+?</a>.*\((.*) members\)"
 
 var langs = newSeq[string]()
-for l in parseJson(getContent(langSite))["query"]["categorymembers"]:
+var client = newHttpClient()
+for l in parseJson(client.getContent(langSite))["query"]["categorymembers"]:
   try: langs.add(l["title"].str.split("Category:")[1])
   except: discard
 
 var ranks = newSeq[Rank]()
-for line in getContent(catSize).findAll(regex):
+for line in client.getContent(catSize).findAll(regex):
   let lang = line.replacef(regex, "$1")
   if lang in langs:
     let count = parseInt(line.replacef(regex, "$2").strip())

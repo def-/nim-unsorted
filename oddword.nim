@@ -1,8 +1,8 @@
 import os, unicode, future
 
-let nothing = proc: bool{.closure.} = false
+let nothing = proc: bool {.closure.} = false
 
-proc odd(prev = nothing): bool =
+proc odd(prev: proc: bool {.closure.} = nothing): bool =
   let a = stdin.readChar()
   if not isAlpha(Rune(ord(a))):
     discard prev()

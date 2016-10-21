@@ -16,7 +16,7 @@ proc findrc(category: string): seq[string] =
     titles = newSeq[string]()
 
   while true:
-    var x = getContent(name&cmcontinue[0]).loadXML()
+    var x = newHttpClient().getContent(name&cmcontinue[0]).loadXML()
     for i in x.getElementsByTagName("cm"):
       titles.add PElement(i).getAttribute("title")
 
