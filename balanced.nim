@@ -1,10 +1,6 @@
 import random
 randomize()
 
-proc shuffle(s: var string) =
-  for i in countdown(s.high, 0):
-    swap(s[i], s[random(s.len)])
-
 proc gen(n: int): string =
   result = newString(2 * n)
   for i in 0 .. <n:

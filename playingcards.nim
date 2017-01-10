@@ -1,11 +1,6 @@
 import random
 randomize()
 
-proc shuffle[T](x: var seq[T]) =
- for i in countdown(x.high, 0):
-   let j = random(i + 1)
-   swap(x[i], x[j])
-
 type
   Suit = enum ♥, ♦, ♣, ♠
 

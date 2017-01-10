@@ -1,11 +1,6 @@
 import random
 randomize()
 
-proc shuffle[T](x: var openarray[T]) =
-  for i in countdown(x.high, 0):
-    let j = random(i + 1)
-    swap(x[i], x[j])
-
 proc isSorted[T](s: openarray[T]): bool =
   var last = low(T)
   for c in s:
