@@ -16,4 +16,4 @@ while info != nil:
     echo infos.ai_canonname
   info = info.ai_next
 
-dealloc(infos)
+freeAddrInfo(infos)

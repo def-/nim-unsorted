@@ -2,13 +2,13 @@ import tables, strutils
 
 const nPrec = 9
 
-let ops: Table[string, tuple[prec: int, rAssoc: bool]] =
+let ops = cast[Table[string, tuple[prec: int, rAssoc: bool]]](
   { "^": (4, true)
   , "*": (3, false)
   , "/": (3, false)
   , "+": (2, false)
   , "-": (2, false)
-  }.toTable
+  }.toTable)
 
 proc parseRPN(e: string) =
   echo "postfix: ", e

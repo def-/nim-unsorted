@@ -4,7 +4,8 @@ proc sendMail(fromAddr: string; toAddrs, ccAddrs: seq[string];
               subject, message, login, password: string;
               server = "smtp.gmail.com"; port = Port 465; ssl = true) =
   var msg = createMessage(subject, message, toAddrs, ccAddrs)
-  var s = connect(server, port, ssl, debug = true)
+  var s = newSmtp(ssl, debug = true)
+  s.connect(server, port)
   s.auth(login, password)
   s.sendmail(fromAddr, toAddrs, $msg)
 
