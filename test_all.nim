@@ -12,8 +12,8 @@
 ## ./test_all nim --cc:clang c
 ## ./test_all nim --cc:clang -d:release c
 ##
-## ./test_all nim --cc:tcc c
-## ./test_all nim --cc:tcc -d:release c
+## ./test_all nim --cc:tcc --tlsEmulation:on c
+## ./test_all nim --cc:tcc --tlsEmulation:on -d:release c
 ##
 ## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc c
 ## ./test_all nim --cc:gcc --gcc.exe:icc --gcc.linkerexe:icc -d:release c
@@ -34,6 +34,12 @@
 ##
 ## TODO:
 ## Javascript? node
+##
+## Known bugs:
+## kaprekar, nosqr, semordnilap, truncatableprimes on v2
+## gltest, gameoflife, forestfire on cpp
+## simplewindow, mail, https on clang cpp
+## sumseries, numericalintegration, meanangle, mandel, gamma on clang cpp release (needs to be investigated, why is floating point math wrong?)
 
 import unittest, osproc, streams, os, strutils
 

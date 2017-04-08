@@ -14,8 +14,8 @@ proc levenshteinDistance(s1, s2: string): int =
       if c1 == c2:
         newDistances.add(distances[i1])
       else:
-        newDistances.add(1 + min(distances[i1], distances[i1+1],
-                                 newDistances[newDistances.high]))
+        newDistances.add(1 + min([distances[i1], distances[i1+1],
+                                 newDistances[newDistances.high]]))
 
     distances = newDistances
   result = distances[distances.high]
