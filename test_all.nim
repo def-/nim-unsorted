@@ -176,7 +176,7 @@ testIt "crc32": check it.returns
 testIt "csvtohtml": check it.returns
 testIt "curry": check it.returns
 testIt "currying": check it.returns
-testIt "datemanipulation": check it.returns
+testIt "datemanipulation": check it.compiles
 testIt "dayoftheweek": check it.returns
 testIt "dealcards": check it.returns
 testIt "deepcopy": check it.returns
