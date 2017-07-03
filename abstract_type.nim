@@ -5,7 +5,7 @@ type
     (x < y) is bool
 
   Container[T] = concept c
-    c.len is ordinal
+    c.len is Ordinal
     items(c) is iterator
     for value in c:
       type(value) is T
