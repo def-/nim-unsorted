@@ -23,7 +23,7 @@ const meals = [
   [-1,  1, -1],
   [ 1, -1, -1]]
 
-proc cmp(x, y): int =
+proc cmp(x, y: vector): int =
   for i in 0..2:
     result = x[i] - y[i]
     if result != 0:

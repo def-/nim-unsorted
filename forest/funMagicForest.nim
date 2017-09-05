@@ -32,7 +32,7 @@ while result.len == 0:
       [f[0] + m[0], f[1] + m[1], f[2] + m[2]])).concat()
     .filter(proc(x: vector): bool = x[0] >= 0 and x[1] >= 0 and x[2] >= 0)
 
-  newForests.sort(proc(x,y): int =
+  newForests.sort(proc(x,y: vector): int =
     for i in 0..2:
       result = x[i] - y[i]
       if result != 0:
@@ -42,7 +42,7 @@ while result.len == 0:
   forests = newForests.filter(proc(x: vector): bool =
     result = x != last; last = x)
   result = forests.filter(proc(x: vector): bool =
-    x.map(proc(x): int = result = (if x == 0: 1 else: 0)).foldl(a + b) >= 2)
+    x.map(proc(x: int): int = result = (if x == 0: 1 else: 0)).foldl(a + b) >= 2)
 
 for i in result:
   echo i[0], ", ", i[1], ", ", i[2]
