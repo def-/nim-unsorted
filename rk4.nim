@@ -23,8 +23,11 @@ proc actual(t: float64): float64 =
    var t = t*t + 4
    return t * t / 16
 
+template ff(f: float): string =
+   formatFloat(f, ffDefault, 0)
+
 template printErr(t, y: float64): untyped =
-   echo "y($#) = $# Error: $#\n".format(t, y, abs(actual(t)-y))
+   echo "y($#) = $# Error: $#" % [ff(t), ff(y), ff(abs(actual(t)-y))]
 
 proc main() =
    let (t0, tFinal) = (0, 10)  # task specifies times as integers,
