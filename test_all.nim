@@ -434,6 +434,7 @@ testIt "reversalgame": check it.compiles
 testIt "reversed": check it.returns
 testIt "reverse": check it.returns
 testIt "reversewords": check it.returns
+testIt "rk4": check it.returns
 testIt "rngdevice": check it.compiles
 testIt "romandec": check it.returns
 testIt "romanenc": check it.returns
