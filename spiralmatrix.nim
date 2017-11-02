@@ -4,7 +4,7 @@ type Pos = tuple[x, y: int]
 
 proc newSeqWith[T](len: int, init: T): seq[T] =
   result = newSeq[T] len
-  for i in 0 .. <len:
+  for i in 0 ..< len:
     result[i] = init
 
 proc `^`*(base: int, exp: int): int =
@@ -28,10 +28,10 @@ proc spiral(n: int): auto =
   result = newSeqWith(n, newSeqWith[int](n, -1))
   var dx = 1
   var dy, x, y = 0
-  for i in 0 .. <(n^2):
+  for i in 0 ..< (n^2):
     result[y][x] = i
     let (nx, ny) = (x+dx, y+dy)
-    if nx in 0 .. <n and ny in 0 .. <n and result[ny][nx] == -1:
+    if nx in 0 ..< n and ny in 0 ..< n and result[ny][nx] == -1:
       x = nx
       y = ny
     else:

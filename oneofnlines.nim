@@ -3,7 +3,7 @@ randomize()
 
 proc oneOfN(n: int): int =
   result = 0
-  for x in 0 .. <n:
+  for x in 0 ..< n:
     if random(x+1) == 0:
       result = x
 

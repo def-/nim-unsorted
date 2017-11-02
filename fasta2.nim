@@ -14,7 +14,7 @@ var
 while size == bufSize:
   size = f.readBuffer(addr buf, bufSize)
   var lastPos = 0
-  for i in 0 .. <size:
+  for i in 0 ..< size:
     if buf[i] == '\l':
       afterNewLine = true
       if afterNewSeq:

@@ -10,7 +10,7 @@ while info != nil:
   echo infos.ai_addrlen
   echo infos.ai_addr[]
   let len = int(infos.ai_addrlen)
-  for i in 0 .. < len:
+  for i in 0 ..< len:
     echo int(infos.ai_addr[].sa_data[i])
   if infos.ai_canonname != nil:
     echo infos.ai_canonname

@@ -5,7 +5,7 @@ proc commentStripper(txt: string; delim: tuple[l,r: string] = ("/*", "*/")): str
   if i < 0:
     return txt
 
-  result = if i > 0: txt[0 .. <i] else: ""
+  result = if i > 0: txt[0 ..< i] else: ""
   let tmp = commentStripper(txt[i+delim.l.len .. txt.high])
   let j = tmp.find(delim.r)
   assert j >= 0

@@ -5,7 +5,7 @@ proc missingPermutation(arr: openarray[string]): string =
   if arr.len == 0: return
   if arr.len == 1: return arr[0][1] & arr[0][0]
 
-  for pos in 0 .. <arr[0].len:
+  for pos in 0 ..< arr[0].len:
     var s: set[char] = {}
     for permutation in arr:
       let c = permutation[pos]

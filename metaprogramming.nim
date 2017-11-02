@@ -147,7 +147,7 @@ macro if2(x, y, z: untyped): typed =
   assert z.kind == nnkStmtList
   assert z.len <= 4
 
-  for i in 0 .. <z.len:
+  for i in 0 ..< z.len:
     assert z[i].kind == nnkCall
     assert z[i].len == 2
 

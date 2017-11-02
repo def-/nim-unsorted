@@ -16,10 +16,10 @@ proc fft[T](x: openarray[T]): seq[TComplex] =
     else: odds.add v
   var (even, odd) = (fft(evens), fft(odds))
 
-  for k in 0 .. < n div 2:
+  for k in 0 ..< n div 2:
     result.add(even[k] + exp((0.0, -2*pi*float(k)/float(n))) * odd[k])
 
-  for k in 0 .. < n div 2:
+  for k in 0 ..< n div 2:
     result.add(even[k] - exp((0.0, -2*pi*float(k)/float(n))) * odd[k])
 
 for i in fft(@[1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0]):

@@ -13,8 +13,8 @@ proc zigzagMatrix(n: int): auto =
   result = newSeqWith(n, newSeq[int](n))
 
   var indices = newSeq[Pos]()
-  for x in 0 .. <n:
-    for y in 0 .. <n:
+  for x in 0 ..< n:
+    for y in 0 ..< n:
       indices.add((x,y))
   sort(indices, proc(a, b: Pos): int =
     result = a.x + a.y - b.x - b.y

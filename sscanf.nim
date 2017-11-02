@@ -22,7 +22,7 @@ macro sscanf(n: varargs[expr]): stmt =
       inc n0pos
       inc n1pos
 
-  for i in 2 .. <n.len:
+  for i in 2 ..< n.len:
     echo i
 
 var

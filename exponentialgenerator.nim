@@ -13,7 +13,7 @@ proc next(s: auto): int =
 
 proc powers(m: int): auto =
   iterator it(): int{.closure.} =
-    for n in 0 .. <int.high:
+    for n in 0 ..< int.high:
       yield n ^ m
   return it
 

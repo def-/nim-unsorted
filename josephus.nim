@@ -2,7 +2,7 @@ import sequtils, strutils, future
 
 proc j(n, k: int): string =
   var
-    p = toSeq(0 .. < n)
+    p = toSeq(0 ..< n)
     i = 0
     s = newSeq[int]()
 

@@ -1,8 +1,8 @@
 proc longestIncreasingSubsequence[T](d: seq[T]): seq[T] =
   var l = newSeq[seq[T]]()
-  for i in 0 .. <d.len:
+  for i in 0 ..< d.len:
     var x = newSeq[T]()
-    for j in 0 .. <i:
+    for j in 0 ..< i:
       if l[j][l[j].high] < d[i] and l[j].len > x.len:
         x = l[j]
     l.add x & @[d[i]]

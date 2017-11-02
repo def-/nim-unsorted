@@ -31,15 +31,15 @@ proc run(p: Philosopher) {.thread.} =
     release forks[p.forkLeft]
     release forks[p.forkRight]
 
-for i in 0 .. <n:
+for i in 0 ..< n:
   initLock forks[i]
 
-for i in 0 .. <n:
+for i in 0 ..< n:
   phils[i] = Philosopher(name: names[i],
     forkLeft: i,
     forkRight: (i+1) mod n)
 
-for i in 0 .. <n:
+for i in 0 ..< n:
   threads[i].createThread run, phils[i]
 
 threads.joinThreads

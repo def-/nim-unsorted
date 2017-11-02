@@ -7,7 +7,7 @@ proc MD4(d: cstring, n: culong, md: cstring = nil): cstring {.cdecl, dynlib: "li
 proc MD4(s: string): string =
   result = ""
   var s = MD4(s.cstring, s.len.culong)
-  for i in 0 .. < MD4Len:
+  for i in 0 ..< MD4Len:
     result.add s[i].BiggestInt.toHex(2).toLowerAscii
 
 echo MD4("Rosetta Code")

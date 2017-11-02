@@ -3,10 +3,10 @@ proc countingSort[T](a: var openarray[T]; min, max: int) =
   var count = newSeq[T](range)
   var z = 0
 
-  for i in 0 .. < a.len: inc count[a[i] - min]
+  for i in 0 ..< a.len: inc count[a[i] - min]
 
   for i in min .. max:
-    for j in 0 ..  <count[i - min]:
+    for j in 0 ..< count[i - min]:
       a[z] = i
       inc z
 

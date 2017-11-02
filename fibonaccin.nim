@@ -7,7 +7,7 @@ proc fiblike(start: seq[int]): auto =
       return memo[n]
     else:
       var ans = 0
-      for i in n-start.len .. <n:
+      for i in n-start.len ..< n:
         ans += fibber(i)
       memo.add ans
       return ans

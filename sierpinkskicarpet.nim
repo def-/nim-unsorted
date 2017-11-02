@@ -21,8 +21,8 @@ proc inCarpet(x, y: int): bool =
     y = y div 3
 
 proc carpet(n: int) =
-  for i in 0 .. <(3^n):
-    for j in 0 .. <(3^n):
+  for i in 0 ..< (3^n):
+    for j in 0 ..< (3^n):
       if inCarpet(i, j):
         stdout.write "* "
       else:

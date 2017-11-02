@@ -15,7 +15,7 @@ proc chineseRemainder[T](n, a: T): int =
   var sum = 0
   for x in n: prod *= x
 
-  for i in 0 .. <n.len:
+  for i in 0 ..< n.len:
     let p = prod div n[i]
     sum += a[i] * mulInv(p, n[i]) * p
 

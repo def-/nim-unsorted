@@ -19,4 +19,4 @@ const matchstr = """1001110011
 for line in matchstr.split():
   let ln = isRepeated(line)
   echo "'", line, "' has a repetition length of ", ln, " i.e ",
-    (if ln > 0: "'" & line[0 .. <ln] & "'" else: "*not* a rep-string")
+    (if ln > 0: "'" & line[0 ..< ln] & "'" else: "*not* a rep-string")

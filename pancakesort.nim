@@ -8,7 +8,7 @@ proc pancakeSort[T](list: var openarray[T]) =
 
   for i in countdown(length, 2):
     var maxNumPos = 0
-    for a in 0 .. <i:
+    for a in 0 ..< i:
       if list[a] > list[maxNumPos]:
         maxNumPos = a
 

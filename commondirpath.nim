@@ -9,6 +9,6 @@ proc commonprefix(paths: openarray[string], sep = "/"): string =
       for path in paths:
         if not path.startsWith(result):
           break outer
-  result = result[0 .. <result.rfind(sep)]
+  result = result[0 ..< result.rfind(sep)]
 
 echo commonprefix(@["/home/user1/tmp/coverage/test", "/home/user1/tmp/covert/operator", "/home/user1/tmp/coven/members"])

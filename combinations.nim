@@ -1,6 +1,6 @@
 iterator comb(m, n: int): seq[int] =
   var c = newSeq[int](n)
-  for i in 0 .. <n: c[i] = i
+  for i in 0 ..< n: c[i] = i
 
   block outer:
     while true:

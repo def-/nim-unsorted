@@ -3,9 +3,9 @@ randomize()
 
 proc gen(n: int): string =
   result = newString(2 * n)
-  for i in 0 .. <n:
+  for i in 0 ..< n:
     result[i] = '['
-  for i in n .. <(2*n):
+  for i in n ..< (2*n):
     result[i] = ']'
   shuffle(result)
 

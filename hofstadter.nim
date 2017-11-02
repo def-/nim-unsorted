@@ -4,7 +4,7 @@ var cs = @[2]
 proc extendRS =
   let x = cr[cr.high] + cs[cr.high]
   cr.add x
-  for y in cs[cs.high] + 1 .. <x: cs.add y
+  for y in cs[cs.high] + 1 ..< x: cs.add y
   cs.add x + 1
 
 proc ffr(n: int): int =

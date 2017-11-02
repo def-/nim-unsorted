@@ -7,20 +7,20 @@ proc beadSort[T](a: var openarray[T]) =
 
   var beads = newSeq[int](max * a.len)
 
-  for i in 0 .. < a.len:
-    for j in 0 .. < a[i]:
+  for i in 0 ..< a.len:
+    for j in 0 ..< a[i]:
       beads[i * max + j] = 1
 
-  for j in 0 .. < max:
+  for j in 0 ..< max:
     sum = 0
-    for i in 0 .. < a.len:
+    for i in 0 ..< a.len:
       sum += beads[i * max + j]
       beads[i * max + j] = 0
 
-    for i in a.len - sum .. < a.len:
+    for i in a.len - sum ..< a.len:
       beads[i * max + j] = 1
 
-  for i in 0 .. < a.len:
+  for i in 0 ..< a.len:
     var j = 0
     while j < max and beads[i * max + j] > 0: inc j
     a[i] = j

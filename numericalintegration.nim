@@ -27,7 +27,7 @@ proc identity(x: float): float =
 
 proc integrate(f: Function; a, b: float; steps: int; meth: Rule): float =
   let h = (b-a) / float(steps)
-  for i in 0 .. <steps:
+  for i in 0 ..< steps:
     result += meth(f, a+float(i)*h, h)
   result = h * result
 

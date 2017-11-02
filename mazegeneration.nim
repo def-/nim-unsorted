@@ -21,7 +21,7 @@ var
 proc walk(x, y: int) =
   vis[y][x] = true
   for p in [[x-1,y], [x,y+1], [x+1,y], [x,y-1]].randomCover:
-    if p[0] notin 0 .. <w or p[1] notin 0 .. <h or vis[p[1]][p[0]]: continue
+    if p[0] notin 0 ..< w or p[1] notin 0 ..< h or vis[p[1]][p[0]]: continue
     if p[0] == x: hor[max(y, p[1])][x] = "+   "
     if p[1] == y: ver[y][max(x, p[0])] = "    "
     walk p[0], p[1]

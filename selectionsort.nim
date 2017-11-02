@@ -1,8 +1,8 @@
 proc selectionSort[T](a: var openarray[T]) =
   let n = a.len
-  for i in 0 .. <n:
+  for i in 0 ..< n:
     var m = i
-    for j in i .. <n:
+    for j in i ..< n:
       if a[j] < a[m]:
         m = j
     swap a[i], a[m]

@@ -8,6 +8,6 @@ proc handler() {.noconv.} =
 
 setControlCHook(handler)
 
-for n in 1 .. <int64.high:
+for n in 1 ..< int64.high:
   sleep 500
   echo n

@@ -7,7 +7,7 @@ proc SHA1(d: cstring, n: culong, md: cstring = nil): cstring {.cdecl, dynlib: "l
 proc SHA1(s: string): string =
   result = ""
   var s = SHA1(s.cstring, s.len.culong)
-  for i in 0 .. < SHA1Len:
+  for i in 0 ..< SHA1Len:
     result.add s[i].BiggestInt.toHex(2).toLowerAscii
 
 echo SHA1("Rosetta Code")

@@ -22,7 +22,7 @@ proc catalan1(n: int): int =
 proc catalan2(n: int): int =
   if n == 0:
     result = 1
-  for i in 0 .. <n:
+  for i in 0 ..< n:
     result += catalan2(i) * catalan2(n - 1 - i)
 
 proc catalan3(n: int): int =

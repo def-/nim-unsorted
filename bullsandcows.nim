@@ -29,7 +29,7 @@ while true:
     echo "\nCongratulations you guessed correctly in ",guesses," attempts"
     break
   var bulls, cows = 0
-  for i in 0 .. <size:
+  for i in 0 ..< size:
     if guess[i] == chosen[i]: inc bulls
     if guess[i] in chosen: inc cows
   echo "  $# Bulls\n  $# Cows".format(bulls, cows)

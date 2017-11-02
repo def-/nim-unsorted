@@ -9,16 +9,16 @@ const
   bs2 = board_size * board_size
 
 proc construct_graph: array[bs2, array[moves, int]] =
-  for col in 0 .. <board_size:
-    for row in 0 .. <board_size:
+  for col in 0 ..< board_size:
+    for row in 0 ..< board_size:
       let parent_id = col * board_size + row
       var i = 0
       for move in knight:
         let (x, y) = (row + move.x, col + move.y)
-        if x in 0 .. <board_size and y in 0 .. <board_size:
+        if x in 0 ..< board_size and y in 0 ..< board_size:
           result[parent_id][i] = y * board_size + x
           inc i
-      for i in i .. <moves:
+      for i in i ..< moves:
         result[parent_id][i] = -1
 
 const graph = construct_graph()

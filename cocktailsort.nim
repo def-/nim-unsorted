@@ -8,7 +8,7 @@ proc cocktailSort[T](a: var openarray[T]) =
   var l = a.len
   while not t:
     t = true
-    for i in 1 .. <l: trySwap
+    for i in 1 ..< l: trySwap
     if t: break
     for i in countdown(l-1, 1): trySwap
 

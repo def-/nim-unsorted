@@ -16,7 +16,7 @@ var
   y = height div 2
 
 var i = 0
-while i < maxSteps and x in 0 .. < width and y in 0 .. < height:
+while i < maxSteps and x in 0 ..< width and y in 0 ..< height:
   let turn = m[y][x] == black
   m[y][x] = if m[y][x] == black: white else: black
 

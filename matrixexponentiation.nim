@@ -19,7 +19,7 @@ proc `^`[M,N](x: Matrix[M,N]; pow: Natural): Matrix[M,N] =
   echo result[0][0]
   for i in low(result) .. high(result):
     result[i][i] = 1 # TODO: Buggy, upload after bug fixed
-  for i in 0 .. <pow:
+  for i in 0 ..< pow:
     echo "Before:"
     echo result
     echo x

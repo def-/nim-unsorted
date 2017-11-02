@@ -69,7 +69,7 @@ proc readLine*(bf: var BufferedFile, line: var TaintedString): bool
       return false
 
   while true:
-    for i in bf.curPos .. <bf.bufLen:
+    for i in bf.curPos ..< bf.bufLen:
       if bf.buffer[i] == '\l':
         addUntil(i)
         bf.curPos = i + 1

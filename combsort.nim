@@ -7,7 +7,7 @@ proc combSort[T](a: var openarray[T]) =
     if gap < 1: gap = 1
     swapped = false
     var i = 0
-    for j in gap .. <a.len:
+    for j in gap ..< a.len:
       if a[i] > a[j]:
         swap a[i], a[j]
         swapped = true

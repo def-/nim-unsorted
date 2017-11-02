@@ -32,8 +32,8 @@ const
   White = px(255, 255, 255)
 
 iterator indices(img: Image): tuple[x, y: int] =
-  for y in 0 .. < img.h:
-    for x in 0 .. < img.w:
+  for y in 0 ..< img.h:
+    for x in 0 ..< img.w:
       yield (x,y)
 
 proc `[]`(img: Image, x, y: int): Pixel =
@@ -89,7 +89,7 @@ proc readPPM(f: File): Image =
     pos = 0
 
   while read != 0:
-    for i in 0 .. < read:
+    for i in 0 ..< read:
       case pos mod 3
       of 0: result.pixels[pos div 3].r = arr[i].uint8
       of 1: result.pixels[pos div 3].g = arr[i].uint8

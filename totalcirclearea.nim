@@ -41,9 +41,9 @@ let dy = (yMax - yMin) / boxSide
 
 var count = 0
 
-for r in 0 .. <boxSide:
+for r in 0 ..< boxSide:
   let y = yMin + float(r) * dy
-  for c in 0 .. <boxSide:
+  for c in 0 ..< boxSide:
     let x = xMin + float(c) * dx
     for circle in circles:
       if (x-circle.x)*(x-circle.x) + (y-circle.y)*(y-circle.y) <= circle.r*circle.r:

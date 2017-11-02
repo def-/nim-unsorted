@@ -24,7 +24,7 @@ proc fromBase(str: string, base: range[2..36]): BiggestInt =
 
   for i in first .. str.high:
     let c = str[i].toLowerAscii
-    assert c in digits[0 .. <base]
+    assert c in digits[0 ..< base]
     result = result * base + digits.find c
 
   if first == 1: result *= -1

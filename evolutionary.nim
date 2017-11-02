@@ -10,7 +10,7 @@ const
 proc random(a: string): char = a[random(a.low..a.len)]
 
 proc negFitness(trial: string): int =
-  for i in 0 .. <trial.len:
+  for i in 0 ..< trial.len:
     if target[i] != trial[i]: inc result
 
 proc mutate(parent: string): string =
@@ -23,10 +23,10 @@ for i in 1..target.len: parent.add random(alphabet)
 var i = 0
 while parent != target:
   var copies = newSeq[string](c)
-  for i in 0 .. <copies.len: copies[i] = mutate(parent)
+  for i in 0 ..< copies.len: copies[i] = mutate(parent)
 
   var best = copies[0]
-  for i in 1 .. <copies.len:
+  for i in 1 ..< copies.len:
     if negFitness(copies[i]) < negFitness(best): best = copies[i]
   parent = best
 

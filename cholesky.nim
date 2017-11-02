@@ -1,10 +1,10 @@
 import math, strutils
 
 proc cholesky[T](a: T): T =
-  for i in 0 .. < a[0].len:
+  for i in 0 ..< a[0].len:
     for j in 0 .. i:
       var s = 0.0
-      for k in 0 .. < j:
+      for k in 0 ..< j:
         s += result[i][k] * result[j][k]
       result[i][j] = if i == j: sqrt(a[i][i]-s)
         else: (1.0 / result[j][j] * (a[i][j] - s))

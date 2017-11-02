@@ -15,12 +15,12 @@ echo s[n-1 .. n+m-2]
 echo s[n-1 .. s.high]
 
 # whole string minus last character:
-echo s[0 .. <s.high]
+echo s[0 ..< s.high]
 
 # starting from a known character c='d'within the string and of m length
 i = s.find(c)
-echo s[i .. <i+m]
+echo s[i ..< i+m]
 
 # starting from a known substring cs="cd" within the string and of m length
 i = s.find(cs)
-echo s[i .. <i+m]
+echo s[i ..< i+m]

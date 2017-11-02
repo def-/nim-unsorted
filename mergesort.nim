@@ -6,10 +6,10 @@ proc merge[T](a, b: var openarray[T], left, middle, right: int) =
     l = 0
     r = leftLen
 
-  for i in left .. <middle:
+  for i in left ..< middle:
     b[l] = a[i]
     inc l
-  for i in middle .. < right:
+  for i in middle ..< right:
     b[r] = a[i]
     inc r
 

@@ -2,7 +2,7 @@ import hailstone, tables
 
 var t = initCountTable[int]()
 
-for i in 1 .. <100_000:
+for i in 1 ..< 100_000:
   t.inc(hailstone(i).len)
 
 let (val, cnt) = t.largest()
