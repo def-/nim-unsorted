@@ -18,7 +18,7 @@ iterator fields(a = (0,0), b = (h-1,w-1)): (int,int) =
 var univ, univNew = newSeqWith(h, newSeq[bool] w)
 
 for y,x in fields():
-  if random(10) < 1: univ[y][x] = true
+  if rand(9) < 1: univ[y][x] = true
 
 while true:
   # Show

@@ -22,7 +22,7 @@ proc test(n, times: int): int =
     while (bits and x) == 0:
       inc result
       bits = bits or x
-      x = 1 shl random(n)
+      x = 1 shl rand(n+1)
 
 echo " n\tavg\texp.\tdiff"
 echo "-------------------------------"

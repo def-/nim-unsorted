@@ -1,4 +1,4 @@
-import sequtils, future
+import sequtils, sugar
 
 type Circle = tuple[x, y, r: float]
 

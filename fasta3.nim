@@ -6,14 +6,14 @@ proc myReadLine(f: File, line: var TaintedString): bool =
   setLen(line.string, 0)
   result = true
   while true:
-    if fgets(buf, 8192, f) == nil:
+    if fgets(cstring(addr buf), 8192, f) == nil:
       result = false
       break
-    if buf[cstring(buf).len-1] == '\l':
-      buf[cstring(buf).len-1] = '\0'
-      add(line, cstring(buf))
+    if buf[cstring(addr buf).len-1] == '\l':
+      buf[cstring(addr buf).len-1] = '\0'
+      add(line, cstring(addr buf))
       break
-    add(line, cstring(buf))
+    add(line, cstring(addr buf))
 
 proc handleFasta(header, sequence: string) =
   echo header.len, " ", sequence.len

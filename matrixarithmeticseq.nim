@@ -1,4 +1,4 @@
-import sequtils, permutationsswap, future
+import sequtils, permutationsswap, sugar
 
 proc det(a: seq[seq[float]]): float =
   let n = toSeq 0..a.high

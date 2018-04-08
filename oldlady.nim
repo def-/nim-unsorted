@@ -11,7 +11,8 @@ zJvGew/jnZPzclA08yAkikegDTTUMfzwDXBcwoE="""
 
 proc uncompress*(source: string, destLen: var int): string =
   result = newString(destLen)
-  discard uncompress(result.cstring, addr destLen, source.cstring, source.len)
+  assert uncompress(result.cstring, addr destLen, source.cstring, source.len) == 0
+  result.setLen(destLen)
 
 var length = 10_000
-echo b64.decode.uncompress length
+echo b64.decode.uncompress(length)

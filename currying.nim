@@ -3,7 +3,7 @@ proc addN[T](n: T): auto = (proc(x: T): T = x + n)
 let add2 = addN(2)
 echo add2(7)
 
-import future
+import sugar
 
 proc addM[T](n: T): auto = (x: T) => x + n
 

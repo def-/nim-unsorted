@@ -1,4 +1,4 @@
-import algorithm, strutils, future
+import algorithm, strutils, sugar
 
 proc printTable(a: seq[seq[string]]) =
   for row in a:

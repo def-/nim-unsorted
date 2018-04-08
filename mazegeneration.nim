@@ -4,7 +4,7 @@ randomize()
 iterator randomCover[T](xs: openarray[T]): T =
   var js = toSeq 0..xs.high
   for i in countdown(js.high, 0):
-    let j = random(i + 1)
+    let j = rand(i)
     swap(js[i], js[j])
   for j in js:
     yield xs[j]
@@ -26,6 +26,6 @@ proc walk(x, y: int) =
     if p[1] == y: ver[y][max(x, p[0])] = "    "
     walk p[0], p[1]
 
-walk random(0..w), random(0..h)
+walk rand(w-1), rand(h-1)
 for a,b in zip(hor, ver & @[""]).items:
   echo join(a & "+\n" & b)

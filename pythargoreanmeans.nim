@@ -1,4 +1,4 @@
-import math, sequtils, future
+import math, sequtils, sugar
 
 proc amean(num: seq[float]): float =
   sum(num) / float(len(num))

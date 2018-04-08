@@ -1,4 +1,4 @@
-import sequtils, strutils, future
+import sequtils, strutils, sugar
 
 proc j(n, k: int): string =
   var

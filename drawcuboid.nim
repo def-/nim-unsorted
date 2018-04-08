@@ -6,7 +6,7 @@ proc cline(n, x, y: int, cde: string) =
     cde[0], cde[2..2].align y+1
 
 proc cuboid(x, y, z: int) =
-  cline y+1, x, 0, "+-"
+  cline y+1, x, 0, "+- "
   for i in 1..y: cline y-i+1, x, i-1, "/ |"
   cline 0, x, y, "+-|"
   for i in 0..4*z-y-3: cline 0, x, y, "| |"

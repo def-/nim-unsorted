@@ -25,7 +25,7 @@ proc histogram(ns: openarray[float]) =
 
 for i in [10, 100, 1_000, 10_000, 100_000]:
   var n = newSeq[float](i)
-  for x in 0..n.high: n[x] = random(1.0)
+  for x in 0..n.high: n[x] = rand(1.0)
   echo "\n##\n## ",i," numbers\n##"
   let (sd, mean) = sd(n)
   echo "sd: ",sd,", mean: ",mean

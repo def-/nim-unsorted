@@ -1,2 +1,2 @@
-@[(c: a, n: 5), (c: h, n: 6), (c: m, n: 7), (c: u, n: 1), (c: i, n: 7), (c: a, n: 6)]
+@[(c: 'a', n: 5), (c: 'h', n: 6), (c: 'm', n: 7), (c: 'u', n: 1), (c: 'i', n: 7), (c: 'a', n: 6)]
 aaaaahhhhhhmmmmmmmuiiiiiiiaaaaaa

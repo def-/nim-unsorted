@@ -4,7 +4,7 @@ proc randomGenerator(seed: int): iterator: int =
   var seed = seed
   return iterator: int =
     while true:
-      seed = (seed.int64 * 214013 + 2531011) and int32.high
+      seed = int((seed.int64 * 214013 + 2531011) and int32.high)
       yield seed shr 16
 
 proc deal(seed: int): seq[int] =

@@ -1,7 +1,7 @@
 import random, strutils, rdstdin
 randomize()
 
-proc random(a: string): char = a[random(0..a.len)]
+proc rand(a: string): char = a[rand(a.high)]
 
 const
   digits = "123456789"
@@ -11,7 +11,7 @@ var digitsSet: set[char] = {}
 for d in digits: digitsSet.incl d
 
 var chosen = newString(size)
-for i in 0..chosen.high: chosen[i] = random(digits)
+for i in 0..chosen.high: chosen[i] = rand(digits)
 
 echo """I have chosen a number from $# unique digits from 1 to 9 arranged in a random order.
 You need to input a $# digit, unique digit number as a guess at what I have chosen""".format(size, size)

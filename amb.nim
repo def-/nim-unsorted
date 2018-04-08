@@ -1,4 +1,4 @@
-import future, strutils
+import sugar, strutils
 
 proc amb(comp: proc(a, b: string): bool, options: seq[seq[string]],
          prev: string = nil): seq[string] =

@@ -1,4 +1,4 @@
-import future, sequtils
+import sugar, sequtils
 
 proc combsReps[T](lst: seq[T], k: int): seq[seq[T]] =
   if k == 0:

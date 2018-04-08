@@ -8,7 +8,7 @@ proc `$`(a: Vector3): string =
   for i, x in a:
     if i > a.low:
       result.add ", "
-    result.add formatFloat(x, precision = 0)
+    result.add formatFloat(x, precision = -1)
 
   result.add "]"
 
@@ -28,6 +28,6 @@ let
   b = [4.0, 3.0, 5.0]
   c = [-5.0, -12.0, -13.0]
 echo "a ⨯ b = ", a ~⨯ b
-echo "a • b = ", (a ~• b).formatFloat(precision = 0)
-echo "a . (b ⨯ c) = ", (scalartrip(a, b, c)).formatFloat(precision = 0)
+echo "a • b = ", (a ~• b).formatFloat(precision = -1)
+echo "a . (b ⨯ c) = ", (scalartrip(a, b, c)).formatFloat(precision = -1)
 echo "a ⨯ (b ⨯ c) = ", vectortrip(a, b, c)

@@ -3,7 +3,7 @@ randomize()
 
 proc randN(n: int): (proc: range[0..1]) =
   result = proc(): range[0..1] =
-    if random(n) == 0: 1 else: 0
+    if rand(n) == 0: 1 else: 0
 
 proc unbiased(biased: proc): range[0..1] =
   var (this, that) = (biased(), biased())
@@ -13,7 +13,7 @@ proc unbiased(biased: proc): range[0..1] =
   return this
 
 for n in 3..6:
-  var biased = randN(n)
+  var biased = randN(n-1)
   var v = newSeqWith(1_000_000, biased())
   var cnt0, cnt1 = 0
   for x in v:

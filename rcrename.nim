@@ -59,7 +59,7 @@ for catMember in titlesJson["query"]["categorymembers"]:
   let
     title     = catMember["title"].str
     uriTitle  = title.replace(' ', '_')
-    newText   = client.getContent(rawActionPage % uriTitle).parallelReplace(regs)
+    newText   = client.getContent(rawActionPage % uriTitle).multiReplace(regs)
 
   # Would be nice to keep track of cookies automatically in a higher level
   # HTTP client library

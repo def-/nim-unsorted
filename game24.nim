@@ -2,7 +2,7 @@ import random, strutils, algorithm, sequtils
 randomize()
 
 var
-  problem = newSeqWith(4, random(1..9))
+  problem = newSeqWith(4, rand(1..8))
   stack = newSeq[float]()
   digits = newSeq[int]()
 

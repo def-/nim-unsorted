@@ -12,7 +12,7 @@ const
 
 proc spellInteger(n: int64): string
 
-proc nonzero(c: string, n: int, connect=""): string =
+proc nonzero(c: string, n: int64, connect=""): string =
   if n == 0: "" else: connect & c & spellInteger(n)
 
 proc lastAnd(num: string): string =
@@ -27,7 +27,7 @@ proc lastAnd(num: string): string =
     num = [pre, ",", last].join()
   return num
 
-proc big(e, n: int): string =
+proc big(e, n: int64): string =
   if e == 0:
     spellInteger(n)
   elif e == 1:
@@ -35,7 +35,7 @@ proc big(e, n: int): string =
   else:
     spellInteger(n) & " " & huge[e]
 
-iterator base1000Rev(n: int64): int =
+iterator base1000Rev(n: int64): int64 =
   var n = n
   while n != 0:
     let r = n mod 1000

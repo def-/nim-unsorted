@@ -4,7 +4,7 @@ randomize()
 let iRange = 1..100
 
 echo "Guess my target number that is between ", iRange.a, " and ", iRange.b, " (inclusive)."
-let target = random(iRange)
+let target = rand(iRange)
 var answer, i = 0
 while answer != target:
   inc i

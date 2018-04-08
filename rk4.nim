@@ -24,7 +24,7 @@ proc actual(t: float64): float64 =
    return t * t / 16
 
 template ff(f: float): string =
-   formatFloat(f, ffDefault, 0)
+   formatFloat(f, ffDefault, -1)
 
 template printErr(t, y: float64): untyped =
    echo "y($#) = $# Error: $#" % [ff(t), ff(y), ff(abs(actual(t)-y))]

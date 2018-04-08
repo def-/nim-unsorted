@@ -1,4 +1,4 @@
-import os, unicode, future
+import os, unicode, sugar
 
 let nothing = proc: bool {.closure.} = false
 

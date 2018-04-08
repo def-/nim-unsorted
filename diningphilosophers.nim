@@ -16,15 +16,15 @@ var
 
 proc run(p: Philosopher) {.thread.} =
   while true:
-    sleep random 1 .. 10
+    sleep rand 1 .. 9
     echo p.name, " is hungry."
 
     acquire forks[min(p.forkLeft, p.forkRight)]
-    sleep random 1 .. 5
+    sleep rand 1 .. 4
     acquire forks[max(p.forkLeft, p.forkRight)]
 
     echo p.name, " starts eating."
-    sleep random 1 .. 10
+    sleep rand 1 .. 9
 
     echo p.name, " finishes eating and leaves to think."
 

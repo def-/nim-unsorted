@@ -1,4 +1,4 @@
-import future, sequtils
+import sugar, sequtils
 
 proc fs[T1,T2](f: T1 -> T2, s: seq[T1]): seq[T2] = s.map f
 

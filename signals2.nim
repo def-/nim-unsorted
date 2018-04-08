@@ -14,4 +14,4 @@ try:
     sleep 500
     echo n
 except EKeyboardInterrupt:
-  echo "Program has run for ", formatFloat(epochTime() - t, precision = 0), " seconds."
+  echo "Program has run for ", formatFloat(epochTime() - t, precision = -1), " seconds."

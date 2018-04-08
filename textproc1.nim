@@ -41,13 +41,13 @@ for filename in commandLineParams():
 
     echo "Line: $#  Reject: $#  Accept: $#  LineTot: $# LineAvg: $#"
       .format(date, data.len - numLine, numLine,
-              formatFloat(totLine, precision = 0), formatFloat(
-        (if numLine > 0: totLine / float(numLine) else: 0.0), precision = 0))
+              formatFloat(totLine, precision = -1), formatFloat(
+        (if numLine > 0: totLine / float(numLine) else: 0.0), precision = -1))
 
 echo ""
 echo "File(s)   = ", commandLineParams().join(" ")
-echo "Total     = ", formatFloat(totFile, precision = 0)
+echo "Total     = ", formatFloat(totFile, precision = -1)
 echo "Readings  = ", numFile
-echo "Average   = ", formatFloat(totFile / float(numFile), precision = 0)
+echo "Average   = ", formatFloat(totFile / float(numFile), precision = -1)
 echo ""
 echo "Maximum run(s) of ", nodataMax, " consecutive false readings ends at line starting with date(s): ", nodataMaxLine.join(" ")

@@ -1,4 +1,4 @@
-import future
+import sugar
 
 proc compose[A,B,C](f: A -> B, g: B -> C): A -> C = (x: A) => f(g(x))
 

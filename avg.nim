@@ -36,15 +36,15 @@ proc myReadLine(f: File, line: var TaintedString): bool =
   setLen(line.string, 0)
   result = true
   while true:
-    if fgets(buf, 8192, f) == nil:
+    if fgets(cstring(addr buf), 8192, f) == nil:
       result = false
       break
-    let l = cstring(buf).len-1
+    let l = cstring(addr buf).len-1
     if buf[l] == '\l':
       buf[l] = '\0'
-      add(line, cstring(buf))
+      add(line, cstring(addr buf))
       break
-    add(line, cstring(buf))
+    add(line, cstring(addr buf))
 
 # compute average line length
 var count = 0

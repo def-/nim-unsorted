@@ -11,7 +11,7 @@ var
 for i in 1..1000:
   var lst = @[1,0,0]  # one car and two goats
   shuffle(lst)        # shuffles the list randomly
-  let ran = random(3) # gets a random number for the random guess
+  let ran = rand(2)   # gets a random number for the random guess
   let user = lst[ran] # storing the random guess
   del lst, ran        # deleting the random guess
 

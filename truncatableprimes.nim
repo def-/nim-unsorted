@@ -32,3 +32,5 @@ proc truncatablePrime(n: int64): tuple[left: int64, right: int64] =
       break
 
 echo truncatablePrime(1000000'i64)
+
+# TODO: Wrong result in right

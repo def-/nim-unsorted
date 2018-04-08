@@ -1,4 +1,4 @@
-import strutils, sequtils, future
+import strutils, sequtils, sugar
 
 proc solve(tri: seq[seq[int]]): int =
   var tri = tri

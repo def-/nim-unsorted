@@ -1,4 +1,4 @@
-import strutils, sequtils, future
+import strutils, sequtils, sugar
 
 proc mdroot(n: int): tuple[mp, mdr: int] =
   var mdr = @[n]

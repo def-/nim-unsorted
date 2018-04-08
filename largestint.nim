@@ -1,4 +1,4 @@
-import algorithm, sequtils, strutils, future
+import algorithm, sequtils, strutils, sugar
 
 proc maxNum(x: seq[int]): string =
   var c = x.mapIt(string, $it)

@@ -2,9 +2,9 @@ import random
 randomize()
 
 while true:
-  let a = random(20)
+  let a = rand(19)
   echo a
   if a == 10:
     break
-  let b = random(20)
+  let b = rand(19)
   echo b

@@ -1,3 +1,3 @@
 import times
 
-echo getGMTime fromSeconds 0
+echo fromUnix(0).utc

@@ -3,7 +3,7 @@ import times, os, strutils
 let t = epochTime()
 
 proc handler() {.noconv.} =
-  echo "Program has run for ", formatFloat(epochTime() - t, precision = 0), " seconds."
+  echo "Program has run for ", formatFloat(epochTime() - t, precision = -1), " seconds."
   quit 0
 
 setControlCHook(handler)

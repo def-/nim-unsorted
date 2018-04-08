@@ -1,4 +1,4 @@
-import httpclient, json, re, strutils, algorithm, future
+import httpclient, json, re, strutils, algorithm, sugar
 
 type Rank = tuple[lang: string, count: int]
 

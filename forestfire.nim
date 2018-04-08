@@ -8,7 +8,7 @@ const
   treeProb = 0.01
   burnProb = 0.001
 
-proc chance(prob: float): bool = random(1.0) < prob
+proc chance(prob: float): bool = rand(1.0) < prob
 
 # Set the size
 var w, h: int

@@ -4,7 +4,7 @@ randomize()
 proc oneOfN(n: int): int =
   result = 0
   for x in 0 ..< n:
-    if random(x+1) == 0:
+    if rand(x) == 0:
       result = x
 
 proc oneOfNTest(n = 10, trials = 1_000_000): seq[int] =

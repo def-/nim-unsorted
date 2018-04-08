@@ -17,7 +17,7 @@ proc kboxInit =
     k43[i] = k4[i shr 4] shl 4 or k3[i and 15]
     k21[i] = k2[i shr 4] shl 4 or k1[i and 15]
 
-proc f(x: int64): int64 =
+proc f(x: int): int64 =
   let x = k87[x shr 24 and 255] shl 24 or k65[x shr 16 and 255] shl 16 or
           k43[x shr 8 and 255] shl 8 or k21[x and 255]
   x shl 11 or x shr (32 - 11)

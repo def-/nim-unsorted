@@ -81,10 +81,15 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
       return p.outputStream.readStr(100000) == readFile(name & ".out")
   else:
     var p: Process
+
+    var args = params.split
+    if args.len == 1 and args[0].len == 0:
+      args.setLen(0)
+
     if "wine " in compCommand or "mingw" in compCommand:
-      p = startProcess("/usr/bin/wine", args = @[name & ".exe"] & params.split)
+      p = startProcess("/usr/bin/wine", args = @[name & ".exe"] & args)
     else:
-      p = startProcess(name, args = params.split)
+      p = startProcess(name, args = args)
     p.inputStream.write(input)
     p.inputStream.close()
     if p.waitForExit > 0: return false

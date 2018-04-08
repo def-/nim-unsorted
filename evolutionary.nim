@@ -7,7 +7,7 @@ const
   p = 0.05
   c = 100
 
-proc random(a: string): char = a[random(a.low..a.len)]
+proc rand(a: string): char = a[rand(a.low..a.high)]
 
 proc negFitness(trial: string): int =
   for i in 0 ..< trial.len:
@@ -15,10 +15,10 @@ proc negFitness(trial: string): int =
 
 proc mutate(parent: string): string =
   result = ""
-  for c in parent: result.add if random(1.0) < p: random(alphabet) else: c
+  for c in parent: result.add if rand(1.0) < p: rand(alphabet) else: c
 
 var parent = ""
-for i in 1..target.len: parent.add random(alphabet)
+for i in 1..target.len: parent.add rand(alphabet)
 
 var i = 0
 while parent != target:
