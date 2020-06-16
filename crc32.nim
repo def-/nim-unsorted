@@ -1,7 +1,7 @@
 import strutils
 
 type TCrc32* = uint32
-const InitCrc32* = TCrc32(-1)
+const InitCrc32* = TCrc32(uint32.high)
 
 proc createCrcTable(): array[0..255, TCrc32] =
   for i in 0..255:

@@ -139,10 +139,11 @@ proc newIfElse(c, t, e: NimNode): NimNode {.compiletime.} =
   result = newIfStmt((c, t))
   result.add(newNimNode(nnkElse).add(e))
 
-macro if2(x, y, z: untyped): typed =
+macro if2(x, y, z: untyped) =
   var parts: array[4, NimNode]
   for i in parts.low .. parts.high:
-    parts[i] = newNimNode(nnkDiscardStmt).add(nil)
+    let childNode: NimNode = nil
+    parts[i] = newNimNode(nnkDiscardStmt).add(childNode)
 
   assert z.kind == nnkStmtList
   assert z.len <= 4
@@ -153,7 +154,7 @@ macro if2(x, y, z: untyped): typed =
 
     var j = 0
 
-    case $z[i][0].ident
+    case z[i][0].strVal
     of "then":  j = 0
     of "else1": j = 1
     of "else2": j = 2

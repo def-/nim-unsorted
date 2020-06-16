@@ -1,12 +1,12 @@
 import sugar, strutils
 
 proc amb(comp: proc(a, b: string): bool, options: seq[seq[string]],
-         prev: string = nil): seq[string] =
+         prev: string = ""): seq[string] =
   if options.len == 0: return @[]
 
   for opt in options[0]:
     # If this is the base call, prev is nil and we need to continue.
-    if prev != nil and not comp(prev, opt): continue
+    if prev.len != 0 and not comp(prev, opt): continue
 
     # Take care of the case where we have no options left.
     if options.len == 1: return @[opt]

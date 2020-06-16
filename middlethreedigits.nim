@@ -1,5 +1,3 @@
-import math
-
 proc middleThreeDigits(i: int): auto =
   var s = $abs(i)
   if s.len < 3 or s.len mod 2 == 0:

@@ -12,10 +12,10 @@
 import math
 
 type
-  TQueue* {.pure, final.}[T] = object ## a queue
+  TQueue*[T] {.pure, final.} = object ## a queue
     data: seq[T]
     rd, wr, count, mask: int
-    
+
 proc initQueue*[T](initialSize=4): TQueue[T] =
   ## creates a new queue. `initialSize` needs to be a power of 2.
   assert isPowerOfTwo(initialSize)

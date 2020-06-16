@@ -3,13 +3,13 @@ hash has key foo? true
 hash has key bar? false
 iterate pairs:
 eggs: 2
-foo: 3
 spam: 1
+foo: 3
 iterate keys:
 eggs
-foo
 spam
+foo
 iterate values:
 2
-3
 1
+3

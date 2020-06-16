@@ -7,7 +7,7 @@ macro `[]`*(lc: ListComprehension, x, t): untyped =
   expectLen(x, 3)
   expectKind(x, nnkInfix)
   expectKind(x[0], nnkIdent)
-  assert($x[0].ident == "|")
+  assert(x[0].strVal == "|")
 
   result = newCall(
     newDotExpr(
@@ -19,7 +19,7 @@ macro `[]`*(lc: ListComprehension, x, t): untyped =
     let y = x[2][i]
     expectKind(y, nnkInfix)
     expectMinLen(y, 1)
-    if y[0].kind == nnkIdent and $y[0].ident == "<-":
+    if y[0].kind == nnkIdent and y[0].strVal == "<-":
       expectLen(y, 3)
       result = newNimNode(nnkForStmt).add(y[1], y[2], result)
     else:

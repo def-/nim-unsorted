@@ -9,7 +9,7 @@ block outer:
 var f = open "input.txt"
 try:
   var s = readLine f
-except ReadIOEffect:
+except IOError:
   echo "An error occured!"
 finally:
   close f

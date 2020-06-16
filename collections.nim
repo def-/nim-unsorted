@@ -53,14 +53,14 @@ m["baz"] = 14
 # Sets
 # Hash sets (also ordered hash sets)
 import sets
-var n = initSet[string]()
+var n = initHashSet[string]()
 n.incl("foo")
 
-var o = ["foo", "bar", "baz"].toSet
+var o = ["foo", "bar", "baz"].toHashSet
 o.incl("foobar")
 
 # Queues
-import queues
-var p = initQueue[int]()
-p.add(12)
-p.add(13)
+import deques
+var p = initDeque[int]()
+p.addLast(12)
+p.addLast(13)

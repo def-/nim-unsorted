@@ -1,4 +1,4 @@
-import httpclient, strutils
+import strutils
 
 proc isSorted(s: string): bool =
   var last = low(char)
@@ -8,12 +8,12 @@ proc isSorted(s: string): bool =
     last = c
   return true
 
-const url = "http://www.puzzlers.org/pub/wordlists/unixdict.txt"
 var mx = 0
 var words: seq[string] = @[]
-var client = newHttpClient()
 
-for word in client.getContent(url).split():
+var f = open("wordlist.txt")
+var word = ""
+while f.readLine(word):
   if word.len >= mx and isSorted(word):
     if word.len > mx:
       words = @[]

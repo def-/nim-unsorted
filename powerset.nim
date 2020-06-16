@@ -6,7 +6,7 @@ proc hash(x: HashSet[int]): Hash =
   result = !$h
 
 proc powerset[T](inset: HashSet[T]): auto =
-  result = toSet([initSet[T]()])
+  result = toHashSet([initHashSet[T]()])
 
   for i in inset:
     var tmp = result
@@ -16,4 +16,4 @@ proc powerset[T](inset: HashSet[T]): auto =
       tmp.incl(k)
     result = tmp
 
-echo powerset(toSet([1,2,3,4]))
+echo powerset(toHashSet([1,2,3,4]))

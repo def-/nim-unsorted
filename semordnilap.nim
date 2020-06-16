@@ -7,7 +7,7 @@ proc reverse(s: string): string =
 
 let
   words = readFile("unixdict.txt").strip.splitLines
-  wordset = words.toSet
+  wordset = words.toHashSet
   revs = words.map(reverse)
 var pairs = zip(words, revs).filterIt(it[0] < it[1] and it[1] in wordset)
 

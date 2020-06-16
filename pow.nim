@@ -37,7 +37,7 @@ proc prime(n: int): int =
       if primes.len > n:
         return primes[n]
 
-macro comp(): typed =
+macro comp() =
   result = parseStmt("echo " & $prime(500))
 
 #comp()

@@ -1,5 +1,3 @@
-import os
-
 template upon(a, b, c) =
   var b = a
   c

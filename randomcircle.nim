@@ -1,4 +1,4 @@
-import tables, random, strutils, complex
+import tables, random, complex
 randomize()
 
 proc rand[T](a: openarray[T]): T =
@@ -11,7 +11,7 @@ var world = initCountTable[Point]()
 var possiblePoints = newSeq[Point]()
 for x in -15..15:
   for y in -15..15:
-    if abs((x.float, y.float)) in 10.0..15.0:
+    if abs(complex64(x.float, y.float)) in 10.0..15.0:
       possiblePoints.add((x,y))
 
 for i in 0..100: world.inc possiblePoints.rand

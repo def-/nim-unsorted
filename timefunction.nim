@@ -1,4 +1,4 @@
-import times, os
+import times
 
 proc doWork(x: int) =
   var n = x

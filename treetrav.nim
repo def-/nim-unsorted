@@ -1,4 +1,4 @@
-import queues, sequtils
+import deques
 
 type
   Node[T] = ref TNode[T]
@@ -23,13 +23,13 @@ proc postorder[T](n: Node[T]): seq[T] =
 
 proc levelorder[T](n: Node[T]): seq[T] =
   result = @[]
-  var queue = initQueue[Node[T]]()
-  queue.enqueue(n)
+  var queue = initDeque[Node[T]]()
+  queue.addLast(n)
   while queue.len > 0:
-    let next = queue.dequeue()
+    let next = queue.popFirst()
     result.add next.data
-    if next.left != nil: queue.enqueue(next.left)
-    if next.right != nil: queue.enqueue(next.right)
+    if next.left != nil: queue.addLast(next.left)
+    if next.right != nil: queue.addLast(next.right)
 
 let tree = 1.newNode(
              2.newNode(

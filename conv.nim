@@ -155,24 +155,24 @@ echo potSum(10)
 proc `+=`[T: float|float32|float64](x: var T, y: T) =
   x = x + y
 
-macro `:=`(assign, data): typed =
+macro `:=`(assign, data) =
   assert(assign.kind == nnkIdent)
-  let to = $assign.ident
+  let to = assign.strVal
 
   assert(data.len == 3)
   assert(data.kind == nnkInfix)
 
   let m1 = data[0]
   assert(m1.kind == nnkIdent)
-  assert($m1.ident == "/")
+  assert(m1.strVal == "/")
 
   let m2 = data[1]
   assert(m2.kind == nnkIdent)
-  let from1 = $m2.ident
+  let from1 = m2.strVal
 
   let m3 = data[2]
   assert(m3.kind == nnkIdent)
-  let from2 = $m3.ident
+  let from2 = m3.strVal
 
   result = parseStmt("isMult(" & from1 & ", " & to & ", " & from2 & ")")
 

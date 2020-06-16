@@ -1,4 +1,4 @@
-import opengl, glut
+import opengl, opengl/glut
 
 proc paint() {.cdecl.} =
   glClearColor(0.3,0.3,0.3,0.0)

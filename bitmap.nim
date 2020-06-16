@@ -1,7 +1,7 @@
 # TODO: There are more bitmap tasks!
 {.experimental.}
 
-import strutils, math
+import strutils
 
 type
   Luminance = uint8

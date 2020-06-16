@@ -1,5 +1,5 @@
 # Defining an exception
-type SillyError = object of Exception
+type SillyError = object of ValueError
 
 # Throwing an exception
 proc spam() =

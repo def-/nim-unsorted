@@ -3,14 +3,14 @@ import times
 const LongMonths = {mJan, mMar, mMay, mJul, mAug, mOct, mDec}
 
 var timeinfo = getTime().local
-timeinfo.monthday = 1
+timeinfo.monthdayZero = 1
 
 var sumNone = 0
 for year in 1900..2100:
   var none = true
   for month in LongMonths:
     timeinfo.year = year
-    timeinfo.month = month
+    timeinfo.monthZero = month.int
     if timeinfo.toTime.local.weekday == dFri:
       echo month," ",year
       none = false

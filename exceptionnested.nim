@@ -1,5 +1,5 @@
-type U0 = object of Exception
-type U1 = object of Exception
+type U0 = object of ValueError
+type U1 = object of ValueError
 
 proc baz(i: int) =
   if i > 0: raise newException(U1, "Some error")

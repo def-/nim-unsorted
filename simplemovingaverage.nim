@@ -1,17 +1,17 @@
-import queues
+import deques
 
 proc simplemovingaverage(period: int): auto =
   assert period > 0
 
   var
     summ, n = 0.0
-    values = initQueue[float]()
+    values = initDeque[float]()
   for i in 1..period:
-    values.add(0)
+    values.addLast(0)
 
   proc sma(x: float): float =
-    values.add(x)
-    summ += x - values.dequeue()
+    values.addLast(x)
+    summ += x - values.popFirst()
     n = min(n+1, float(period))
     result = summ / n
 

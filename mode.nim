@@ -7,4 +7,4 @@ proc modes[T](xs: openArray[T]): T =
   largest(count).key
 
 echo modes(@[1,3,6,6,6,6,7,7,12,12,17])
-echo modes(@[1,1,2,4,4])
+echo modes(@[1,1,1,2,4,4])

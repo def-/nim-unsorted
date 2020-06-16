@@ -1,13 +1,13 @@
 import math, complex, strutils, sequtils
 
-proc rect(r, phi: float): Complex = (r * cos(phi), sin(phi))
-proc phase(c: Complex): float = arctan2(c.im, c.re)
+proc rect(r, phi: float): Complex64 = complex64(r * cos(phi), sin(phi))
+proc phase(c: Complex64): float = arctan2(c.im, c.re)
 
 proc radians(x: float): float = (x * Pi) / 180.0
 proc degrees(x: float): float = (x * 180.0) / Pi
 
 proc meanAngle(deg: openarray[float]): float =
-  var c: Complex
+  var c: Complex64
   for d in deg:
     c += rect(1.0, radians(d))
   degrees(phase(c / float(deg.len)))

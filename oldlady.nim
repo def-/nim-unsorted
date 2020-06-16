@@ -9,10 +9,8 @@ W6plOJf6L6xaajZjzqW/qAsKIvITBGs9Nm3glboZzkVP5l6Y+0bHLnedD0CttIyrpEU5Kv7N
 Mz3XkPBc/TSN3yxGiqMiipHRekycK0ZwMhM8jerGC9zuZaoTho3kMKSfJjLaF8v8wLzmXMqM
 zJvGew/jnZPzclA08yAkikegDTTUMfzwDXBcwoE="""
 
-proc uncompress*(source: string, destLen: var int): string =
-  result = newString(destLen)
-  assert uncompress(result.cstring, addr destLen, source.cstring, source.len) == 0
-  result.setLen(destLen)
+proc uncompress*(source: string): string =
+  uncompress(source.cstring, source.len)
 
 var length = 10_000
 echo b64.decode.uncompress(length)

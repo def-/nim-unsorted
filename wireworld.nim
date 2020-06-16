@@ -11,7 +11,7 @@ var world, world2 = """
 let h = world.splitLines.len
 let w = world.splitLines[0].len
 
-template isH(x, y): int = int(s[i+ w*y + x] == 'H')
+template isH(x, y): int = int(s[i + w*y + x] == 'H')
 
 proc next(o: var string, s: string, w: int) =
   for i, c in s:

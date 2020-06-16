@@ -1,6 +1,6 @@
 import times, os, strutils
 
-type EKeyboardInterrupt = object of Exception
+type EKeyboardInterrupt = object of OSError
 
 proc handler() {.noconv.} =
   raise newException(EKeyboardInterrupt, "Keyboard Interrupt")

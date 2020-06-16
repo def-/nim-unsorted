@@ -23,7 +23,7 @@ proc findrc(category: string): seq[string] =
     cmcontinue = @[]
     for i in x.getElementsByTagName("categorymembers"):
       let u = PElement(i).getAttribute("cmcontinue")
-      if u != nil: cmcontinue.add encodeUrl(u)
+      if u.len != 0: cmcontinue.add encodeUrl(u)
 
     if cmcontinue.len > 0:
       cmcontinue[0] = "&cmcontinue=" & cmcontinue[0]

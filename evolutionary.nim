@@ -1,4 +1,4 @@
-import random, os
+import random
 randomize()
 
 const

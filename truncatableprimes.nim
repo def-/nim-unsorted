@@ -2,7 +2,7 @@ import sets, strutils, algorithm
 
 proc primes(n: int64): seq[int64] =
   result = @[]
-  var multiples = initSet[int64]()
+  var multiples = initHashSet[int64]()
   for i in 2..n:
     if i notin multiples:
       result.add i
@@ -15,17 +15,17 @@ proc truncatablePrime(n: int64): tuple[left: int64, right: int64] =
   for x in primes(n):
     primelist.add($x)
   reverse primelist
-  var primeset = toSet primelist
+  var primeset = toHashSet primelist
   for n in primelist:
-    var alltruncs = initSet[string]()
+    var alltruncs = initHashSet[string]()
     for i in 0..n.len:
       alltruncs.incl n[1..n.high]
     if alltruncs <= primeset:
       result.left = parseInt(n)
       break
   for n in primelist:
-    var alltruncs = initSet[string]()
-    for i in 0..n.len:
+    var alltruncs = initHashSet[string]()
+    for i in 0..n.high:
       alltruncs.incl n[..i]
     if alltruncs <= primeset:
       result.right = parseInt(n)

@@ -1,5 +1,3 @@
-import strutils, memfiles
-
 #proc main =
 #  var
 #    s = 0

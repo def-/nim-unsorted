@@ -43,7 +43,7 @@
 
 import unittest, osproc, streams, os, strutils
 
-type EKeyboardInterrupt = object of Exception
+type EKeyboardInterrupt = object of OSError
 
 proc handler() {.noconv.} =
   raise newException(EKeyboardInterrupt, "Keyboard Interrupt")
@@ -545,7 +545,7 @@ testIt "wcl": check it.compiles
 testIt "webscraping": check it.compiles # Website down
 testIt "webserver": check it.compiles
 testIt "wireworld": check it.compiles
-testIt "wordwrap": check it.returns
+testIt "wrapword": check it.returns
 testIt "xmlin": check it.returns
 testIt "xmlout": check it.returns
 testIt "xml_dom": check it.returns
