@@ -68,7 +68,7 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
     echo "Compilation failed"
     return false
   if compCommand.contains " js":
-    if not existsFile(name & ".out"):
+    if not fileExists(name & ".out"):
       return execProcess("/usr/bin/node nimcache/" & name & ".js " & params) == ""
     else:
       var p = startProcess("/usr/bin/node", args = @["nimcache/" & name & ".js"] & params)
@@ -93,7 +93,7 @@ proc returns(name: string; compParams = ""; params = ""; input = ""): bool =
     p.inputStream.write(input)
     p.inputStream.close()
     if p.waitForExit > 0: return false
-    if not existsFile(name & ".out"):
+    if not fileExists(name & ".out"):
       return p.outputStream.readStr(100000) == ""
     return closeEnough(p.outputStream.readStr(100000), readFile(name & ".out"))
 

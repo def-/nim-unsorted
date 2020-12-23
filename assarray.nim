@@ -9,7 +9,7 @@ var
 
 hash["spam"] = 1
 hash["eggs"] = 2
-hash.add("foo", 3)
+hash["foo"] = 3
 
 echo "hash has ", hash.len, " elements"
 echo "hash has key foo? ", hash.hasKey("foo")

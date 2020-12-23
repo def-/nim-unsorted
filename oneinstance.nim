@@ -1,4 +1,4 @@
-import os, posix
+import std.exitprocs, os, posix
 
 let fn = getHomeDir() & "rosetta-code-lock"
 proc ooiUnlink {.noconv.} = discard unlink fn
@@ -9,7 +9,7 @@ proc onlyOneInstance =
   if fcntl(fd, F_SETLK, addr fl) < 0:
     stderr.writeLine "Another instance of this program is running"
     quit 1
-  addQuitProc ooiUnlink
+  addExitProc ooiUnlink
 
 onlyOneInstance()
 

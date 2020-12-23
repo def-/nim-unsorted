@@ -1,6 +1,6 @@
 import os
 
-echo existsFile "input.txt"
-echo existsFile "/input.txt"
-echo existsDir "docs"
-echo existsDir "/docs"
+echo fileExists "input.txt"
+echo fileExists "/input.txt"
+echo dirExists "docs"
+echo dirExists "/docs"
