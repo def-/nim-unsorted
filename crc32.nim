@@ -34,7 +34,7 @@ proc crc32FromFile*(filename: string): TCrc32 =
   var buf {.noinit.}: array[bufSize, char]
 
   while true:
-    var readBytes = bin.readChars(buf, 0, bufSize)
+    var readBytes = bin.readChars(toOpenArray(buf, 0, bufSize-1))
     for i in countup(0, readBytes - 1):
       updateCrc32(buf[i], result)
     if readBytes != bufSize:

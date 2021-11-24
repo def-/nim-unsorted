@@ -17,11 +17,11 @@ proc validIban(iban: string): bool =
     return false
 
   # Validate country code against expected length
-  if iban.len != countryLen[iban[..1]]:
+  if iban.len != countryLen[iban[0..1]]:
     return false
 
   # Shift and convert
-  iban = iban[4..iban.high] & iban[..3]
+  iban = iban[4..iban.high] & iban[0..3]
   var digits = ""
   for ch in iban:
     case ch

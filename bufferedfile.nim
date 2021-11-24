@@ -3,32 +3,32 @@ const
 
 type
   BufferedFile* = object
-    file*: TFile
+    file*: File
     buffer*: array[bufferSize, char] # TODO: Make this noinit
     curPos*: int ## current index in buffer
     bufLen*: int ## current length of buffer
 
-proc fread(buf: pointer, size, n: int, f: TFile): int {.
-  importc: "fread", header: "<stdio.h>", tags: [FReadIO].}
+proc fread(buf: pointer, size, n: int, f: File): int {.
+  importc: "fread", header: "<stdio.h>".}
 
 # TODO: What do we do with the C internal bufSize, always set to 0?
-proc open*(bf: var BufferedFile; filename: string; mode: TFileMode = fmRead;
+proc open*(bf: var BufferedFile; filename: string; mode: FileMode = fmRead;
            bufSize: int = - 1): bool {.tags: [], gcsafe.} =
   result = bf.file.open(filename, mode, bufSize)
   bf.curPos = 0
   bf.bufLen = 0
 
-proc open*(bf: var BufferedFile; filehandle: TFileHandle;
-          mode: TFileMode = fmRead): bool {.tags: [], gcsafe.} =
+proc open*(bf: var BufferedFile; filehandle: FileHandle;
+          mode: FileMode = fmRead): bool {.tags: [], gcsafe.} =
   result = bf.file.open(filehandle, mode)
   bf.curPos = 0
   bf.bufLen = 0
 
-proc open*(filename: string, mode: TFileMode = fmRead, bufSize: int = -1):
+proc open*(filename: string, mode: FileMode = fmRead, bufSize: int = -1):
            BufferedFile {.tags: [], gcsafe.} =
   result.file = system.open(filename, mode, bufSize)
 
-proc buffered*(file: TFile): BufferedFile {.tags: [], gcsafe.} =
+proc buffered*(file: File): BufferedFile {.tags: [], gcsafe.} =
   result.file = file
 
 proc clearBuffer(bf: var BufferedFile) =
@@ -47,21 +47,21 @@ proc readChar*(bf: var BufferedFile): char =
   inc bf.curPos
 
 proc raiseEIO(msg: string) {.noinline, noreturn.} =
-  raise newException(EIO, msg)
+  raise newException(IOError, msg)
 
-template addUntil(i): stmt {.immediate.} =
+template addUntil(i): typed =
   ## Helper for readLine; Adds part of a char-array to a string efficiently
   let nll = ll + i - bf.curPos
-  line.string.setLen(nll)
-  copyMem(addr line.string[ll], addr bf.buffer[bf.curPos], i - bf.curPos)
+  line.setLen(nll)
+  copyMem(addr line[ll], addr bf.buffer[bf.curPos], i - bf.curPos)
   ll = nll
 
-proc readLine*(bf: var BufferedFile, line: var TaintedString): bool
-               {.tags: [FReadIO], gcsafe, raises: [].} =
+proc readLine*(bf: var BufferedFile, line: var string): bool
+               {.gcsafe.} =
   var
     i = bf.curPos
     ll = 0
-  line.string.setLen(ll)
+  line.setLen(ll)
 
   if bf.bufLen == 0:
     bf.refillBuffer
@@ -87,8 +87,8 @@ proc readLine*(bf: var BufferedFile, line: var TaintedString): bool
     if bf.bufLen == 0:
       return ll > 0
 
-proc readLine*(bf: var BufferedFile): TaintedString {.tags: [FReadIO], gcsafe.} =
-  result = TaintedString(newStringOfCap(80))
+proc readLine*(bf: var BufferedFile): string {.gcsafe.} =
+  result = newStringOfCap(80)
   if not readLine(bf, result): raiseEIO("EOF reached")
 
 proc readBuffer*(bf: var BufferedFile, buffer: pointer, len: int): int =
@@ -108,7 +108,7 @@ proc readChars*(bf: var BufferedFile, a: var openArray[char], start,
   result = readBuffer(bf, addr(a[start]), len)
 
 iterator lines*(bf: var BufferedFile): string =
-  var line = TaintedString(newStringOfCap(80))
+  var line = newStringOfCap(80)
   while bf.readLine(line):
     yield line
 

@@ -26,7 +26,7 @@ proc truncatablePrime(n: int64): tuple[left: int64, right: int64] =
   for n in primelist:
     var alltruncs = initHashSet[string]()
     for i in 0..n.high:
-      alltruncs.incl n[..i]
+      alltruncs.incl n[0..i]
     if alltruncs <= primeset:
       result.right = parseInt(n)
       break

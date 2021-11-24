@@ -14,10 +14,10 @@ proc getc_unlocked(stream: File): cint {.importc: "getc_unlocked", header: "<std
 proc ungetc(c: cint, f: File) {.importc: "ungetc", header: "<stdio.h>",
   tags: [].}
 
-proc myReadLine2(f: File, line: var TaintedString): bool =
+proc myReadLine2(f: File, line: var string): bool =
   # of course this could be optimized a bit; but IO is slow anyway...
   # and it was difficult to get this CORRECT with Ansi C's methods
-  setLen(line.string, 0) # reuse the buffer!
+  setLen(line, 0) # reuse the buffer!
   while true:
     var c = getc_unlocked(f)
     if c < 0'i32:
@@ -28,12 +28,12 @@ proc myReadLine2(f: File, line: var TaintedString): bool =
       c = getc_unlocked(f) # is the next char LF?
       if c != 10'i32: ungetc(c, f) # no, put the character back
       break
-    add line.string, chr(int(c))
+    add line, chr(int(c))
   result = true
 
-proc myReadLine(f: File, line: var TaintedString): bool =
+proc myReadLine(f: File, line: var string): bool =
   var buf {.noinit.}: array[8192, char]
-  setLen(line.string, 0)
+  setLen(line, 0)
   result = true
   while true:
     if fgets(cstring(addr buf), 8192, f) == nil:

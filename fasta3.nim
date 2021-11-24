@@ -1,9 +1,9 @@
 proc fgets(c: cstring, n: int, f: File): cstring {.
   importc: "fgets", header: "<stdio.h>", tags: [ReadIOEffect].}
 
-proc myReadLine(f: File, line: var TaintedString): bool =
+proc myReadLine(f: File, line: var string): bool =
   var buf {.noinit.}: array[8192, char]
-  setLen(line.string, 0)
+  setLen(line, 0)
   result = true
   while true:
     if fgets(cstring(addr buf), 8192, f) == nil:

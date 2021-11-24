@@ -19,4 +19,4 @@ for n in 0..int.high:
   table[mdroot(n).mdr].add n
 
 for mp, val in table:
-  echo mp,": ",val[..4]
+  echo mp,": ",val[0..4]

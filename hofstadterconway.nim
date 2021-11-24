@@ -3,7 +3,7 @@ import strutils
 const last = 1 shl 20
 
 var aList: array[last + 1, int]
-aList[..2] = [-50_000, 1, 1]
+aList[0..2] = [-50_000, 1, 1]
 var
   v    = aList[2]
   k1   = 2
