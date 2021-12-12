@@ -544,6 +544,7 @@ testIt "walkrec": check it.compiles
 testIt "wcl": check it.compiles
 testIt "webscraping": check it.compiles # Website down
 testIt "webserver": check it.compiles
+testIt "week": check it.compiles
 testIt "wireworld": check it.compiles
 testIt "wrapword": check it.returns
 testIt "xmlin": check it.returns
